@@ -1,18 +1,19 @@
 import React from 'react';
-import './App.css';
 import { Header } from './pages/todo-page/Header';
 import { Main } from './pages/todo-page/Main';
-import { Sidebar_left } from './pages/todo-page/Sidebar_left';
+import { Sidebar_nav } from './pages/todo-page/Sidebar_nav';
+import { Main_content, GlobalStyle } from './style';
 
 function App() {
   return (
     <div className="App">
-      <div className="Header"></div>
-      <div className="Sidebar_left"></div>
-      <div className="Main"></div>
+      <GlobalStyle />
+
       <Header></Header>
-      <Sidebar_left></Sidebar_left>
-      <Main></Main>
+      <Main_content>
+        <Sidebar_nav></Sidebar_nav>
+        <Main></Main>
+      </Main_content>
     </div>
   );
 }

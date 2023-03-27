@@ -1,10 +1,10 @@
 import React from 'react';
-import './style.css';
+import { Styled_Main } from './style';
 
 export function Main() {
   return (
-    <div className="Main">
+    <Styled_Main>
       <p></p>
-    </div>
+    </Styled_Main>
   );
 }

@@ -1,10 +1,10 @@
 import React from 'react';
-import './style.css';
+import { Styled_Header } from './style.js';
 
 export function Header() {
   return (
-    <div className="Header">
-      <p></p>
-    </div>
+    <Styled_Header>
+      <p>testando</p>
+    </Styled_Header>
   );
 }
