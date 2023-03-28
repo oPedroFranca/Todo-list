@@ -1,10 +1,10 @@
 import React from 'react';
-import { StyledSidebar_nav } from './style.js';
+import { StyledSidebar_nav, UserDiv } from './style.js';
 
 export function Sidebar_nav() {
   return (
     <StyledSidebar_nav>
-      <p></p>
+      <UserDiv></UserDiv>
     </StyledSidebar_nav>
   );
 }

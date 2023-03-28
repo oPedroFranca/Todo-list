@@ -4,7 +4,7 @@ import { Styled_Header } from './style.js';
 export function Header() {
   return (
     <Styled_Header>
-      <p>testando</p>
+      <p></p>
     </Styled_Header>
   );
 }
