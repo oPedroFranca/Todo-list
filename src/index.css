@@ -1,11 +1,7 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-}
-
 .App {
   width: 100vw;
   height: 100vh;
-  background-color: #242424;
-  overflow: hidden;
+  background-color: #181a25;
+  /* overflow: hidden; */
 }
 

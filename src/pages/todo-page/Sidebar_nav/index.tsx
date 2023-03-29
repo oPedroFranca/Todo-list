@@ -1,10 +1,11 @@
 import React from 'react';
-import { StyledSidebar_nav, UserDiv } from './style.js';
+import { User_profile } from '../../../components/UserProfile/index.js';
+import { StyledSidebar_nav } from './style.js';
 
 export function Sidebar_nav() {
   return (
     <StyledSidebar_nav>
-      <UserDiv></UserDiv>
+      <User_profile />
     </StyledSidebar_nav>
   );
 }
