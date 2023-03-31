@@ -1,5 +1,5 @@
 import React from 'react';
-import { ModalDiv } from './style';
+import { ModalDiv, ModalContent, ModalHeader } from './style';
 
 type ModalProps = {
   isOpen: boolean;
@@ -10,7 +10,15 @@ export const Modal = ({ isOpen }: ModalProps) => {
     <>
       {isOpen ? (
         <ModalDiv>
-          <p>oi</p>
+          <ModalContent>
+            <ModalHeader>
+              <img src="public/icons/icon-Todo.png" alt="" />
+              <span>
+                <p>To-do List</p>
+                <p>Manage your tasks simply and efficiently.</p>
+              </span>
+            </ModalHeader>
+          </ModalContent>
         </ModalDiv>
       ) : null}
     </>
