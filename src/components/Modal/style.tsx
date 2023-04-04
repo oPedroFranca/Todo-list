@@ -27,36 +27,38 @@ export const ModalContent = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
 `;
+// ---------------------- HEADER ----------------------
 
 export const ModalHeader = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 35px;
 
   & img {
-    width: 50px;
+    width: 40px;
   }
 
   & h1 {
     text-align: start;
-    font-size: 20px;
+    font-size: 17px;
     padding-left: 15px;
   }
 
   & p {
     color: #ffffff37;
-    font-size: 15px;
+    font-size: 12px;
     padding-left: 15px;
   }
 `;
+
+// ---------------------- MAIN ----------------------
 
 export const ModalMain = styled.div`
   display: flex;
   background-color: ${colors.white_black};
   margin: auto;
   width: 90%;
-  max-width: 450px;
+  max-width: 430px;
   height: 300px;
 `;
 
@@ -68,11 +70,44 @@ export const FormName = styled.div`
   background-color: ${colors.white_black};
   display: flex;
   width: 100%;
-  align-items: center;
-  justify-content: space-between;
 
   & #Span_form_name {
-    width: 80%;
+    position: relative;
+    display: flex;
+    margin: auto;
+    width: 250px;
+
+    & input {
+      background: ${colors.dark_black};
+      border: 2px solid ${colors.dark_black};
+      position: relative;
+      color: ${colors.purple};
+      border-radius: 5px;
+      width: 100%;
+      height: 45px;
+      outline: none;
+      padding-left: 50px;
+      font-size: 15px;
+      transition: border 0.2s ease 0s;
+
+      &:focus {
+        border: 2px solid ${colors.purple};
+        color: ${colors.purple};
+      }
+
+      &:valid ~ i,
+      &:focus ~ i {
+        color: ${colors.purple};
+      }
+    }
+
+    & i {
+      color: ${colors.white_black};
+      position: absolute;
+      transition: color 0.2s ease 0s;
+      left: 18px;
+      top: 17px;
+    }
   }
 
   & #Span_form_Icon {
@@ -81,7 +116,7 @@ export const FormName = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 20%;
+    width: 23%;
     height: 60px;
     border-radius: 10px 10px 0px 0px;
 
@@ -96,3 +131,5 @@ export const IconOption = styled.div`
   background-color: ${colors.dark_black};
   border-radius: 10px 0px 10px 10px;
 `;
+
+// ---------------------- ButtonSubmit ----------------------
