@@ -6,5 +6,5 @@ type inputName = {
 };
 
 export const SubmitButtonModal = ({ name }: inputName) => {
-  return <Buttonsubmit>Continue</Buttonsubmit>;
+  return <Buttonsubmit disabled={!name}>Complete</Buttonsubmit>;
 };

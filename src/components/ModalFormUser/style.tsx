@@ -21,46 +21,48 @@ export const ModalContent = styled.div`
   max-height: 580px;
 
   margin: auto;
-  border-radius: 15px;
+  border-radius: 5px;
 
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+
+  overflow: auto;
 `;
+
 // ---------------------- HEADER ----------------------
 
 export const ModalHeader = styled.div`
   display: flex;
-  flex-direction: row;
-  justify-content: center;
   align-items: center;
-  border-radius: 10px 10px 0px 0px;
+  align-content: center;
+  justify-content: center;
   background-color: ${colors.dark_black};
   padding-top: 10px;
   padding-bottom: 10px;
+`;
 
-  & div {
-    display: flex;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-    margin-bottom: 10px;
+export const ModalHeaderDiv = styled.h1`
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  margin-bottom: 10px;
+`;
 
-    & img {
-      width: 40px;
-    }
+export const ModalHeaderTitle = styled.h1`
+  font-size: 20px;
+  margin-left: 10px;
+`;
 
-    & h1 {
-      font-size: 20px;
-      margin-left: 10px;
-    }
-  }
+export const ModalHeaderIcon = styled.img`
+  width: 40px;
+`;
 
-  & p {
-    color: #ffffff3b;
-    font-weight: bold;
-    font-size: 11px;
-  }
+export const ModalHeaderInfo = styled.p`
+  color: #ffffff3b;
+  font-weight: bold;
+  font-size: 11px;
 `;
 
 // ---------------------- MAIN ----------------------
@@ -70,9 +72,10 @@ export const ModalMain = styled.div`
   background-color: ${colors.white_black};
   margin: auto;
   width: 55%;
-  max-width: 430px;
+  max-width: 403px;
   min-width: 330px;
   height: 300px;
+  margin-bottom: 20px;
 `;
 
 export const ModalForm = styled.form`

@@ -5,14 +5,17 @@ export const Buttonsubmit = styled.button`
   margin: auto;
   width: 300px;
   height: 50px;
+  font-weight: bold;
+  font-size: 16px;
 
   background: ${colors.purple};
+  color: rgb(255, 255, 255);
+  transition: background 0.2s ease 0s, color 0.2s ease 0s;
+
   border-radius: 5px;
   border: 0px;
-  color: rgb(255, 255, 255);
-  font-weight: bold;
-  transition: background 0.2s ease 0s, color 0.2s ease 0s;
-  font-size: 16px;
+
+  margin-bottom: 10px;
   text-transform: uppercase;
   cursor: pointer;
 

@@ -8,6 +8,10 @@ import {
   ModalDiv,
   ModalForm,
   ModalHeader,
+  ModalHeaderDiv,
+  ModalHeaderIcon,
+  ModalHeaderInfo,
+  ModalHeaderTitle,
   ModalMain,
 } from './style';
 
@@ -23,15 +27,15 @@ export const ModalFormUser = () => {
       <ModalContent>
         <ModalHeader>
           <span>
-            <div>
-              <img src="public/icons/icon-Todo.png" alt="" />
-              <h1>To-do List.</h1>
-            </div>
+            <ModalHeaderDiv>
+              <ModalHeaderIcon src="public/icons/icon-Todo.png" alt="" />
+              <ModalHeaderTitle>To-do List.</ModalHeaderTitle>
+            </ModalHeaderDiv>
 
-            <p>
+            <ModalHeaderInfo>
               Simplify your daily routine with the help of our intuitive <br />{' '}
               and easy-to-use to-do list.
-            </p>
+            </ModalHeaderInfo>
           </span>
         </ModalHeader>
         <ModalMain>

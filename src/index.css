@@ -5,3 +5,22 @@
   /* overflow: hidden; */
 }
 
+/* Estilizando a barra de rolagem */
+::-webkit-scrollbar {
+  width: 8px;
+  border-radius: 10px;
+  background-color: #272727;
+
+}
+
+/* Estilizando o "thumb" da barra de rolagem */
+::-webkit-scrollbar-thumb {
+  background-color: #775cd1;
+  margin-right: 10px;
+  border-radius: 10px;
+}
+
+/* Estilizando o "thumb" da barra de rolagem quando hover */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #907ad6;
+}
