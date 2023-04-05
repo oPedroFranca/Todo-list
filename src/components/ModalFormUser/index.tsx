@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { FaUser } from 'react-icons/fa';
+import { IconOptionUser } from '../IconOptionUser';
 import { SubmitButtonModal } from '../SubmitButton';
 import {
   FormName,
-  IconOption,
   ModalContent,
   ModalDiv,
   ModalForm,
@@ -22,10 +22,16 @@ export const ModalFormUser = () => {
     <ModalDiv>
       <ModalContent>
         <ModalHeader>
-          <img src="public/icons/icon-Todo.png" alt="" />
           <span>
-            <h1>To-do List.</h1>
-            <p>manage your tasks in a simple and efficient way.</p>
+            <div>
+              <img src="public/icons/icon-Todo.png" alt="" />
+              <h1>To-do List.</h1>
+            </div>
+
+            <p>
+              Simplify your daily routine with the help of our intuitive <br />{' '}
+              and easy-to-use to-do list.
+            </p>
           </span>
         </ModalHeader>
         <ModalMain>
@@ -48,7 +54,7 @@ export const ModalFormUser = () => {
                 <img src="/public/icon_user/icon_coffee.png" alt="" />
               </span>
             </FormName>
-            <IconOption></IconOption>
+            <IconOptionUser />
           </ModalForm>
         </ModalMain>
 

@@ -31,23 +31,35 @@ export const ModalContent = styled.div`
 
 export const ModalHeader = styled.div`
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
+  border-radius: 10px 10px 0px 0px;
+  background-color: ${colors.dark_black};
+  padding-top: 10px;
+  padding-bottom: 10px;
 
-  & img {
-    width: 40px;
-  }
+  & div {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    margin-bottom: 10px;
 
-  & h1 {
-    text-align: start;
-    font-size: 17px;
-    padding-left: 15px;
+    & img {
+      width: 40px;
+    }
+
+    & h1 {
+      font-size: 20px;
+      margin-left: 10px;
+    }
   }
 
   & p {
-    color: #ffffff37;
-    font-size: 12px;
-    padding-left: 15px;
+    color: #ffffff3b;
+    font-weight: bold;
+    font-size: 11px;
   }
 `;
 
@@ -57,8 +69,9 @@ export const ModalMain = styled.div`
   display: flex;
   background-color: ${colors.white_black};
   margin: auto;
-  width: 90%;
+  width: 55%;
   max-width: 430px;
+  min-width: 330px;
   height: 300px;
 `;
 
@@ -69,25 +82,30 @@ export const ModalForm = styled.form`
 export const FormName = styled.div`
   background-color: ${colors.white_black};
   display: flex;
+  justify-content: center;
   width: 100%;
+  margin-top: 10px;
 
   & #Span_form_name {
     position: relative;
     display: flex;
-    margin: auto;
-    width: 250px;
+    width: 70%;
 
     & input {
-      background: ${colors.dark_black};
-      border: 2px solid ${colors.dark_black};
       position: relative;
+      background: ${colors.dark_black};
       color: ${colors.purple};
-      border-radius: 5px;
+
       width: 100%;
       height: 45px;
-      outline: none;
-      padding-left: 50px;
       font-size: 15px;
+
+      outline: none;
+      border-radius: 5px;
+      padding-left: 50px;
+      margin-bottom: 10px;
+      border: 2px solid ${colors.dark_black};
+
       transition: border 0.2s ease 0s;
 
       &:focus {
@@ -112,24 +130,16 @@ export const FormName = styled.div`
 
   & #Span_form_Icon {
     background-color: ${colors.dark_black};
-
+    border-radius: 5px;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 23%;
-    height: 60px;
-    border-radius: 10px 10px 0px 0px;
+    margin-left: 10px;
+    width: 29%;
+    height: 49px;
 
     & img {
-      width: 50px;
+      width: 40px;
     }
   }
 `;
-
-export const IconOption = styled.div`
-  height: calc(100% - 60px);
-  background-color: ${colors.dark_black};
-  border-radius: 10px 0px 10px 10px;
-`;
-
-// ---------------------- ButtonSubmit ----------------------
