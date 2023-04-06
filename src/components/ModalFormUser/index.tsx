@@ -49,7 +49,9 @@ export const ModalFormUser = () => {
                   maxLength={10}
                   required
                 />
-                <i></i>
+                <i>
+                  <FaUser />
+                </i>
               </span>
 
               <span id="Span_form_Icon">
