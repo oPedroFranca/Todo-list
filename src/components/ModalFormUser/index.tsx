@@ -61,9 +61,29 @@ export const ModalFormUser = () => {
             <IconOptionUser
               icons={[
                 'public/icon_user/icon_apple.png',
-                'public/icon_user/icon_apple.png',
-                'public/icon_user/icon_apple.png',
-                'public/icon_user/icon_apple.png',
+                'public/icon_user/icon_basketball.png',
+                'public/icon_user/icon_book.png',
+                'public/icon_user/icon_cake.png',
+                'public/icon_user/icon_carrot.png',
+                'public/icon_user/icon_cherry.png',
+                'public/icon_user/icon_clock.png',
+                'public/icon_user/icon_cutlery.png',
+                'public/icon_user/icon_coffee.png',
+                'public/icon_user/icon_drugs.png',
+                'public/icon_user/icon_egg.png',
+                'public/icon_user/icon_globe.png',
+                'public/icon_user/icon_hamburguer.png',
+                'public/icon_user/icon_hat.png',
+                'public/icon_user/icon_maple.png',
+                'public/icon_user/icon_murshow.png',
+                'public/icon_user/icon_paper.png',
+                'public/icon_user/icon_pen.png',
+                'public/icon_user/icon_pizza.png',
+                'public/icon_user/icon_poison.png',
+                'public/icon_user/icon_pumpkin.png',
+                'public/icon_user/icon_seed.png',
+                'public/icon_user/icon_ticken.png',
+                'public/icon_user/icon_watermelon.png',
               ]}
             />
           </ModalForm>
