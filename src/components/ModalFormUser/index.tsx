@@ -58,7 +58,14 @@ export const ModalFormUser = () => {
                 <img src="/public/icon_user/icon_coffee.png" alt="" />
               </span>
             </FormName>
-            <IconOptionUser />
+            <IconOptionUser
+              icons={[
+                'public/icon_user/icon_apple.png',
+                'public/icon_user/icon_apple.png',
+                'public/icon_user/icon_apple.png',
+                'public/icon_user/icon_apple.png',
+              ]}
+            />
           </ModalForm>
         </ModalMain>
 

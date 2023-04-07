@@ -50,7 +50,7 @@ export const ModalHeaderDiv = styled.h1`
   margin-bottom: 10px;
 `;
 
-export const ModalHeaderTitle = styled.h1`
+export const ModalHeaderTitle = styled.p`
   font-size: 20px;
   margin-left: 10px;
 `;

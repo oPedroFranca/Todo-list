@@ -1,12 +1,20 @@
 import React from 'react';
-import { IconOption } from './style';
+import { IconOptionDiv } from './style';
 
-export const IconOptionUser = () => {
-  const options = {};
+interface IconOptionProps {
+  icons: string[]; // Mudança: renomeie a propriedade options para icons
+}
 
+export const IconOptionUser = ({ icons }: IconOptionProps) => {
   return (
-    <IconOption>
-      <p>cu</p>
-    </IconOption>
+    <>
+      <IconOptionDiv>
+        {icons.map((icon: string, index: number) => (
+          <div key={index}>
+            <img src={icon} alt={`Icon ${index}`} />
+          </div>
+        ))}
+      </IconOptionDiv>
+    </>
   );
 };
