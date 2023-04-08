@@ -3,7 +3,6 @@ import { colors } from '../../theme/GlobalStyles';
 
 export const IconOptionDiv = styled.div`
   display: flex;
-  height: calc(100% - 60px);
   justify-content: center;
   align-items: center;
   background-color: ${colors.dark_black};
