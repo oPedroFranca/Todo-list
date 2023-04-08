@@ -63,7 +63,7 @@ export const ModalMain = styled.div`
 `;
 
 export const ModalForm = styled.form`
-  width: 100%;
+  width: 80%;
 `;
 
 export const FormName = styled.div`

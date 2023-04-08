@@ -9,7 +9,7 @@ export const IconOptionDiv = styled.div`
   background-color: ${colors.dark_black};
   overflow: auto;
   border-radius: 5px;
-  padding: 12px 12px 0px 12px;
+  padding: 20px 12px 0px 12px;
   flex-wrap: wrap;
 
   & img {
