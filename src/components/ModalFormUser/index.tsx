@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FaUser } from 'react-icons/fa';
-import { IconOptionUser } from '../IconOptionUser';
+import { IconOptionUser } from './IconOptionUser';
 import {
   FormName,
   ModalContent,
@@ -13,7 +13,8 @@ import {
   ModalHeaderTitle,
   ModalMain,
 } from './style';
-import { SubmitButtonModal } from '../SubmitButton';
+import { SubmitButtonModal } from './SubmitButton';
+import { IconSelected } from './iconSelected';
 
 export const ModalFormUser = () => {
   const [name, setName] = useState('');
@@ -54,10 +55,9 @@ export const ModalFormUser = () => {
                 </i>
               </span>
 
-              <span id="Span_form_Icon">
-                <img src="/public/icon_user/icon_coffee.png" alt="" />
-              </span>
+              <IconSelected />
             </FormName>
+
             <IconOptionUser
               icons={[
                 'public/icon_user/icon_apple.png',

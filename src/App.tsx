@@ -1,6 +1,6 @@
 import React from 'react';
 import { Modal } from './components/Modal';
-import { ModalFormUser } from './components/Modal/ModalFormUser/ModalUser';
+import { ModalFormUser } from './components/ModalFormUser';
 import { Header } from './pages/todo-page/Header';
 import { Main } from './pages/todo-page/Main';
 import { Sidebar_nav } from './pages/todo-page/Sidebar_nav';

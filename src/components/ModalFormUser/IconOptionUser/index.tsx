@@ -5,8 +5,11 @@ interface IconOptionProps {
   icons: string[]; // Mudança: renomeie a propriedade options para icons
 }
 
+export let selectedIcon = '/public/icon_user/icon_coffee.png';
+
 export const IconOptionUser = ({ icons }: IconOptionProps) => {
   const handleClick = (icon: string) => {
+    selectedIcon = icon;
     console.log(`Icon clicked: ${icon}`);
   };
 

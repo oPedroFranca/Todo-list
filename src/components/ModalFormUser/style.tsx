@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { colors } from '../../../../theme/GlobalStyles';
+import { colors } from '../../theme/GlobalStyles';
 
 export const ModalDiv = styled.div`
   position: absolute;
@@ -128,21 +128,6 @@ export const FormName = styled.div`
       transition: color 0.2s ease 0s;
       left: 18px;
       top: 17px;
-    }
-  }
-
-  & #Span_form_Icon {
-    background-color: ${colors.dark_black};
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 10px;
-    width: 29%;
-    height: 49px;
-
-    & img {
-      width: 40px;
     }
   }
 `;
