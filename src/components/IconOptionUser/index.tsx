@@ -6,12 +6,20 @@ interface IconOptionProps {
 }
 
 export const IconOptionUser = ({ icons }: IconOptionProps) => {
+  const handleClick = (icon: string) => {
+    console.log(`Icon clicked: ${icon}`);
+  };
+
   return (
     <>
       <IconOptionDiv>
         {icons.map((icon: string, index: number) => (
           <div key={index}>
-            <img src={icon} alt={`Icon ${index}`} />
+            <img
+              src={icon}
+              alt={`Icon ${index}`}
+              onClick={() => handleClick(icon)}
+            />
           </div>
         ))}
       </IconOptionDiv>
