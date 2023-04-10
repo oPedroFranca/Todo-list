@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { FaUser } from 'react-icons/fa';
 import { IconOptionUser } from '../IconOptionUser';
-import { SubmitButtonModal } from '../SubmitButton';
 import {
   FormName,
   ModalContent,
@@ -14,6 +13,7 @@ import {
   ModalHeaderTitle,
   ModalMain,
 } from './style';
+import { SubmitButtonModal } from '../SubmitButton';
 
 export const ModalFormUser = () => {
   const [name, setName] = useState('');
