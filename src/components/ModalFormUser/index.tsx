@@ -17,7 +17,7 @@ import {
   ModalMain,
 } from './style';
 
-// Lista com os caminhos para os ícones de usuário
+// List with paths to user icons
 const iconFilePaths = [
   'public/icon_user/icon_apple.png',
   'public/icon_user/icon_basketball.png',
@@ -47,16 +47,18 @@ const iconFilePaths = [
 
 export const ModalFormUser = () => {
   const [firstName, setFirstName] = useState('');
-  // Define o estado para o ícone selecionado, inicializado com o primeiro da lista
+  // Set the state for the selected icon, initialized with the first one in the list
   const [selectedIcon, setSelectedIcon] = useState(iconFilePaths[0]);
 
-  // Função para atualizar o estado do campo de nome
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  // Function to update the state of the name field
+  const handleFirstNameInputChange = (
+    event: React.ChangeEvent<HTMLInputElement>,
+  ) => {
     setFirstName(event.target.value);
   };
 
-  // Função para atualizar o estado do ícone selecionado
-  const handleIconClick = (icon: string) => {
+  // Function to update the state of the selected icon
+  const handleUserIconClick = (icon: string) => {
     setSelectedIcon(icon);
   };
 
@@ -80,9 +82,9 @@ export const ModalFormUser = () => {
           <ModalForm>
             <FormName>
               <span id="Span_form_name">
-                {/* Campo de nome com ícone de usuário */}
+                {/* Name field with user icon */}
                 <input
-                  onChange={handleInputChange}
+                  onChange={handleFirstNameInputChange}
                   type="text"
                   placeholder="First Name"
                   maxLength={10}
@@ -93,17 +95,18 @@ export const ModalFormUser = () => {
                 </i>
               </span>
 
-              {/* Exibição do ícone selecionado */}
+              {/* Display of selected icon */}
               <IconSelected selectedIcon={selectedIcon} />
             </FormName>
 
             <IconOptionUser
               icons={iconFilePaths}
-              onIconClick={handleIconClick}
+              onIconClick={handleUserIconClick}
             />
           </ModalForm>
         </ModalMain>
 
+        {/* Form submit button */}
         <SubmitButtonModal name={firstName} />
       </ModalContent>
     </ModalDiv>

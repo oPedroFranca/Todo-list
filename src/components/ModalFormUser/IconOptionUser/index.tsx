@@ -1,29 +1,42 @@
-import React from 'react';
+import React, { FC, MouseEvent } from 'react';
 import { IconOptionDiv } from './style';
 
-// Definition of the type of properties passed to the component
 interface IconOptionProps {
   icons: string[];
-  onIconClick: (icon: string) => void;
+  onIconClick: (iconPath: string) => void;
 }
 
-export const IconOptionUser = ({ icons, onIconClick }: IconOptionProps) => {
+// The IconOptionUser component receives an array of icons and a function to handle when an icon is clicked
+export const IconOptionUser: FC<IconOptionProps> = ({
+  icons,
+  onIconClick,
+  ...rest
+}) => {
+  // Gets the path of the clicked icon from the "src" attribute of the image tag
+  const handleIconClick = (event: MouseEvent<HTMLImageElement>) => {
+    const iconPath = event.currentTarget.src;
+    onIconClick(iconPath);
+  };
+
   return (
-    <>
-      {/* Div que contém todos os ícones */}
-      <IconOptionDiv>
-        {/* Maps the icon array and returns a div with an icon inside for each item */}
-        {icons.map((icon: string, index: number) => (
-          <div key={index}>
-            {/* The icon is an image that is clickable. When clicked, the onIconClick function is called passing the icon's path as an argument */}
+    // Renders a div containing all icons passed as props
+    <IconOptionDiv {...rest}>
+      {/* Maps the icon array and returns a div with an icon inside for each item */}
+      {icons.map((icon: string, index: number) => {
+        const key = `${icon}_${index}`;
+
+        return (
+          <div key={key}>
+            {/* The icon is an image that is clickable. */}
             <img
               src={icon}
               alt={`Icon ${index}`}
-              onClick={() => onIconClick(icon)}
+              aria-label={`Icon ${index}`}
+              onClick={handleIconClick}
             />
           </div>
-        ))}
-      </IconOptionDiv>
-    </>
+        );
+      })}
+    </IconOptionDiv>
   );
 };
