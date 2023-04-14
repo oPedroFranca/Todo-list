@@ -6,36 +6,39 @@ import { IconOptionUser } from '../IconOptionUser';
 import { SubmitButtonModal } from '../SubmitButton';
 
 // List with paths to user icons
-const iconFilePaths = [
-  'public/icon_user/icon_apple.png',
-  'public/icon_user/icon_basketball.png',
-  'public/icon_user/icon_book.png',
-  'public/icon_user/icon_cake.png',
-  'public/icon_user/icon_carrot.png',
-  'public/icon_user/icon_cherry.png',
-  'public/icon_user/icon_clock.png',
-  'public/icon_user/icon_cutlery.png',
-  'public/icon_user/icon_coffee.png',
-  'public/icon_user/icon_drugs.png',
-  'public/icon_user/icon_egg.png',
-  'public/icon_user/icon_globe.png',
-  'public/icon_user/icon_hamburguer.png',
-  'public/icon_user/icon_hat.png',
-  'public/icon_user/icon_maple.png',
-  'public/icon_user/icon_murshow.png',
-  'public/icon_user/icon_paper.png',
-  'public/icon_user/icon_pen.png',
-  'public/icon_user/icon_pizza.png',
-  'public/icon_user/icon_poison.png',
-  'public/icon_user/icon_pumpkin.png',
-  'public/icon_user/icon_seed.png',
-  'public/icon_user/icon_ticken.png',
-  'public/icon_user/icon_watermelon.png',
+const iconNames = [
+  'apple',
+  'basketball',
+  'book',
+  'cake',
+  'carrot',
+  'cherry',
+  'clock',
+  'cutlery',
+  'coffee',
+  'drugs',
+  'egg',
+  'globe',
+  'hamburguer',
+  'hat',
+  'maple',
+  'murshow',
+  'paper',
+  'pen',
+  'pizza',
+  'poison',
+  'pumpkin',
+  'seed',
+  'ticken',
+  'watermelon',
 ];
+
+const iconFilePaths = iconNames.map(
+  (name) => `public/icon_user/icon_${name}.png`,
+);
 
 export const ModalMain = () => {
   const [firstName, setFirstName] = useState('');
-
   // Set the state for the selected icon, initialized with the first one in the list
   const [selectedIcon, setSelectedIcon] = useState(iconFilePaths[0]);
 
@@ -59,11 +62,11 @@ export const ModalMain = () => {
             <span id="Span_form_name">
               {/* Name field with user icon */}
               <input
-                onChange={handleFirstNameInputChange}
                 type="text"
                 placeholder="First Name"
                 maxLength={10}
                 required
+                onChange={handleFirstNameInputChange}
               />
               <i>
                 <FaUser />
@@ -71,7 +74,7 @@ export const ModalMain = () => {
             </span>
 
             {/* Display of selected icon */}
-            <IconSelected selectedIcon={selectedIcon} />
+            <IconSelected iconFilePath={selectedIcon} />
           </FormName>
 
           <IconOptionUser

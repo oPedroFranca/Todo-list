@@ -1,15 +1,15 @@
 import React from 'react';
 import { Span_form_name } from './style';
 
-interface IconSelectedProps {
-  selectedIcon: string;
+interface SelectedIconProps {
+  iconFilePath: string;
 }
 
-export const IconSelected = ({ selectedIcon }: IconSelectedProps) => {
+export const IconSelected = ({ iconFilePath }: SelectedIconProps) => {
   return (
     // Returns a span tag containing the img tag with the selected icon
     <Span_form_name>
-      <img src={selectedIcon} alt="" />
+      <img src={iconFilePath} alt="" />
     </Span_form_name>
   );
 };
