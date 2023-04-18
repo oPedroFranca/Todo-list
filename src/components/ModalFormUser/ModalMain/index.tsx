@@ -4,6 +4,7 @@ import { FaUser } from 'react-icons/fa';
 import { IconSelected } from '../iconSelected';
 import { IconOptionUser } from '../IconOptionUser';
 import { SubmitButtonModal } from '../SubmitButton';
+import { disgreta } from '../../../utils/UserDetails';
 
 // List with paths to user icons
 const iconNames = [
@@ -54,6 +55,10 @@ export const ModalMain = () => {
     setSelectedIcon(icon);
   };
 
+  const handleButtonClick = () => {
+    disgreta(firstName, selectedIcon);
+  };
+
   return (
     <>
       <ModalMainDiv>
@@ -84,7 +89,7 @@ export const ModalMain = () => {
         </ModalForm>
         {/* Form submit button */}
       </ModalMainDiv>
-      <SubmitButtonModal name={firstName} />
+      <SubmitButtonModal onClick={handleButtonClick} name={firstName} />
     </>
   );
 };

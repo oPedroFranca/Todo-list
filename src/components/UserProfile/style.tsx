@@ -30,8 +30,12 @@ export const UserSpan = styled.span`
   }
 `;
 
+interface Props {
+  img: string;
+}
+
 // Styling for a element used to display an icon
-export const IconDiv = styled.div`
+export const IconDiv = styled.div<Props>`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -39,7 +43,7 @@ export const IconDiv = styled.div`
   width: 50px;
   height: 50px;
 
-  background-image: url('/public/icon_user/icon_coffee.png');
+  background-image: url(${(props) => props.img});
   background-repeat: no-repeat;
   background-position: center;
   background-size: 50px;

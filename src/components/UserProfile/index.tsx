@@ -2,15 +2,22 @@ import React from 'react';
 import { IconDiv, IconSpan, UserDiv, UserSpan } from './style';
 import { BsPencilFill } from 'react-icons/bs';
 
-export const User_profile = (): JSX.Element => {
+type UserProfileProps = {
+  name: string | null;
+  icon: string | null;
+};
+
+export const User_profile = ({ name, icon }: UserProfileProps): JSX.Element => {
+  console.log(icon);
+
   return (
     <UserDiv>
       <UserSpan>
         <p>Hello,</p>
-        <h1>Henrique</h1>
+        <h1>{name}</h1>
       </UserSpan>
 
-      <IconDiv>
+      <IconDiv img={icon ? icon : 'public/icon_user/icon_apple.png'}>
         <IconSpan>
           <BsPencilFill className="icon_pencil" />
         </IconSpan>
