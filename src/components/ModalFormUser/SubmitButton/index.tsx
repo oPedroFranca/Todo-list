@@ -6,6 +6,10 @@ type inputName = {
   onClick: () => void;
 };
 
-export const SubmitButtonModal = ({ name }: inputName) => {
-  return <Buttonsubmit disabled={!name}>Complete</Buttonsubmit>;
+export const SubmitButtonModal = ({ name, onClick }: inputName) => {
+  return (
+    <Buttonsubmit disabled={!name} onClick={onClick}>
+      Complete
+    </Buttonsubmit>
+  );
 };

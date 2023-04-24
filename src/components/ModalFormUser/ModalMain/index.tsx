@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { FormName, ModalForm, ModalMainDiv } from './style';
 import { FaUser } from 'react-icons/fa';
 import { IconSelected } from '../iconSelected';
 import { IconOptionUser } from '../IconOptionUser';
 import { SubmitButtonModal } from '../SubmitButton';
+import { UserContext } from '../../../context/UserContext';
 
 // List with paths to user icons
 const iconNames = [
@@ -54,8 +55,9 @@ export const ModalMain = () => {
     setSelectedIcon(icon);
   };
 
+  const user = useContext(UserContext);
   const handleButtonClick = () => {
-    // console.log();
+    user.setUser({ name: firstName, selectedIcon: selectedIcon });
   };
 
   return (
