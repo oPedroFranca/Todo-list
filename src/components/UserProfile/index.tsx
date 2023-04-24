@@ -1,19 +1,18 @@
 import React, { useContext } from 'react';
-import { IconDiv, IconSpan, UserDiv, UserSpan } from './style';
 import { BsPencilFill } from 'react-icons/bs';
 import { UserContext } from '../../context/UserContext';
+import { UserDiv, UserSpan, IconDiv, IconSpan } from './style';
 
-export const User_profile = (): JSX.Element => {
-  const user = useContext(UserContext);
+export const UserProfile = (): JSX.Element => {
+  const { name, selectedIcon } = useContext(UserContext);
 
   return (
     <UserDiv>
       <UserSpan>
         <p>Hello,</p>
-        <h1>{user.name}</h1>
+        <h1>{name}</h1>
       </UserSpan>
-
-      <IconDiv img={user.selectedIcon}>
+      <IconDiv img={selectedIcon}>
         <IconSpan>
           <BsPencilFill className="icon_pencil" />
         </IconSpan>

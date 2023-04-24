@@ -1,10 +1,11 @@
-import React, { useContext, useState } from 'react';
-import { FormName, ModalForm, ModalMainDiv } from './style';
+import React, { useState } from 'react';
 import { FaUser } from 'react-icons/fa';
-import { IconSelected } from '../iconSelected';
+
+import { FormName, ModalForm, ModalMainDiv } from './style';
 import { IconOptionUser } from '../IconOptionUser';
+import { IconSelected } from '../iconSelected';
 import { SubmitButtonModal } from '../SubmitButton';
-import { UserContext } from '../../../context/UserContext';
+import { capitalizeFirstLetter } from '../../../utils/CapitalizeFirstLetter';
 
 // List with paths to user icons
 const iconNames = [
@@ -40,24 +41,16 @@ const iconFilePaths = iconNames.map(
 
 export const ModalMain = () => {
   const [firstName, setFirstName] = useState('');
-  // Set the state for the selected icon, initialized with the first one in the list
   const [selectedIcon, setSelectedIcon] = useState(iconFilePaths[0]);
 
-  // Function to update the state of the name field
   const handleFirstNameInputChange = (
     event: React.ChangeEvent<HTMLInputElement>,
   ) => {
-    setFirstName(event.target.value);
+    setFirstName(capitalizeFirstLetter(event.target.value));
   };
 
-  // Function to update the state of the selected icon
   const handleUserIconClick = (icon: string) => {
     setSelectedIcon(icon);
-  };
-
-  const user = useContext(UserContext);
-  const handleButtonClick = () => {
-    user.setUser({ name: firstName, selectedIcon: selectedIcon });
   };
 
   return (
@@ -90,7 +83,7 @@ export const ModalMain = () => {
         </ModalForm>
         {/* Form submit button */}
       </ModalMainDiv>
-      <SubmitButtonModal onClick={handleButtonClick} name={firstName} />
+      <SubmitButtonModal icon={selectedIcon} name={firstName} />
     </>
   );
 };

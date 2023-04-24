@@ -1,14 +1,25 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Buttonsubmit } from './style';
+import { UserContext } from '../../../context/UserContext';
 
-type inputName = {
+type InputName = {
   name: string;
-  onClick: () => void;
+  icon: string;
 };
 
-export const SubmitButtonModal = ({ name, onClick }: inputName) => {
+/**
+ * Component that renders a submit button in a modal.
+ * The button is disabled if the name is not filled in.
+ */
+
+export const SubmitButtonModal = ({ name, icon }: InputName) => {
+  const { setUser } = useContext(UserContext);
+  const handleButtonClick = () => {
+    setUser({ name: name, selectedIcon: icon });
+  };
+
   return (
-    <Buttonsubmit disabled={!name} onClick={onClick}>
+    <Buttonsubmit disabled={!name} onClick={handleButtonClick}>
       Complete
     </Buttonsubmit>
   );

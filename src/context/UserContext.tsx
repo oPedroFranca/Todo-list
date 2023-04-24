@@ -6,14 +6,15 @@ interface User {
   selectedIcon: string;
 }
 
-interface UserDetailsProps {
-  children: React.ReactNode;
-}
-
 interface UserContextType extends User {
   setUser: React.Dispatch<React.SetStateAction<User>>;
 }
 
+interface UserDetailsProps {
+  children: React.ReactNode;
+}
+
+// Create a new context for user details
 export const UserContext = createContext<UserContextType>({
   name: '',
   selectedIcon: '',
@@ -26,7 +27,8 @@ export function UserDetails({ children }: UserDetailsProps) {
     selectedIcon: 'public/icon_user/icon_basketball.png',
   });
 
-  const value = {
+  // Create a context value object with the user state and the setUser function
+  const value: UserContextType = {
     ...user,
     setUser,
   };
