@@ -3,20 +3,35 @@ import React, { createContext, useState } from 'react';
 
 type ModalContextType = {
   isOpen: boolean;
+  isOpenWelcome: boolean;
   openModal: () => void;
   closeModal: () => void;
+  openModalWelcome: () => void;
+  closeModalWelcome: () => void;
 };
 
 export const ModalContext = createContext<ModalContextType>({
   isOpen: true,
   openModal: () => {},
   closeModal: () => {},
+  isOpenWelcome: true,
+  openModalWelcome: () => {},
+  closeModalWelcome: () => {},
 });
 
 export const ModalProvider: React.FC<{ children?: React.ReactNode }> = ({
   children,
 }) => {
   const [isOpen, setIsOpen] = useState(true);
+  const [isOpenWelcome, setIsOpenWelcome] = useState(false);
+
+  const openModalWelcome = () => {
+    setIsOpenWelcome(true);
+  };
+
+  const closeModalWelcome = () => {
+    setIsOpenWelcome(false);
+  };
 
   const openModal = () => {
     setIsOpen(true);
@@ -27,7 +42,16 @@ export const ModalProvider: React.FC<{ children?: React.ReactNode }> = ({
   };
 
   return (
-    <ModalContext.Provider value={{ isOpen, openModal, closeModal }}>
+    <ModalContext.Provider
+      value={{
+        isOpen,
+        isOpenWelcome,
+        openModal,
+        closeModal,
+        openModalWelcome,
+        closeModalWelcome,
+      }}
+    >
       {children}
     </ModalContext.Provider>
   );

@@ -16,9 +16,12 @@ type InputName = {
 export const SubmitButtonModal = ({ name, icon }: InputName) => {
   const { setUser } = useContext(UserContext);
   const { closeModal } = useContext(ModalContext);
+  const { openModalWelcome } = useContext(ModalContext);
+
   const handleButtonClick = () => {
     setUser({ name: name, selectedIcon: icon });
     closeModal();
+    openModalWelcome();
   };
 
   return (

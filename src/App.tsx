@@ -11,16 +11,17 @@ import { ModalContext } from './context/ModalContext';
 
 export function App() {
   const { isOpen } = useContext(ModalContext);
+  const { isOpenWelcome } = useContext(ModalContext);
 
   return (
     <div className="App">
       <GlobalStyle />
 
-      <Modal isOpen={isOpen}>
+      <Modal isOpen={false}>
         <ModalFormUser />
       </Modal>
 
-      <Modal isOpen={false}>
+      <Modal isOpen={true}>
         <WelcomeModal />
       </Modal>
 

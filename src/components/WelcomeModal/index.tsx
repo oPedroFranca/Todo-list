@@ -1,8 +1,8 @@
 import React from 'react';
 
 import { ModalContent, ModalDiv } from './style';
-import { ModalHeader } from '../ModalFormUser/ModalHeader';
-import { ModalMain } from '../ModalFormUser/ModalMain';
+import { ModalHeader } from './ModalHeader';
+import { ModalMain } from './ModalMain';
 
 export const WelcomeModal = () => {
   return (
