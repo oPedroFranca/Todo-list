@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import { UserContext } from './context/UserContext';
 import { Modal } from './components/Modal';
 import { ModalFormUser } from './components/ModalFormUser';
 import { Header } from './pages/todo-page/Header';
@@ -8,17 +7,20 @@ import { Sidebar_nav } from './pages/todo-page/Sidebar_nav';
 import { Main_content } from './style';
 import { GlobalStyle } from './theme/GlobalStyles';
 import { WelcomeModal } from './components/WelcomeModal';
+import { ModalContext } from './context/ModalContext';
 
 export function App() {
+  const { isOpen } = useContext(ModalContext);
+
   return (
     <div className="App">
       <GlobalStyle />
 
-      <Modal isOpen={false}>
+      <Modal isOpen={isOpen}>
         <ModalFormUser />
       </Modal>
 
-      <Modal isOpen={true}>
+      <Modal isOpen={false}>
         <WelcomeModal />
       </Modal>
 

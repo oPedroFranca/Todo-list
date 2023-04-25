@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Buttonsubmit } from './style';
 import { UserContext } from '../../../context/UserContext';
+import { ModalContext } from '../../../context/ModalContext';
 
 type InputName = {
   name: string;
@@ -14,8 +15,10 @@ type InputName = {
 
 export const SubmitButtonModal = ({ name, icon }: InputName) => {
   const { setUser } = useContext(UserContext);
+  const { closeModal } = useContext(ModalContext);
   const handleButtonClick = () => {
     setUser({ name: name, selectedIcon: icon });
+    closeModal();
   };
 
   return (

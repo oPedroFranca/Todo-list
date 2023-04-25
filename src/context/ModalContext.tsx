@@ -8,7 +8,7 @@ type ModalContextType = {
 };
 
 export const ModalContext = createContext<ModalContextType>({
-  isOpen: false,
+  isOpen: true,
   openModal: () => {},
   closeModal: () => {},
 });
@@ -16,7 +16,7 @@ export const ModalContext = createContext<ModalContextType>({
 export const ModalProvider: React.FC<{ children?: React.ReactNode }> = ({
   children,
 }) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
 
   const openModal = () => {
     setIsOpen(true);

@@ -64,13 +64,14 @@ export const IconSpan = styled.span`
   transition: background-color 0.3s ease-in-out;
 
   & .icon_pencil {
+    color: ${colors.purple};
     opacity: 0;
     width: 18px;
     transition: opacity 0.3s ease-in-out;
   }
 
   &:hover {
-    background-color: rgba(0, 0, 0, 0.589);
+    background-color: rgba(0, 0, 0, 0.774);
 
     & .icon_pencil {
       opacity: 1;
