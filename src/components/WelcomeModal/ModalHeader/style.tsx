@@ -5,7 +5,6 @@ import { colors } from '../../../theme/GlobalStyles';
 
 export const ModalHeaderDiv = styled.div`
   display: grid;
-  background-color: ${colors.dark_black};
   padding-top: 10px;
   padding-bottom: 10px;
 `;

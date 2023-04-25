@@ -6,10 +6,14 @@ import { colors } from '../../../theme/GlobalStyles';
 export const ModalMainDiv = styled.div`
   display: flex;
   justify-content: center;
-  background-color: ${colors.white_black};
-  margin: auto;
-  width: 55%px;
-  height: 300px;
+  background-color: ${colors.dark_black};
+
+  width: 52%;
+  height: 360px;
   max-width: 403px;
   min-width: 330px;
+  font-size: 10px;
+
+  margin: auto;
+  border-radius: 10px;
 `;

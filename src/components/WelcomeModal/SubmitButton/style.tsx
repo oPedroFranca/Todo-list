@@ -2,12 +2,11 @@ import styled from 'styled-components';
 import { colors } from '../../../theme/GlobalStyles';
 
 export const Buttonsubmit = styled.button`
-  margin: 40px auto;
+  margin: 20px auto 20px;
   width: 300px;
   height: 50px;
   font-weight: bold;
   font-size: 16px;
-  margin-bottom: 20px;
 
   background: ${colors.purple};
   color: rgb(255, 255, 255);
