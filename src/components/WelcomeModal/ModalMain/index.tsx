@@ -1,12 +1,19 @@
 import React from 'react';
-import { ModalMainDiv } from './style';
 import { SubmitButtonModal } from '../SubmitButton';
+import { ModalMainDiv } from './style';
 
 export const ModalMain = () => {
   return (
     <>
       <ModalMainDiv>
-        <h1>Welcome to My project</h1>
+        <img src="public/icons/Humaaans - Space.png" alt="" />
+        <div>
+          <h1>Welcome to my project.</h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit Consectetur
+            sed eveniet veniam rem, alias nesciunt magnam doloribus, facere
+          </p>
+        </div>
       </ModalMainDiv>
       <SubmitButtonModal />
     </>
