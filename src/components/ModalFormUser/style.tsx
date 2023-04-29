@@ -17,7 +17,7 @@ export const ModalContent = styled.div`
   background-color: ${colors.white_black};
   width: 80%;
   height: 80%;
-  max-width: 734px;
+  max-width: 680px;
   max-height: 580px;
 
   margin: auto;

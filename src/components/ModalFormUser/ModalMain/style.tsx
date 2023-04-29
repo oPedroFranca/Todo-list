@@ -7,7 +7,7 @@ export const ModalMainDiv = styled.div`
   display: flex;
   background-color: ${colors.white_black};
   margin: auto;
-  width: 55%;
+  width: 60%;
   max-width: 403px;
   min-width: 330px;
   height: 300px;

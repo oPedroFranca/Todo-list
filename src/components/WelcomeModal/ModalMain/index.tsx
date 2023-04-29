@@ -6,7 +6,7 @@ export const ModalMain = () => {
   return (
     <>
       <ModalMainDiv>
-        <img src="public/icons/Humaaans - Space.png" alt="" />
+        <img src="public/icons/Hello.png" alt="" />
         <div>
           <h1>Welcome to my project.</h1>
           <p>

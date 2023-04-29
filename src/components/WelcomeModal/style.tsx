@@ -10,20 +10,24 @@ export const ModalDiv = styled.div`
   text-align: center;
   align-items: center;
   color: ${colors.white};
+
+  overflow: hidden;
+
+  @media only screen and (max-height: 550px) {
+  }
 `;
 
 export const ModalContent = styled.div`
   display: grid;
   position: absolute;
+  align-content: center;
   background-color: ${colors.white_black};
-  width: 65%;
-  height: 80%;
-  max-width: 734px;
+  width: 60%;
+  height: 510px;
+  max-width: 542px;
   min-width: 350px;
-  max-height: 580px;
   padding: 0px 10px;
 
-  margin: auto;
   border-radius: 10px;
 
   top: 50%;

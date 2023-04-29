@@ -4,9 +4,8 @@ import { colors } from '../../../theme/GlobalStyles';
 // ---------------------- MAIN ----------------------
 
 export const ModalMainDiv = styled.div`
-  display: inline-table;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  align-content: center;
   background-color: ${colors.dark_black};
 
   width: 100%;
@@ -16,14 +15,18 @@ export const ModalMainDiv = styled.div`
   font-size: 10px;
 
   margin: auto;
+  margin-top: 10px;
   border-radius: 10px;
 
   & img {
-    width: 180px;
+    width: 200px;
+    margin: auto;
+    margin-bottom: 25px;
   }
 
   & div {
-    width: 100%;
+    width: 90%;
+    margin: auto;
 
     & h1 {
       font-size: 20px;
