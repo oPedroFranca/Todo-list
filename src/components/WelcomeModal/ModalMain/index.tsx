@@ -1,19 +1,32 @@
 import React from 'react';
 import { SubmitButtonModal } from '../SubmitButton';
 import { ModalMainDiv } from './style';
+import { Slider } from './Slider/Slider';
+import { SwiperSlide } from 'swiper/react';
+import { FirstSlide } from './FirstSlide';
+import { SecondSlide } from './SecondSlide';
+import { ThirdSlide } from './ThirdSlide';
 
 export const ModalMain = () => {
+  const settings = {
+    spaceBetween: 50,
+    slidesPerView: 3,
+  };
+
   return (
     <>
       <ModalMainDiv>
-        <img src="public/icons/Hello.png" alt="" />
-        <div>
-          <h1>Welcome to my project.</h1>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit Consectetur
-            sed eveniet veniam rem, alias nesciunt magnam doloribus, facere
-          </p>
-        </div>
+        <Slider settings={settings}>
+          <SwiperSlide>
+            <FirstSlide />
+          </SwiperSlide>
+          <SwiperSlide>
+            <SecondSlide />
+          </SwiperSlide>
+          <SwiperSlide>
+            <ThirdSlide />
+          </SwiperSlide>
+        </Slider>
       </ModalMainDiv>
       <SubmitButtonModal />
     </>
