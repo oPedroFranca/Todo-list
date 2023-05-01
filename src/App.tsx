@@ -28,6 +28,7 @@ export function App() {
       <Header></Header>
       <Main_content>
         <Sidebar_nav></Sidebar_nav>
+
         <Main></Main>
       </Main_content>
     </div>

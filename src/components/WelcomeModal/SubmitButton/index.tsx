@@ -1,6 +1,10 @@
 import React from 'react';
 import { Buttonsubmit } from './style';
 
-export const SubmitButtonModal = () => {
-  return <Buttonsubmit>Next</Buttonsubmit>;
+interface SubmitButtonModalProps {
+  onClick: React.MouseEventHandler<HTMLButtonElement>;
+}
+
+export const SubmitButtonModal = ({ onClick }: SubmitButtonModalProps) => {
+  return <Buttonsubmit onClick={onClick}>Next</Buttonsubmit>;
 };
