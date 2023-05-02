@@ -16,8 +16,8 @@ type SliderProps = {
 
 const Slider = React.forwardRef((props: SliderProps, ref) => {
   const [swiper, setSwiper] = useState<SwiperType | null>(null);
-  const slideComponents = [<FirstSlide />, <SecondSlide />, <ThirdSlide />];
   const [isSliding, setIsSliding] = useState(false);
+  const slideComponents = [<FirstSlide />, <SecondSlide />, <ThirdSlide />];
 
   useImperativeHandle(ref, () => ({
     handleNextSlide: () => {
