@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { colors } from '../../../theme/GlobalStyles';
 
 export const Buttonsubmit = styled.button`
-  margin: 40px auto 5px;
+  margin: 33px auto 10px;
   width: 300px;
   height: 50px;
   font-weight: bold;

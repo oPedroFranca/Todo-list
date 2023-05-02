@@ -1,38 +1,56 @@
-// /* eslint-disable react/jsx-key */
-// import React, { useState } from 'react';
-// import { Swiper, SwiperSlide } from 'swiper/react';
-// import { Navigation } from 'swiper';
+/* eslint-disable react/display-name */
+/* eslint-disable react/jsx-key */
+import React, { useImperativeHandle, useState } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation } from 'swiper';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import type { Swiper as SwiperType } from 'swiper';
+import { FirstSlide } from './FirstSlide';
+import { SecondSlide } from './SecondSlide';
+import { ThirdSlide } from './ThirdSlide';
 
-// import './style.css';
-// import 'swiper/css';
-// import 'swiper/css/pagination';
-// import { FirstSlide } from './FirstSlide';
-// import { SecondSlide } from './SecondSlide';
-// import { ThirdSlide } from './ThirdSlide';
+type SliderProps = {
+  handleNextSlide: () => void;
+};
 
-// export const Slider = () => {
-//   const [swiper, setSwiper] = useState(null);
-//   const slides = [<FirstSlide />, <SecondSlide />, <ThirdSlide />];
+const Slider = React.forwardRef((props: SliderProps, ref) => {
+  const [swiper, setSwiper] = useState<SwiperType | null>(null);
+  const slideComponents = [<FirstSlide />, <SecondSlide />, <ThirdSlide />];
+  const [isSliding, setIsSliding] = useState(false);
 
-//   const handleNextClick = () => {
-//     if (swiper) {
-//       swiper.slideNext();
-//     }
-//   };
-//   return (
-//     <Swiper
-//       modules={[Navigation]}
-//       style={{ marginLeft: '0px' }}
-//       navigation
-//       spaceBetween={50}
-//       slidesPerView={1}
-//       onSlideChange={() => console.log('slide change')}
-//       onSwiper={(swiper) => setSwiper(swiper)}
-//     >
-//       {slides.map((slide, index) => (
-//         <SwiperSlide key={index}>{slide}</SwiperSlide>
-//       ))}
-//       <button onClick={handleNextClick}>next</button>
-//     </Swiper>
-//   );
-// };
+  useImperativeHandle(ref, () => ({
+    handleNextSlide: () => {
+      if (!isSliding && swiper) {
+        setIsSliding(true);
+        swiper.slideNext();
+      }
+    },
+  }));
+
+  const swiperProps = {
+    modules: [Navigation],
+    style: {
+      width: '100%',
+      display: 'flex',
+    },
+    navigation: true,
+    spaceBetween: 50,
+    slidesPerView: 1,
+    onSlideChange: () => setIsSliding(false),
+    onSwiper: (swiper: SwiperType) => setSwiper(swiper),
+  };
+
+  return (
+    <>
+      <Swiper {...swiperProps}>
+        {slideComponents.map((component, index) => (
+          <SwiperSlide key={index}>{component}</SwiperSlide>
+        ))}
+      </Swiper>
+      <p>...</p>
+    </>
+  );
+});
+
+export default Slider;
