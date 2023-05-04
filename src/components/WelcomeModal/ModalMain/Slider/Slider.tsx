@@ -9,7 +9,8 @@ import './style.css';
 import 'swiper/css/pagination';
 import { FirstSlide } from './FirstSlide';
 import { SecondSlide } from './SecondSlide';
-import { ThirdSlide } from './ThirdSlide';
+import { ThirdSlide } from './ThirdSlide/ThirdSlide';
+import RenderDots, { RenderDotsProps } from './RenderDots';
 
 type SliderProps = {
   handleNextSlide: () => void;
@@ -36,6 +37,7 @@ const Slider = React.forwardRef((props: SliderProps, ref) => {
     style: {
       width: '100%',
       display: 'flex',
+      marginBottom: '40px',
     },
     navigation: true,
     spaceBetween: 50,
@@ -47,18 +49,10 @@ const Slider = React.forwardRef((props: SliderProps, ref) => {
     onSwiper: (swiper: SwiperType) => setSwiper(swiper),
   };
 
-  const renderDots = () => {
-    const dots = [];
-    for (let i = 0; i < numSlides; i++) {
-      dots.push(
-        <span
-          key={i}
-          className={`dot ${currentSlide === i ? 'active' : ''}`}
-          onClick={() => swiper?.slideTo(i)}
-        />,
-      );
-    }
-    return dots;
+  const renderDotsProps: RenderDotsProps = {
+    numSlides,
+    currentSlide,
+    swiper,
   };
 
   return (
@@ -68,7 +62,7 @@ const Slider = React.forwardRef((props: SliderProps, ref) => {
           <SwiperSlide key={index}>{component}</SwiperSlide>
         ))}
       </Swiper>
-      <div className="dots">{renderDots()}</div>
+      <RenderDots {...renderDotsProps} />
     </>
   );
 });
