@@ -21,4 +21,14 @@ export const Buttonsubmit = styled.button`
   &:hover {
     background: ${colors.dark_purple};
   }
+
+  &:not(:disabled):hover {
+    background: ${colors.dark_purple};
+  }
+
+  &:disabled {
+    background: #8f7ad639;
+    color: #ffffff29;
+    cursor: auto;
+  }
 `;

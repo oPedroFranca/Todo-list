@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Swiper as SwiperType } from 'swiper';
-import { ActiveDot, Dot, DotsWrapper } from './style';
+import { Dot, DotsWrapper } from './style';
 
 export type RenderDotsProps = {
   numSlides: number;
@@ -12,11 +12,11 @@ const RenderDots = ({ numSlides, currentSlide, swiper }: RenderDotsProps) => {
   const dots = [];
   for (let i = 0; i < numSlides; i++) {
     dots.push(
-      currentSlide === i ? (
-        <ActiveDot key={i} onClick={() => swiper?.slideTo(i)} />
-      ) : (
-        <Dot key={i} onClick={() => swiper?.slideTo(i)} />
-      ),
+      <Dot
+        key={i}
+        className={currentSlide === i ? 'active filled' : ''}
+        onClick={() => swiper?.slideTo(i)}
+      />,
     );
   }
   return <DotsWrapper>{dots}</DotsWrapper>;

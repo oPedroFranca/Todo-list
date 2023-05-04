@@ -22,8 +22,8 @@ export const ModalContext = createContext<ModalContextType>({
 export const ModalProvider: React.FC<{ children?: React.ReactNode }> = ({
   children,
 }) => {
-  const [isOpen, setIsOpen] = useState(true);
-  const [isOpenWelcome, setIsOpenWelcome] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [isOpenWelcome, setIsOpenWelcome] = useState(true);
 
   const openModalWelcome = () => {
     setIsOpenWelcome(true);
