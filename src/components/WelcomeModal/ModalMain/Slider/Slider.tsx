@@ -1,22 +1,20 @@
-/* eslint-disable react/display-name */
-/* eslint-disable react/jsx-key */
 import React, { useImperativeHandle, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper';
 import type { Swiper as SwiperType } from 'swiper';
 import 'swiper/css';
-import './style.css';
+import './style';
 import 'swiper/css/pagination';
 import { FirstSlide } from './FirstSlide';
 import { SecondSlide } from './SecondSlide';
-import { ThirdSlide } from './ThirdSlide/ThirdSlide';
+import { ThirdSlide } from './ThirdSlide';
 import RenderDots, { RenderDotsProps } from './RenderDots';
 
-type SliderProps = {
+export type SliderType = {
   handleNextSlide: () => void;
 };
 
-const Slider = React.forwardRef((props: SliderProps, ref) => {
+const Slider = React.forwardRef((props: SliderType, ref) => {
   const [swiper, setSwiper] = useState<SwiperType | null>(null);
   const [isSliding, setIsSliding] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -37,7 +35,7 @@ const Slider = React.forwardRef((props: SliderProps, ref) => {
     style: {
       width: '100%',
       display: 'flex',
-      marginBottom: '40px',
+      marginBottom: '23px',
     },
     navigation: true,
     spaceBetween: 50,

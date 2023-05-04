@@ -28,5 +28,7 @@ module.exports = {
   },
   plugins: ['@typescript-eslint'],
   rules: {
+    'react/jsx-key': 0,
+    'react/display-name': 0,
   },
 };

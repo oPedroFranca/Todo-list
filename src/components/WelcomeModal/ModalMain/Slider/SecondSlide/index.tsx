@@ -1,8 +1,10 @@
 import React from 'react';
+import './style';
+import { FirstSlideDiv } from './style';
 
 export const SecondSlide = () => {
   return (
-    <>
+    <FirstSlideDiv>
       <img src="public/icons/Hello-Person.png" alt="" />
       <div>
         <h1>
@@ -14,6 +16,6 @@ export const SecondSlide = () => {
           sed eveniet veniam rem, alias nesciunt magnam doloribus, facere
         </p>
       </div>
-    </>
+    </FirstSlideDiv>
   );
 };

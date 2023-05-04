@@ -1,8 +1,7 @@
 import React, { useRef } from 'react';
 import { ModalMainDiv } from './style';
 import { SubmitButtonModal } from '../SubmitButton';
-import Slider from './Slider/Slider';
-import type { Slider as SliderType } from './Slider/Slider';
+import Slider, { SliderType } from './Slider/Slider';
 
 export const ModalMain = () => {
   const sliderRef = useRef<SliderType>(null);

@@ -1,8 +1,10 @@
 import React from 'react';
+import './style';
+import { FirstSlideDiv } from './style';
 
 export const FirstSlide = () => {
   return (
-    <>
+    <FirstSlideDiv>
       <img src="public/icons/Hello-Person.png" alt="" />
       <div>
         <h1>
@@ -10,10 +12,11 @@ export const FirstSlide = () => {
           <h1>!</h1>
         </h1>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit Consectetur
-          sed eveniet veniam rem, alias nesciunt magnam doloribus, facere
+          Hi, thanks for choosing my project from the to-do list! With it, you
+          can manage your tasks easily and quickly. Hope this helps you get
+          organized and increase your productivity.
         </p>
       </div>
-    </>
+    </FirstSlideDiv>
   );
 };
