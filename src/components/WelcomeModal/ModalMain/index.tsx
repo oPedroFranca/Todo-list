@@ -6,6 +6,14 @@ import Slider, { SliderType } from './Slider/Slider';
 export const ModalMain = () => {
   const sliderRef = useRef<SliderType>(null);
 
+  const goToNextSlide = () => {
+    try {
+      sliderRef.current?.handleNextSlide();
+    } catch (error) {
+      console.error(`Error while calling handleNextSlide: ${error}`);
+    }
+  };
+
   return (
     <>
       <ModalMainDiv>
