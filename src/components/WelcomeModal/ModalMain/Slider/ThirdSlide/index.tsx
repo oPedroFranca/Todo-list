@@ -5,15 +5,16 @@ import { FirstSlideDiv } from './style';
 export const ThirdSlide = () => {
   return (
     <FirstSlideDiv>
-      <img src="public/icons/Hello-Person.png" alt="" />
+      <img src="public/icons/Layout.gif" alt="" />
       <div>
         <h1>
-          <h1>Welcome</h1> to my project
+          <h1>Easy</h1> to use
           <h1>!</h1>
         </h1>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit Consectetur
-          sed eveniet veniam rem, alias nesciunt magnam doloribus, facere
+          website to ensure users can easily navigate and find the information
+          they need. With an intuitive layout and a clear and concise menu
+          structure, you can find what you are looking for effortlessly.
         </p>
       </div>
     </FirstSlideDiv>

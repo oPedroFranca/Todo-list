@@ -3,7 +3,7 @@ import { colors } from '../../../../../theme/GlobalStyles';
 
 export const FirstSlideDiv = styled.div`
   & img {
-    width: 200px;
+    width: 190px;
     margin: auto;
     margin-bottom: 25px;
   }

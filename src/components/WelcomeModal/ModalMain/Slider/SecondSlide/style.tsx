@@ -5,7 +5,7 @@ export const FirstSlideDiv = styled.div`
   & img {
     width: 200px;
     margin: auto;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
   }
 
   & div {
