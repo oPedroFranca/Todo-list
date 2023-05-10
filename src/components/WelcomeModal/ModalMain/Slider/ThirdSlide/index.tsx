@@ -1,6 +1,7 @@
 import React from 'react';
 import './style';
 import { FirstSlideDiv } from './style';
+import { colors } from '../../../../../theme/GlobalStyles';
 
 export const ThirdSlide = () => {
   return (
@@ -8,8 +9,9 @@ export const ThirdSlide = () => {
       <img src="public/icons/Layout.gif" alt="" />
       <div>
         <h1>
-          <h1>Easy</h1> to use
-          <h1>!</h1>
+          <span style={{ marginRight: '6px', color: colors.purple }}>Easy</span>
+          to use
+          <span style={{ color: colors.purple }}>.</span>
         </h1>
         <p>
           website to ensure users can easily navigate and find the information

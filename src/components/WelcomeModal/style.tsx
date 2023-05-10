@@ -12,9 +12,6 @@ export const ModalDiv = styled.div`
   color: ${colors.white};
 
   overflow: hidden;
-
-  @media only screen and (max-height: 550px) {
-  }
 `;
 
 export const ModalContent = styled.div`

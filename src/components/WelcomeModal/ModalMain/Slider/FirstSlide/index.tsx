@@ -1,6 +1,7 @@
 import React from 'react';
 import './style';
 import { FirstSlideDiv } from './style';
+import { colors } from '../../../../../theme/GlobalStyles';
 
 export const FirstSlide = () => {
   return (
@@ -9,8 +10,11 @@ export const FirstSlide = () => {
 
       <div>
         <h1>
-          <h1>Welcome</h1> to my project
-          <h1>!</h1>
+          <span style={{ marginRight: '6px', color: colors.purple }}>
+            Welcome
+          </span>
+          to my project
+          <span style={{ color: colors.purple }}>.</span>
         </h1>
         <p>
           Hi, thanks for choosing my project from the to-do list! With it, you

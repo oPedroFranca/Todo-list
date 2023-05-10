@@ -17,7 +17,6 @@ export const Dot = styled.span`
   height: 10px;
   border-radius: 50%;
   margin: 0px 5px;
-  cursor: pointer;
   background-color: ${colors.white_black};
 
   &::before {

@@ -8,15 +8,11 @@ export type RenderDotsProps = {
   swiper: SwiperType | null;
 };
 
-const RenderDots = ({ numSlides, currentSlide, swiper }: RenderDotsProps) => {
+const RenderDots = ({ numSlides, currentSlide }: RenderDotsProps) => {
   const dots = [];
   for (let i = 0; i < numSlides; i++) {
     dots.push(
-      <Dot
-        key={i}
-        className={currentSlide === i ? 'active filled' : ''}
-        onClick={() => swiper?.slideTo(i)}
-      />,
+      <Dot key={i} className={currentSlide === i ? 'active filled' : ''} />,
     );
   }
   return <DotsWrapper>{dots}</DotsWrapper>;

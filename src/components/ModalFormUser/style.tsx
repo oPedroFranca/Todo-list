@@ -8,6 +8,7 @@ export const ModalDiv = styled.div`
   background-color: rgba(0, 0, 0, 0.664);
   z-index: 10;
   text-align: center;
+
   color: ${colors.white};
 `;
 
@@ -18,7 +19,7 @@ export const ModalContent = styled.div`
   width: 80%;
   height: 80%;
   max-width: 680px;
-  max-height: 580px;
+  max-height: 540px;
 
   margin: auto;
   border-radius: 10px;

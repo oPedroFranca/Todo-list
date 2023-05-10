@@ -7,7 +7,7 @@ export const Buttonsubmit = styled.button`
   height: 50px;
   font-weight: bold;
   font-size: 16px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 
   background: ${colors.purple};
   color: rgb(255, 255, 255);

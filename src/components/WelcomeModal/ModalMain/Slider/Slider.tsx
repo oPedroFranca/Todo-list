@@ -30,6 +30,17 @@ const Slider = React.forwardRef((props: SliderType, ref) => {
     },
   }));
 
+  const handleSlideChange = (swiper: SwiperType) => {
+    setIsSliding(false);
+    setCurrentSlide(swiper.realIndex);
+
+    if (swiper.realIndex == 2) {
+      setTimeout(() => {
+        swiper.params.touchRatio = 1;
+      }, 5000);
+    }
+  };
+
   const swiperProps = {
     modules: [Navigation],
     style: {
@@ -40,10 +51,8 @@ const Slider = React.forwardRef((props: SliderType, ref) => {
     navigation: true,
     spaceBetween: 50,
     slidesPerView: 1,
-    onSlideChange: (swiper: SwiperType) => {
-      setIsSliding(false);
-      setCurrentSlide(swiper.realIndex);
-    },
+    touchRatio: 0,
+    onSlideChange: handleSlideChange,
     onSwiper: (swiper: SwiperType) => setSwiper(swiper),
   };
 
