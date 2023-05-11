@@ -18,6 +18,10 @@ export function App() {
       <GlobalStyle />
 
       <Modal isOpen={false}>
+        <ModalFormUser />
+      </Modal>
+
+      <Modal isOpen={false}>
         <WelcomeModal />
       </Modal>
 
