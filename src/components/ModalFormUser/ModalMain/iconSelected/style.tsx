@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { colors } from '../../../theme/GlobalStyles';
+import { colors } from '../../../../theme/GlobalStyles';
 
 export const Span_form_name = styled.div`
   background-color: ${colors.dark_black};

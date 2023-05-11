@@ -7,10 +7,8 @@ export const UserDiv = styled.div`
   align-items: center;
   justify-content: space-between;
 
-  width: 100%;
   height: 70px;
-  margin: 10px auto 0px auto;
-  margin-top: 20px;
+  margin-top: 15px;
   padding: 0px 15px 0px 15px;
   border-radius: 10px;
 

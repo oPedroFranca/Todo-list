@@ -2,11 +2,8 @@ import styled from 'styled-components';
 import { colors } from '../../../theme/GlobalStyles';
 
 export const StyledSidebar_nav = styled.nav`
-  display: flex;
-
   background-color: ${colors.white_black};
-  min-width: 201px;
-  max-width: 201px;
+  width: 280px;
   height: 100%;
   padding: 0px 10px 0px 10px;
   z-index: 2;

@@ -1,10 +1,12 @@
 import React from 'react';
-import { Styled_Main } from './style';
+import { MainContent, Styled_Main } from './style';
 
 export function Main() {
   return (
     <Styled_Main>
-      <p></p>
+      <MainContent>
+        <p>teste</p>
+      </MainContent>
     </Styled_Main>
   );
 }

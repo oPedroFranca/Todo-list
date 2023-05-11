@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { FaUser } from 'react-icons/fa';
 
 import { FormName, ModalForm, ModalMainDiv } from './style';
-import { IconOptionUser } from '../IconOptionUser';
-import { IconSelected } from '../iconSelected';
-import { SubmitButtonModal } from '../SubmitButton';
 import { capitalizeFirstLetter } from '../../../utils/CapitalizeFirstLetter';
+import { IconSelected } from './iconSelected';
+import { IconOptionUser } from './IconOptionUser';
+import { SubmitButtonModal } from '../SubmitButton';
 
 // List with paths to user icons
 const iconNames = [

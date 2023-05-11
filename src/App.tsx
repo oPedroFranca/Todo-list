@@ -17,19 +17,17 @@ export function App() {
     <div className="App">
       <GlobalStyle />
 
-      <Modal isOpen={isOpen}>
-        <ModalFormUser />
-      </Modal>
+      
 
-      <Modal isOpen={isOpenWelcome}>
+      <Modal isOpen={false}>
         <WelcomeModal />
       </Modal>
 
-      <Header></Header>
+      <Header />
       <Main_content>
-        <Sidebar_nav></Sidebar_nav>
+        <Sidebar_nav />
 
-        <Main></Main>
+        <Main />
       </Main_content>
     </div>
   );
