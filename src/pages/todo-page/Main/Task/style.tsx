@@ -32,11 +32,11 @@ export const Description = styled.span`
     color: #ffffff53;
 
     width: 100%;
-    height: 43px;
+    height: 65px;
     border: none;
     resize: none;
     font-size: 13px;
-    line-height: 1;
+    line-height: 1.2;
     margin-top: 5px;
 
     &::placeholder {
@@ -56,7 +56,7 @@ export const Description = styled.span`
 
     > p {
       position: relative;
-      bottom: 16px;
+      bottom: 19px;
       right: 8px;
       font-size: 11px;
       color: #ffffff53;

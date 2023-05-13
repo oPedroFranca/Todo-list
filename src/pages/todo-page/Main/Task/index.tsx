@@ -25,7 +25,7 @@ export const Tasks = () => {
           <textarea
             rows={1}
             cols={4}
-            maxLength={80}
+            maxLength={100}
             value={value}
             onBlur={handleBlur}
             onChange={handleInputChange}
@@ -34,7 +34,7 @@ export const Tasks = () => {
 
           {editing && (
             <span>
-              <p>{charCount}/80</p>
+              <p>{charCount}/100</p>
             </span>
           )}
         </Description>
