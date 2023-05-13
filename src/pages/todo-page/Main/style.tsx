@@ -6,7 +6,7 @@ export const Styled_Main = styled.main`
   align-items: center;
   justify-content: center;
 
-  padding: 15px;
+  padding: 30px;
   background-color: ${colors.dark_black};
   width: 100%;
   height: 100%;
@@ -14,6 +14,7 @@ export const Styled_Main = styled.main`
 `;
 
 export const MainContent = styled.div`
+  display: flex;
   background-color: ${colors.dark_black};
   width: 100%;
   height: 100%;
