@@ -15,4 +15,5 @@ export const colors = {
   purple: '#907ad6',
   dark_purple: '#775cd1',
   white: '#FFFFFF',
+  gray: '#ffffff68',
 };

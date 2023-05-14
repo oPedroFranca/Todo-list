@@ -26,40 +26,7 @@ export const Task = styled.div`
   }
 `;
 
-export const Description = styled.span`
-  > textarea {
-    background: none;
-    color: #ffffff53;
-
-    width: 100%;
-    height: 65px;
-    border: none;
-    resize: none;
-    font-size: 13px;
-    line-height: 1.2;
-    margin-top: 5px;
-
-    &::placeholder {
-      line-height: 1;
-      font-size: 13px;
-    }
-
-    &:focus {
-      outline: none;
-    }
-  }
-
-  > span {
-    display: flex;
-    justify-content: flex-end;
-    width: 100%;
-
-    > p {
-      position: relative;
-      bottom: 19px;
-      right: 8px;
-      font-size: 11px;
-      color: #ffffff53;
-    }
-  }
+export const LineDashed = styled.div`
+  width: 100%;
+  border-bottom: 1px dashed ${colors.gray};
 `;

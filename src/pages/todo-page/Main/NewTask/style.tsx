@@ -3,7 +3,7 @@ import { colors } from '../../../../theme/GlobalStyles';
 
 export const NewTask = styled.button`
   background-color: ${colors.dark_black};
-  color: #6d6f72;
+  color: ${colors.gray};
   height: 190px;
   width: 240px;
   font-weight: 600;
