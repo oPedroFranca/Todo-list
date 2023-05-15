@@ -15,7 +15,7 @@ export const Description = styled.span`
     resize: none;
 
     margin-top: 5px;
-    margin-bottom: 5px;
+    margin-bottom: 25px;
     padding-right: 5px;
 
     overflow: hidden;
@@ -34,13 +34,13 @@ export const Description = styled.span`
     display: flex;
     justify-content: space-between;
     width: 100%;
-    height: 12px;
+    height: 11px;
 
     > p {
       position: relative;
-      bottom: 5px;
-      font-size: 11px;
       color: ${colors.gray};
+      bottom: 7px;
+      font-size: 12px;
     }
   }
 `;

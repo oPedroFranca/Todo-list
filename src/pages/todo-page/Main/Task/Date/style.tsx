@@ -5,5 +5,6 @@ export const DateDiv = styled.p`
   display: flex;
   align-items: center;
   color: ${colors.gray};
-  font-size: 13px;
+  font-weight: bold;
+  font-size: 12px;
 `;

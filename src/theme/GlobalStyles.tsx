@@ -16,4 +16,9 @@ export const colors = {
   dark_purple: '#775cd1',
   white: '#FFFFFF',
   gray: '#ffffff68',
+  green: '#b1f8dc',
+  dark_green: '#01aa66',
+  orange: '#FFCBAD',
+  dark_orange: '#fda16b',
+  dark_red: '#fc6b6b',
 };
