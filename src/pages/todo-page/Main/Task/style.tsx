@@ -3,8 +3,10 @@ import { colors } from '../../../../theme/GlobalStyles';
 
 export const TaskContent = styled.div`
   width: 290px;
-  height: 215px;
-  margin-right: 25px;
+  min-width: 290px;
+  height: 240px;
+
+  margin: 25px;
 
   > div:nth-child(1) {
     display: flex;
@@ -32,7 +34,6 @@ export const Category = styled.div`
 export const Task = styled.div`
   background-color: ${colors.white_black};
   color: ${colors.white};
-  height: 100%;
   width: 100%;
 
   padding: 15px;

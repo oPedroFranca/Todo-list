@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import { colors } from '../../../../theme/GlobalStyles';
 
 export const NewTaskContent = styled.div`
+  margin: 25px;
+
   > div {
     display: flex;
     justify-content: flex-end;
@@ -10,12 +12,16 @@ export const NewTaskContent = styled.div`
   }
 `;
 
-export const FalseCategory = styled.div`
+type FalseCategoryProps = {
+  isHovered: boolean;
+};
+
+export const FalseCategory = styled.div<FalseCategoryProps>`
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: ${colors.dark_black};
-  color: ${colors.gray};
+  color: ${(props) => (props.isHovered ? colors.purple : colors.gray)};
   border-top: 1px dashed;
   border-left: 1px dashed;
   border-right: 1px dashed;
@@ -33,6 +39,7 @@ export const NewTask = styled.button`
   color: ${colors.gray};
   width: 290px;
   height: 215px;
+  min-width: 290px;
   font-weight: 600;
   border: 1px dashed;
   border-radius: 5px;
@@ -41,9 +48,5 @@ export const NewTask = styled.button`
 
   &:hover {
     color: ${colors.purple};
-
-    > ${NewTaskContent} > div > ${FalseCategory} {
-      color: ${colors.purple};
-    }
   }
 `;

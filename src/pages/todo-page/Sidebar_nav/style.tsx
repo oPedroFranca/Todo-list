@@ -3,7 +3,8 @@ import { colors } from '../../../theme/GlobalStyles';
 
 export const StyledSidebar_nav = styled.nav`
   background-color: ${colors.white_black};
-  width: 280px;
+  max-width: 220px;
+  min-width: 220px;
   height: 100%;
   padding: 0px 10px 0px 10px;
   z-index: 2;

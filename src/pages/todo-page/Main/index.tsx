@@ -8,6 +8,12 @@ export function Main() {
     <Styled_Main>
       <MainContent>
         <Tasks />
+        <Tasks />
+        <Tasks />
+        <Tasks />
+        <Tasks />
+        <Tasks />
+
         <CreateNewTask />
       </MainContent>
     </Styled_Main>
