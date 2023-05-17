@@ -1,20 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Description } from './style';
 import { DateToday } from '../Date';
+import { useInput } from '../../../../../utils/useInput';
 
 export const DescriptionTask = () => {
-  const [value, setValue] = useState('');
-  const [editing, setEditing] = useState(false);
-
-  const handleInputChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-    const { value } = event.target;
-    setValue(value);
-    setEditing(true);
-  };
-
-  const handleBlur = () => {
-    setEditing(false);
-  };
+  const { value, editing, handleChange, handleBlur } = useInput('');
 
   return (
     <Description>
@@ -22,7 +12,7 @@ export const DescriptionTask = () => {
         maxLength={150}
         value={value}
         onBlur={handleBlur}
-        onChange={handleInputChange}
+        onChange={handleChange}
         placeholder="description for this task."
       />
 

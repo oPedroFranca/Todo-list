@@ -12,11 +12,7 @@ export const NewTaskContent = styled.div`
   }
 `;
 
-type FalseCategoryProps = {
-  isHovered: boolean;
-};
-
-export const FalseCategory = styled.div<FalseCategoryProps>`
+export const FalseCategory = styled.div<{ isHovered: boolean }>`
   display: flex;
   align-items: center;
   justify-content: center;

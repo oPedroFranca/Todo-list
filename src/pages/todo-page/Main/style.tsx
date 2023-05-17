@@ -1,13 +1,12 @@
 import styled from 'styled-components';
 import { colors } from '../../../theme/GlobalStyles';
 
-export const Styled_Main = styled.main`
+export const Styled_Main = styled.div`
   display: flex;
-
-  padding: 25px;
-  background-color: ${colors.dark_black};
   width: 100%;
   height: 100%;
+
+  background-color: ${colors.dark_black};
   z-index: 1;
 
   overflow-x: hidden;
@@ -15,7 +14,7 @@ export const Styled_Main = styled.main`
 
 export const MainContent = styled.div`
   display: flex;
-  background-color: ${colors.dark_black};
   flex-wrap: wrap;
   align-content: flex-start;
+  justify-content: center;
 `;

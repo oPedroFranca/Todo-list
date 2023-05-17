@@ -17,16 +17,12 @@ export const Description = styled.span`
     margin-top: 5px;
     margin-bottom: 25px;
     padding-right: 5px;
-
+    outline: none;
     overflow: hidden;
 
     &::placeholder {
       line-height: 1;
       font-size: 13px;
-    }
-
-    &:focus {
-      outline: none;
     }
   }
 

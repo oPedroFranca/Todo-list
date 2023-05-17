@@ -1,23 +1,23 @@
 import React, { useState } from 'react';
 import { FalseCategory, NewTask, NewTaskContent } from './style';
 
-export const CreateNewTask = () => {
+interface CreateNewTaskProps {
+  onClick: () => void;
+}
+
+export const CreateNewTask: React.FC<CreateNewTaskProps> = ({ onClick }) => {
   const [isHovered, setIsHovered] = useState(false);
-
-  const handleMouseEnter = () => {
-    setIsHovered(true);
-  };
-
-  const handleMouseLeave = () => {
-    setIsHovered(false);
-  };
 
   return (
     <NewTaskContent>
       <div>
         <FalseCategory isHovered={isHovered}>Task</FalseCategory>
       </div>
-      <NewTask onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+      <NewTask
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        onClick={onClick}
+      >
         Add New Task
       </NewTask>
     </NewTaskContent>

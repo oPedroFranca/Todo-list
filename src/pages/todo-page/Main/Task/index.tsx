@@ -7,7 +7,7 @@ export const Tasks = () => {
   return (
     <TaskContent>
       <div>
-        <Category>Main</Category>
+        <Category>Hight</Category>
       </div>
       <Task>
         <h1>Task 1</h1>
