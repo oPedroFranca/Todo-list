@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { FalseCategory, NewTask, NewTaskContent } from './style';
+import { TaskContent } from '../../../../context/NewTaskContent';
 
-interface CreateNewTaskProps {
-  onClick: () => void;
-}
-
-export const CreateNewTask: React.FC<CreateNewTaskProps> = ({ onClick }) => {
+export const CreateNewTask: React.FC = () => {
   const [isHovered, setIsHovered] = useState(false);
+
+  const { openModalTask } = useContext(TaskContent);
+  function handleModalIsOpen() {
+    openModalTask();
+  }
 
   return (
     <NewTaskContent>
@@ -16,7 +18,7 @@ export const CreateNewTask: React.FC<CreateNewTaskProps> = ({ onClick }) => {
       <NewTask
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
-        onClick={onClick}
+        onClick={handleModalIsOpen}
       >
         Add New Task
       </NewTask>

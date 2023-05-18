@@ -5,7 +5,7 @@ export const IconOptionDiv = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: calc(272px - 24px);
+  height: calc(292px - 24px);
   max-height: 272px;
   background-color: ${colors.dark_black};
   overflow: auto;

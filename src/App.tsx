@@ -8,10 +8,13 @@ import { Main_content } from './style';
 import { GlobalStyle } from './theme/GlobalStyles';
 import { WelcomeModal } from './components/WelcomeModal';
 import { ModalContext } from './context/ModalContext';
+import { TaskContent } from './context/NewTaskContent';
+import { ModalTask } from './pages/todo-page/Main/NewTaskModal';
 
 export function App() {
   const { isOpen } = useContext(ModalContext);
   const { isOpenWelcome } = useContext(ModalContext);
+  const { isOpenTask } = useContext(TaskContent);
 
   return (
     <div className="App">
@@ -23,6 +26,10 @@ export function App() {
 
       <Modal isOpen={false}>
         <WelcomeModal />
+      </Modal>
+
+      <Modal isOpen={isOpenTask}>
+        <ModalTask />
       </Modal>
 
       <Header />
