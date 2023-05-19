@@ -5,13 +5,16 @@ import { App } from './App';
 import { UserDetails } from './context/UserContext';
 import { ModalProvider } from './context/ModalContext';
 import { NewTaskProvider } from './context/NewTaskContent';
+import { CollectionTaskProvider } from './context/ColectionTaskContext';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <UserDetails>
       <ModalProvider>
         <NewTaskProvider>
-          <App />
+          <CollectionTaskProvider>
+            <App />
+          </CollectionTaskProvider>
         </NewTaskProvider>
       </ModalProvider>
     </UserDetails>

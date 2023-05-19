@@ -1,7 +1,7 @@
 import React from 'react';
 import { Description } from './style';
 import { DateToday } from '../Date';
-import { useInput } from '../../../../../utils/useInput';
+import { useInput } from '../../../utils/useInput';
 
 export const DescriptionTask = () => {
   const { value, editing, handleChange, handleBlur } = useInput('');

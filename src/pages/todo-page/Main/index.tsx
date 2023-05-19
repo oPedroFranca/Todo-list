@@ -1,15 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { MainContent, Styled_Main } from './style';
-import { CreateNewTask } from './NewTaskButton';
-import { CollectionTask } from './Task/CollectionTasks';
+import { CollectionTaskContext } from '../../../context/ColectionTaskContext';
+import { CreateNewTask } from '../../../components/NewTaskButton';
 
 export function Main() {
-  const taskLinst = CollectionTask();
-
+  const { showTasks } = useContext(CollectionTaskContext);
   return (
     <Styled_Main>
       <MainContent>
-        {taskLinst.showTasks()}
+        {showTasks()}
         <CreateNewTask />
       </MainContent>
     </Styled_Main>

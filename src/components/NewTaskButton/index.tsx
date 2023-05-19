@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { FalseCategory, NewTask, NewTaskContent } from './style';
-import { TaskContent } from '../../../../context/NewTaskContent';
+import { TaskContent } from '../../context/NewTaskContent';
 
 export const CreateNewTask: React.FC = () => {
   const [isHovered, setIsHovered] = useState(false);
