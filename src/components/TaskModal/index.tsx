@@ -13,7 +13,12 @@ export const ModalTask = () => {
     <ModalTaskDiv>
       <ModalTaskContent>
         <Tasks />
-        
+        <button
+          onClick={() => {
+            addTask(<Tasks />);
+            closeModaTask();
+          }}
+        >
           Ready
         </button>
       </ModalTaskContent>
