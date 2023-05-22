@@ -12,7 +12,7 @@ export const NewTaskContent = styled.div`
   }
 `;
 
-export const FalseCategory = styled.div<{ isHovered: boolean }>`
+export const FalseStatus = styled.div<{ isHovered: boolean }>`
   display: flex;
   align-items: center;
   justify-content: center;

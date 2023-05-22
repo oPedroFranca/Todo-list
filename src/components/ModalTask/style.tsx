@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { colors } from '../../theme/GlobalStyles';
 
-export const ModalTaskDiv = styled.div`
+export const ModalContainer = styled.div`
   position: absolute;
   width: 100vw;
   height: 100vh;
@@ -12,15 +12,12 @@ export const ModalTaskDiv = styled.div`
 `;
 
 export const ModalTaskContent = styled.div`
-  display: grid;
   position: absolute;
-  justify-content: center;
-  align-items: center;
-  background-color: ${colors.dark_black};
+  background-color: ${colors.white_black};
   width: 80%;
   height: 80%;
-  max-width: 460px;
-  max-height: 450px;
+  max-width: 400px;
+  max-height: 400px;
 
   margin: auto;
   border-radius: 10px;
@@ -30,9 +27,19 @@ export const ModalTaskContent = styled.div`
   transform: translate(-50%, -50%);
 
   overflow: auto;
+`;
+
+export const ButtonDiv = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 23%;
+
+  background-color: ${colors.dark_black};
 
   > button {
-    margin: 33px auto 10px;
     width: 300px;
     height: 50px;
     font-weight: bold;
@@ -62,4 +69,9 @@ export const ModalTaskContent = styled.div`
       cursor: auto;
     }
   }
+`;
+
+export const TaskFormDiv = styled.div`
+  display: flex;
+  height: 77%;
 `;

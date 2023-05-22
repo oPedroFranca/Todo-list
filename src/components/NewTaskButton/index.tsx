@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { FalseCategory, NewTask, NewTaskContent } from './style';
+import { FalseStatus, NewTask, NewTaskContent } from './style';
 import { TaskContent } from '../../context/NewTaskContent';
 
 export const CreateNewTask: React.FC = () => {
@@ -13,7 +13,7 @@ export const CreateNewTask: React.FC = () => {
   return (
     <NewTaskContent>
       <div>
-        <FalseCategory isHovered={isHovered}>Task</FalseCategory>
+        <FalseStatus isHovered={isHovered}>Status</FalseStatus>
       </div>
       <NewTask
         onMouseEnter={() => setIsHovered(true)}

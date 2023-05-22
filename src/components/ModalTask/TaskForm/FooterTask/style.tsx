@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { colors } from '../../../theme/GlobalStyles';
+import { colors } from '../../../../theme/GlobalStyles';
 
 export const Content = styled.div`
   display: flex;
@@ -14,23 +14,16 @@ export const StatusTask = styled.div`
   text-align: center;
   justify-content: center;
 
-  background-color: ${colors.green};
-  color: ${colors.dark_green};
+  background-color: ${colors.white_black};
+  color: ${colors.gray};
 
   font-size: 12px;
   font-weight: bold;
 
   width: 90px;
   height: 25px;
-
+  border: 1px dashed;
   border-radius: 50px;
 `;
 
 export const LeftContent = styled.div``;
-
-export const RightContent = styled.div`
-  display: flex;
-  font-size: 20px;
-  justify-content: space-between;
-  width: 80px;
-`;

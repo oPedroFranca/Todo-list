@@ -9,7 +9,7 @@ import { GlobalStyle } from './theme/GlobalStyles';
 import { WelcomeModal } from './components/WelcomeModal';
 import { ModalContext } from './context/ModalContext';
 import { TaskContent } from './context/NewTaskContent';
-import { ModalTask } from './components/TaskModal';
+import { ModalTask } from './components/ModalTask';
 
 export function App() {
   const { isOpen } = useContext(ModalContext);

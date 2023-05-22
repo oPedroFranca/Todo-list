@@ -1,12 +1,12 @@
 import styled from 'styled-components';
-import { colors } from '../../theme/GlobalStyles';
+import { colors } from '../../../theme/GlobalStyles';
 
-export const TaskContent = styled.div`
+export const TaskContentForm = styled.div`
   width: 290px;
   min-width: 290px;
   height: 240px;
 
-  margin: 25px;
+  margin: auto;
 
   > div:nth-child(1) {
     display: flex;
@@ -20,7 +20,11 @@ export const Category = styled.div`
   align-items: center;
   justify-content: center;
 
-  background-color: #302f2f;
+  border-top: 1px dashed ${colors.gray};
+  border-right: 1px dashed ${colors.gray};
+  border-left: 1px dashed ${colors.gray};
+
+  background-color: ${colors.white_black};
   color: white;
   width: 55px;
   height: 25px;
@@ -39,14 +43,9 @@ export const Task = styled.div`
   padding: 15px;
 
   border-radius: 5px;
-  border: none;
+  border: 1px dashed ${colors.gray};
 
-  cursor: pointer;
   transition: background 1s ease 0s;
-
-  &:hover {
-    background-color: ${colors.dark_purple};
-  }
 
   > h1 {
     font-size: 17px;
@@ -56,5 +55,6 @@ export const Task = styled.div`
 
 export const LineDashed = styled.div`
   width: 100%;
-  border-bottom: solid 1px #ffffff2b;
+  margin-top: 1px;
+  border-bottom: 1px dashed ${colors.gray};
 `;
