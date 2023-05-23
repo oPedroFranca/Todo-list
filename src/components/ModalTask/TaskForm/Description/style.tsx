@@ -31,11 +31,11 @@ export const Description = styled.span`
     justify-content: space-between;
     width: 100%;
     height: 11px;
+    margin-bottom: 5px;
 
     > p {
       position: relative;
       color: ${colors.gray};
-      bottom: 7px;
       font-size: 12px;
     }
   }

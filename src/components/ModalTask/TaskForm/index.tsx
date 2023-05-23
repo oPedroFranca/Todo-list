@@ -1,16 +1,14 @@
 import React from 'react';
-import { Category, LineDashed, Task, TaskContentForm } from './style';
+import { LineDashed, Task, TaskContentForm } from './style';
 import { DescriptionTask } from './Description';
 import { FooterTask } from './FooterTask';
 
 export const TasksForm = () => {
   return (
     <TaskContentForm>
-      <div>
-        <Category>Status</Category>
-      </div>
+      <div></div>
       <Task>
-        <h1>Task</h1>
+        <input placeholder="Task Name" />
         <DescriptionTask />
         <LineDashed />
         <FooterTask />

@@ -16,8 +16,8 @@ export const ModalTaskContent = styled.div`
   background-color: ${colors.white_black};
   width: 80%;
   height: 80%;
-  max-width: 400px;
-  max-height: 400px;
+  max-width: 380px;
+  max-height: 380px;
 
   margin: auto;
   border-radius: 10px;
@@ -40,7 +40,7 @@ export const ButtonDiv = styled.div`
   background-color: ${colors.dark_black};
 
   > button {
-    width: 300px;
+    width: 290px;
     height: 50px;
     font-weight: bold;
     font-size: 16px;
