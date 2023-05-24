@@ -9,15 +9,19 @@ type DescriptionTaskProps = {
 };
 
 export const DescriptionTask = ({ value, onChange }: DescriptionTaskProps) => {
-  const { editing, handleBlur } = useInput(value);
+  const { editing, handleChange, handleBlur } = useInput(value);
 
+  const handleTextareaChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    onChange(e.target.value);
+    handleChange(e); // Call the handleChange function of the useInput hook
+  };
   return (
     <Description>
       <textarea
         maxLength={150}
         defaultValue={value} // Alterado de 'value' para 'defaultValue'
         onBlur={handleBlur}
-        onChange={(e) => onChange(e.target.value)}
+        onChange={handleTextareaChange}
         placeholder="description for this task."
       />
 

@@ -12,10 +12,10 @@ export const Tasks = ({ taskName, taskDescription }: TasksProps) => {
   return (
     <TaskContent>
       <div>
-        <Category>Hight</Category>
+        <Category>High</Category>
       </div>
       <Task>
-        <h1>{taskName}</h1>
+        <h1>{taskName ? taskName : 'Task'}</h1>
         <DescriptionTask value={taskDescription} />
         <LineDashed />
         <FooterTask />

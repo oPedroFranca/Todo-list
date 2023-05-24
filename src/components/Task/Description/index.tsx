@@ -8,7 +8,7 @@ type DescriptionTaskProps = {
 };
 
 export const DescriptionTask = ({ value }: DescriptionTaskProps) => {
-  const { editing, handleChange, handleBlur } = useInput('');
+  const { editing, handleBlur } = useInput('');
 
   return (
     <Description>
@@ -16,7 +16,7 @@ export const DescriptionTask = ({ value }: DescriptionTaskProps) => {
         maxLength={150}
         value={value}
         onBlur={handleBlur}
-        onChange={handleChange}
+        readOnly
         placeholder="description for this task."
       />
 
