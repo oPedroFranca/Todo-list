@@ -3,8 +3,12 @@ import { Description } from './style';
 import { DateToday } from '../Date';
 import { useInput } from '../../../utils/useInput';
 
-export const DescriptionTask = () => {
-  const { value, editing, handleChange, handleBlur } = useInput('');
+type DescriptionTaskProps = {
+  value: string;
+};
+
+export const DescriptionTask = ({ value }: DescriptionTaskProps) => {
+  const { editing, handleChange, handleBlur } = useInput('');
 
   return (
     <Description>

@@ -13,7 +13,7 @@ export const CreateNewTask: React.FC = () => {
   return (
     <NewTaskContent>
       <div>
-        <FalseStatus isHovered={isHovered}>Status</FalseStatus>
+        <FalseStatus isHovered={isHovered}></FalseStatus>
       </div>
       <NewTask
         onMouseEnter={() => setIsHovered(true)}

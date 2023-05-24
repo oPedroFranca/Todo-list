@@ -16,7 +16,7 @@ export const ModalTaskContent = styled.div`
   background-color: ${colors.white_black};
   width: 80%;
   height: 80%;
-  max-width: 380px;
+  max-width: 360px;
   max-height: 380px;
 
   margin: auto;

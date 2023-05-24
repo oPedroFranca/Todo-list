@@ -3,16 +3,21 @@ import { Description } from './style';
 import { DateToday } from '../Date';
 import { useInput } from '../../../../utils/useInput';
 
-export const DescriptionTask = () => {
-  const { value, editing, handleChange, handleBlur } = useInput('');
+type DescriptionTaskProps = {
+  value: string;
+  onChange: (value: string) => void;
+};
+
+export const DescriptionTask = ({ value, onChange }: DescriptionTaskProps) => {
+  const { editing, handleBlur } = useInput(value);
 
   return (
     <Description>
       <textarea
         maxLength={150}
-        value={value}
+        defaultValue={value} // Alterado de 'value' para 'defaultValue'
         onBlur={handleBlur}
-        onChange={handleChange}
+        onChange={(e) => onChange(e.target.value)}
         placeholder="description for this task."
       />
 

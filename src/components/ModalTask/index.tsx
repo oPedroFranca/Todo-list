@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 
 import {
   ButtonDiv,
@@ -15,22 +15,30 @@ import { TasksForm } from './TaskForm';
 export const ModalTask = () => {
   const { addTask } = useContext(CollectionTaskContext);
   const { closeModaTask } = useContext(TaskContent);
+  const [taskName, setTaskName] = useState('');
+  const [taskDescription, setTaskDescription] = useState('');
+
+  const handleAddTask = () => {
+    const task = (
+      <Tasks taskName={taskName} taskDescription={taskDescription} />
+    );
+    addTask(task);
+    closeModaTask();
+  };
 
   return (
     <ModalContainer>
       <ModalTaskContent>
         <TaskFormDiv>
-          <TasksForm />
+          <TasksForm
+            taskName={taskName}
+            setTaskName={setTaskName}
+            taskDescription={taskDescription}
+            setTaskDescription={setTaskDescription}
+          />
         </TaskFormDiv>
         <ButtonDiv>
-          <button
-            onClick={() => {
-              addTask(<Tasks />);
-              closeModaTask();
-            }}
-          >
-            Ready
-          </button>
+          <button onClick={handleAddTask}>Ready</button>
         </ButtonDiv>
       </ModalTaskContent>
     </ModalContainer>

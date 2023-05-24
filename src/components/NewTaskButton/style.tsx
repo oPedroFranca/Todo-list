@@ -21,7 +21,7 @@ export const FalseStatus = styled.div<{ isHovered: boolean }>`
   border-top: 1px dashed;
   border-left: 1px dashed;
   border-right: 1px dashed;
-  width: 55px;
+  width: 50px;
   height: 25px;
   font-size: 15px;
   margin-right: 20px;

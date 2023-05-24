@@ -3,13 +3,31 @@ import { LineDashed, Task, TaskContentForm } from './style';
 import { DescriptionTask } from './Description';
 import { FooterTask } from './FooterTask';
 
-export const TasksForm = () => {
+type TasksFormProps = {
+  taskName: string;
+  setTaskName: (value: string) => void;
+  taskDescription: string;
+  setTaskDescription: (value: string) => void;
+};
+
+export const TasksForm = ({
+  taskName,
+  setTaskName,
+  taskDescription,
+  setTaskDescription,
+}: TasksFormProps) => {
   return (
     <TaskContentForm>
-      <div></div>
       <Task>
-        <input placeholder="Task Name" />
-        <DescriptionTask />
+        <input
+          placeholder="Task Name"
+          value={taskName}
+          onChange={(e) => setTaskName(e.target.value)}
+        />
+        <DescriptionTask
+          value={taskDescription}
+          onChange={(value) => setTaskDescription(value)}
+        />
         <LineDashed />
         <FooterTask />
       </Task>

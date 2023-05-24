@@ -2,17 +2,11 @@ import styled from 'styled-components';
 import { colors } from '../../../theme/GlobalStyles';
 
 export const TaskContentForm = styled.div`
+  display: flex;
   width: 290px;
   min-width: 290px;
   height: 220px;
-
   margin: auto;
-
-  > div:nth-child(1) {
-    display: flex;
-    justify-content: flex-end;
-    width: 100%;
-  }
 `;
 
 export const Task = styled.div`
