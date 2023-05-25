@@ -22,7 +22,7 @@ export const TasksForm = ({
         <input
           placeholder="Task Name"
           value={taskName}
-          maxLength={28}
+          maxLength={29}
           onChange={(e) => setTaskName(e.target.value)}
         />
         <DescriptionTask
