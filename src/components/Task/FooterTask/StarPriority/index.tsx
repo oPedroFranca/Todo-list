@@ -1,12 +1,18 @@
-import React from 'react';
-import { HiOutlineStar } from 'react-icons/hi';
-import { StarContent } from './style';
+import React, { useState } from 'react';
+import { OutlineStar, Star, StarContent } from './style';
 
 export const StarPriority = () => {
+  const [showStar, setShowStar] = useState(false);
+
+  const handleStarClick = () => {
+    setShowStar(!showStar);
+  };
+
   return (
     <>
       <StarContent>
-        <HiOutlineStar />
+        <OutlineStar onClick={handleStarClick} show={!showStar} />
+        <Star onClick={handleStarClick} show={showStar} />
       </StarContent>
     </>
   );
