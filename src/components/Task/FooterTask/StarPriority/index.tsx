@@ -4,9 +4,6 @@ import { OutlineStar, Star, StarContent } from './style';
 export const StarPriority = () => {
   const [showStar, setShowStar] = useState(false);
 
-  const handleStarClick = () => {
-    setShowStar(!showStar);
-  };
 
   return (
     <>
