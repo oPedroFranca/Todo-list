@@ -4,12 +4,14 @@ import React, { useState, createContext, useContext } from 'react';
 export interface TaskContextValue {
   taskList: JSX.Element[];
   addTask: (task: JSX.Element) => void;
+  removeTask: (taskId: string) => void; // Atualiza a assinatura da função
   showTasks: () => JSX.Element[];
 }
 
 export const CollectionTaskContext = createContext<TaskContextValue>({
   taskList: [],
   addTask: () => {},
+  removeTask: () => {},
   showTasks: () => [],
 });
 
@@ -25,6 +27,12 @@ export const CollectionTaskProvider: React.FC<{
     setTaskList((prevTaskList) => [...prevTaskList, task]);
   };
 
+  const removeTask = (taskId: string) => {
+    setTaskList((prevTaskList) =>
+      prevTaskList.filter((task) => task.props.id !== taskId),
+    );
+  };
+
   const showTasks = () => {
     return taskList;
   };
@@ -32,6 +40,7 @@ export const CollectionTaskProvider: React.FC<{
   const value: TaskContextValue = {
     taskList,
     addTask,
+    removeTask,
     showTasks,
   };
 

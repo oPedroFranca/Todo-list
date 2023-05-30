@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 import {
   ButtonDiv,
@@ -19,8 +20,13 @@ export const ModalTask = () => {
   const [taskDescription, setTaskDescription] = useState('');
 
   const handleAddTask = () => {
+    const taskId = uuidv4();
     const task = (
-      <Tasks taskName={taskName} taskDescription={taskDescription} />
+      <Tasks
+        id={taskId}
+        taskName={taskName}
+        taskDescription={taskDescription}
+      />
     );
     addTask(task);
     closeModaTask();

@@ -6,7 +6,7 @@ export const TaskContent = styled.div`
   min-width: 290px;
   height: 240px;
 
-  margin: 25px;
+  margin: 20px 10px 10px 20px;
 
   > div:nth-child(1) {
     display: flex;
@@ -15,13 +15,18 @@ export const TaskContent = styled.div`
   }
 `;
 
-export const Category = styled.div`
+interface Props {
+  active: boolean;
+}
+
+export const Category = styled.div<Props>`
   display: flex;
   align-items: center;
   justify-content: center;
 
-  background-color: #302f2f;
-  color: white;
+  background-color: ${(props) =>
+    props.active ? '#302f2f' : colors.dark_black};
+  color: ${(props) => (props.active ? colors.white : colors.dark_black)};
   width: 55px;
   height: 25px;
   font-size: 13px;
@@ -29,6 +34,8 @@ export const Category = styled.div`
 
   margin-right: 20px;
   border-radius: 5px 5px 0px 0px;
+
+  transition: background-color 0.3s ease, color 0.3s ease;
 `;
 
 export const Task = styled.div`

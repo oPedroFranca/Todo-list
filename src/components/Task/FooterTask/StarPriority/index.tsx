@@ -1,18 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { OutlineStar, Star, StarContent } from './style';
 
-export const StarPriority = () => {
-  const [showStar, setShowStar] = useState(false);
+type StarPriorityProps = {
+  onClick: () => void;
+  active: boolean;
+};
 
-  const handleStarClick = () => {
-    setShowStar(!showStar);
-  };
-
+export const StarPriority = ({ onClick, active }: StarPriorityProps) => {
   return (
     <>
       <StarContent>
-        <OutlineStar onClick={handleStarClick} show={!showStar} />
-        <Star onClick={handleStarClick} show={showStar} />
+        <OutlineStar onClick={onClick} show={!active} />
+        <Star onClick={onClick} show={active} />
       </StarContent>
     </>
   );

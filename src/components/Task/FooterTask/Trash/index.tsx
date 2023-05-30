@@ -2,10 +2,14 @@ import React from 'react';
 import { HiTrash } from 'react-icons/hi';
 import { TrashContent } from './style';
 
-export const Trash = () => {
+type TrashProps = {
+  onClick: () => void;
+};
+
+export const Trash = ({ onClick }: TrashProps) => {
   return (
     <>
-      <TrashContent>
+      <TrashContent onClick={onClick}>
         <HiTrash />
       </TrashContent>
     </>

@@ -12,7 +12,8 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.8.0",
-    "react-modal": "^3.16.1"
+    "react-modal": "^3.16.1",
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
     "@types/node": "^18.11.18",
@@ -21,6 +22,7 @@
     "@types/react-modal": "^3.13.1",
     "@types/react-transition-group": "^4.4.5",
     "@types/styled-components": "^5.1.26",
+    "@types/uuid": "^9.0.1",
     "@typescript-eslint/eslint-plugin": "^5.47.1",
     "@typescript-eslint/parser": "^5.47.1",
     "@vitejs/plugin-react": "^3.1.0",

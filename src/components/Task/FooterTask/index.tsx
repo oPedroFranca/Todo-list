@@ -4,7 +4,22 @@ import { StarPriority } from './StarPriority';
 import { Trash } from './Trash';
 import { DotsMenu } from './DotsMenu';
 
-export const FooterTask = () => {
+type FooterTaskProps = {
+  id: string;
+  onStarClick: () => void;
+  onDeleteTask: (taskId: string) => void;
+  starActive: boolean;
+};
+export const FooterTask = ({
+  id,
+  onStarClick,
+  onDeleteTask,
+  starActive,
+}: FooterTaskProps) => {
+  const handleDeleteTask = () => {
+    onDeleteTask(id);
+  };
+
   return (
     <Content>
       <LeftContent>
@@ -12,10 +27,8 @@ export const FooterTask = () => {
       </LeftContent>
 
       <RightContent>
-        <StarPriority />
-
-        <Trash />
-
+        <StarPriority onClick={onStarClick} active={starActive} />
+        <Trash onClick={handleDeleteTask} />
         <DotsMenu />
       </RightContent>
     </Content>

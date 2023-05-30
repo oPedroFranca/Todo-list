@@ -24,7 +24,7 @@ export const UserContext = createContext<UserContextType>({
 export function UserDetails({ children }: UserDetailsProps) {
   const [user, setUser] = useState<User>({
     name: 'User',
-    selectedIcon: 'public/icon_user/icon_basketball.png',
+    selectedIcon: 'public/icon_user/icon_carrot.png',
   });
 
   // Create a context value object with the user state and the setUser function
