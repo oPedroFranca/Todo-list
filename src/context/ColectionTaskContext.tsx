@@ -1,6 +1,6 @@
-/* eslint-disable @typescript-eslint/no-empty-function */
 import React, { useState, createContext, useContext } from 'react';
 import { Tasks } from '../components/Task';
+import { v4 as uuidv4 } from 'uuid';
 
 type Task = {
   taskId: string;
@@ -9,7 +9,7 @@ type Task = {
 };
 
 export interface TaskContextValue {
-  taskList: JSX.Element[];
+  taskList: Task[];
   addTask: (task: Task) => void;
   removeTask: (taskId: string) => void;
   showTasks: () => JSX.Element[];
@@ -28,28 +28,33 @@ export const useCollectionTaskContext = (): TaskContextValue =>
 export const CollectionTaskProvider: React.FC<{
   children?: React.ReactNode;
 }> = ({ children }) => {
-  const [taskList, setTaskList] = useState<JSX.Element[]>([]);
+  const [taskList, setTaskList] = useState<Task[]>([]);
 
-  const addTask = ({ taskId, taskName, taskDescription }: Task) => {
-    const task = (
-      <Tasks
-        id={taskId}
-        taskName={taskName}
-        taskDescription={taskDescription}
-      />
-    );
+  const addTask = ({ taskName, taskDescription }: Task) => {
+    const taskId = uuidv4();
+    const newTask: Task = {
+      taskId,
+      taskName,
+      taskDescription,
+    };
 
-    setTaskList((prevTaskList) => [...prevTaskList, task]);
+    setTaskList((prevTaskList) => [...prevTaskList, newTask]);
   };
 
   const removeTask = (taskId: string) => {
     setTaskList((prevTaskList) =>
-      prevTaskList.filter((task) => task.props.id !== taskId),
+      prevTaskList.filter((task) => task.taskId !== taskId),
     );
   };
 
   const showTasks = () => {
-    return taskList;
+    return taskList.map((task) => (
+      <Tasks
+        key={task.taskId}
+        taskName={task.taskName}
+        taskDescription={task.taskDescription}
+      />
+    ));
   };
 
   const value: TaskContextValue = {

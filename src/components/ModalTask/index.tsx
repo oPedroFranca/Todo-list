@@ -22,7 +22,7 @@ export const ModalTask = () => {
     const taskId = uuidv4();
 
     addTask({ taskId, taskName, taskDescription });
-    closeModalTask(); // Corrected function name
+    closeModalTask();
   };
 
   return (

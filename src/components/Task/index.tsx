@@ -5,22 +5,31 @@ import { FooterTask } from './FooterTask';
 import { CollectionTaskContext } from '../../context/ColectionTaskContext';
 
 type TasksProps = {
-  id: string;
   taskName: string;
   taskDescription: string;
 };
 
-export const Tasks = ({ id, taskName, taskDescription }: TasksProps) => {
+export const Tasks = ({ taskName, taskDescription }: TasksProps) => {
   const [starActive, setStarActive] = useState(false);
-  const { removeTask } = useContext(CollectionTaskContext);
+  const { taskList, removeTask } = useContext(CollectionTaskContext);
+
+  const task = taskList.find(
+    (task) =>
+      task.taskName === taskName && task.taskDescription === taskDescription,
+  );
+
+  if (!task) {
+    return null; // Return null if the task is not found
+  }
+
+  const { taskId } = task;
 
   const handleStarClick = () => {
     setStarActive(!starActive);
   };
 
   const handleDeleteTask = () => {
-    removeTask(id);
-    console.log('Tarefa excluída!');
+    removeTask(taskId);
   };
 
   return (
@@ -33,7 +42,7 @@ export const Tasks = ({ id, taskName, taskDescription }: TasksProps) => {
         <DescriptionTask value={taskDescription} />
         <LineDashed />
         <FooterTask
-          id={id}
+          id={taskId}
           onStarClick={handleStarClick}
           onDeleteTask={handleDeleteTask}
           starActive={starActive}
