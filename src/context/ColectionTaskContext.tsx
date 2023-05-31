@@ -1,10 +1,17 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 import React, { useState, createContext, useContext } from 'react';
+import { Tasks } from '../components/Task';
+
+type Task = {
+  taskId: string;
+  taskName: string;
+  taskDescription: string;
+};
 
 export interface TaskContextValue {
   taskList: JSX.Element[];
-  addTask: (task: JSX.Element) => void;
-  removeTask: (taskId: string) => void; // Atualiza a assinatura da função
+  addTask: (task: Task) => void;
+  removeTask: (taskId: string) => void;
   showTasks: () => JSX.Element[];
 }
 
@@ -23,7 +30,15 @@ export const CollectionTaskProvider: React.FC<{
 }> = ({ children }) => {
   const [taskList, setTaskList] = useState<JSX.Element[]>([]);
 
-  const addTask = (task: JSX.Element) => {
+  const addTask = ({ taskId, taskName, taskDescription }: Task) => {
+    const task = (
+      <Tasks
+        id={taskId}
+        taskName={taskName}
+        taskDescription={taskDescription}
+      />
+    );
+
     setTaskList((prevTaskList) => [...prevTaskList, task]);
   };
 

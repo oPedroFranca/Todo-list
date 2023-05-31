@@ -8,28 +8,21 @@ import {
   TaskFormDiv,
 } from './style';
 
-import { CollectionTaskContext } from '../../context/ColectionTaskContext';
 import { TaskContent } from '../../context/NewTaskContent';
-import { Tasks } from '../Task';
 import { TasksForm } from './TaskForm';
+import { CollectionTaskContext } from '../../context/ColectionTaskContext';
 
 export const ModalTask = () => {
   const { addTask } = useContext(CollectionTaskContext);
-  const { closeModaTask } = useContext(TaskContent);
+  const { closeModalTask } = useContext(TaskContent);
   const [taskName, setTaskName] = useState('');
   const [taskDescription, setTaskDescription] = useState('');
 
   const handleAddTask = () => {
     const taskId = uuidv4();
-    const task = (
-      <Tasks
-        id={taskId}
-        taskName={taskName}
-        taskDescription={taskDescription}
-      />
-    );
-    addTask(task);
-    closeModaTask();
+
+    addTask({ taskId, taskName, taskDescription });
+    closeModalTask(); // Corrected function name
   };
 
   return (

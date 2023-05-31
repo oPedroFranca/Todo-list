@@ -4,13 +4,13 @@ import React, { createContext, useState } from 'react';
 type ModalContextType = {
   isOpenTask: boolean;
   openModalTask: () => void;
-  closeModaTask: () => void;
+  closeModalTask: () => void;
 };
 
 export const TaskContent = createContext<ModalContextType>({
   isOpenTask: true,
   openModalTask: () => {},
-  closeModaTask: () => {},
+  closeModalTask: () => {},
 });
 
 export const NewTaskProvider: React.FC<{ children?: React.ReactNode }> = ({
@@ -22,7 +22,7 @@ export const NewTaskProvider: React.FC<{ children?: React.ReactNode }> = ({
     setIsOpenTask(true);
   };
 
-  const closeModaTask = () => {
+  const closeModalTask = () => {
     setIsOpenTask(false);
   };
 
@@ -31,7 +31,7 @@ export const NewTaskProvider: React.FC<{ children?: React.ReactNode }> = ({
       value={{
         isOpenTask,
         openModalTask,
-        closeModaTask,
+        closeModalTask,
       }}
     >
       {children}

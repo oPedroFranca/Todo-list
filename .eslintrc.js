@@ -30,5 +30,6 @@ module.exports = {
   rules: {
     'react/jsx-key': 0,
     'react/display-name': 0,
+    '@typescript-eslint/no-empty-function': 0,
   },
 };
