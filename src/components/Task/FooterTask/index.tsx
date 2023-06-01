@@ -10,12 +10,14 @@ type FooterTaskProps = {
   onDeleteTask: (taskId: string) => void;
   starActive: boolean;
 };
+
 export const FooterTask = ({
   id,
   onStarClick,
   onDeleteTask,
   starActive,
 }: FooterTaskProps) => {
+  // Event handler for deleting the task
   const handleDeleteTask = () => {
     onDeleteTask(id);
   };
@@ -27,8 +29,13 @@ export const FooterTask = ({
       </LeftContent>
 
       <RightContent>
+        {/* Task priority component */}
         <StarPriority onClick={onStarClick} active={starActive} />
+
+        {/* Task exclusion component */}
         <Trash onClick={handleDeleteTask} />
+
+        {/* Dot menu component */}
         <DotsMenu />
       </RightContent>
     </Content>

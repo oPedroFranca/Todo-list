@@ -1,6 +1,6 @@
-import React, { useState, createContext, useContext } from 'react';
-import { Tasks } from '../components/Task';
+import React, { useState, createContext, useContext, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import { Tasks } from '../components/Task';
 
 type Task = {
   taskId: string;
@@ -15,6 +15,7 @@ export interface TaskContextValue {
   showTasks: () => JSX.Element[];
 }
 
+// Creating the contenxt
 export const CollectionTaskContext = createContext<TaskContextValue>({
   taskList: [],
   addTask: () => {},
@@ -22,6 +23,7 @@ export const CollectionTaskContext = createContext<TaskContextValue>({
   showTasks: () => [],
 });
 
+// Custom hook to use context
 export const useCollectionTaskContext = (): TaskContextValue =>
   useContext(CollectionTaskContext);
 
@@ -29,6 +31,18 @@ export const CollectionTaskProvider: React.FC<{
   children?: React.ReactNode;
 }> = ({ children }) => {
   const [taskList, setTaskList] = useState<Task[]>([]);
+
+  useEffect(() => {
+    // Retrieves tasks saved in localStorage, if any
+    const savedTasks = localStorage.getItem('tasks');
+    if (savedTasks) {
+      setTaskList(JSON.parse(savedTasks));
+    }
+  }, []);
+
+  const saveTasksToLocalStorage = (tasks: Task[]) => {
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+  };
 
   const addTask = ({ taskName, taskDescription }: Task) => {
     const taskId = uuidv4();
@@ -38,13 +52,17 @@ export const CollectionTaskProvider: React.FC<{
       taskDescription,
     };
 
-    setTaskList((prevTaskList) => [...prevTaskList, newTask]);
+    const updatedTasks = [...taskList, newTask];
+    setTaskList(updatedTasks);
+
+    saveTasksToLocalStorage(updatedTasks);
   };
 
   const removeTask = (taskId: string) => {
-    setTaskList((prevTaskList) =>
-      prevTaskList.filter((task) => task.taskId !== taskId),
-    );
+    const updatedTasks = taskList.filter((task) => task.taskId !== taskId);
+    setTaskList(updatedTasks);
+
+    saveTasksToLocalStorage(updatedTasks);
   };
 
   const showTasks = () => {

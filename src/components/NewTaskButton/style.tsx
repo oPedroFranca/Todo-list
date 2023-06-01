@@ -41,6 +41,7 @@ export const NewTask = styled.button`
   border-radius: 5px;
   cursor: pointer;
   transition: color 0.5s ease 0s;
+  outline: none;
 
   &:hover {
     color: ${colors.purple};
