@@ -44,6 +44,20 @@ export const CollectionTaskProvider: React.FC<{
     localStorage.setItem('tasks', JSON.stringify(tasks));
   };
 
+  const addTask = ({ taskName, taskDescription }: Task) => {
+    const taskId = uuidv4();
+    const newTask: Task = {
+      taskId,
+      taskName,
+      taskDescription,
+    };
+
+    const updatedTasks = [...taskList, newTask];
+    setTaskList(updatedTasks);
+
+    saveTasksToLocalStorage(updatedTasks);
+  };
+
   const removeTask = (taskId: string) => {
     const updatedTasks = taskList.filter((task) => task.taskId !== taskId);
     setTaskList(updatedTasks);
