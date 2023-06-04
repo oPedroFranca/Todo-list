@@ -1,31 +1,22 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { Category, LineDashed, Task, TaskContent } from './style';
 import { DescriptionTask } from './Description';
 import { FooterTask } from './FooterTask';
-import { CollectionTaskContext } from '../../context/ColectionTaskContext';
+import {
+  CollectionTaskContext,
+  Task as TaskType,
+} from '../../context/ColectionTaskContext';
 
 type TasksProps = {
-  taskName: string;
-  taskDescription: string;
+  task: TaskType;
 };
 
-export const Tasks = ({ taskName, taskDescription }: TasksProps) => {
-  const [starActive, setStarActive] = useState(false);
-  const { taskList, removeTask } = useContext(CollectionTaskContext);
-
-  const task = taskList.find(
-    (task) =>
-      task.taskName === taskName && task.taskDescription === taskDescription,
-  );
-
-  if (!task) {
-    return null; // Return null if the task is not found
-  }
-
-  const { taskId } = task;
+export const Tasks = ({ task }: TasksProps) => {
+  const { removeTask, toggleFavorite } = useContext(CollectionTaskContext);
+  const { taskId, taskName, taskDescription, isFavorite } = task;
 
   const handleStarClick = () => {
-    setStarActive(!starActive);
+    toggleFavorite(taskId);
   };
 
   const handleDeleteTask = () => {
@@ -35,7 +26,7 @@ export const Tasks = ({ taskName, taskDescription }: TasksProps) => {
   return (
     <TaskContent>
       <div>
-        <Category active={starActive}>High</Category>
+        <Category active={isFavorite}>High</Category>
       </div>
       <Task>
         <h1>{taskName ? taskName : 'Task'}</h1>
@@ -45,7 +36,7 @@ export const Tasks = ({ taskName, taskDescription }: TasksProps) => {
           id={taskId}
           onStarClick={handleStarClick}
           onDeleteTask={handleDeleteTask}
-          starActive={starActive}
+          starActive={isFavorite}
         />
       </Task>
     </TaskContent>

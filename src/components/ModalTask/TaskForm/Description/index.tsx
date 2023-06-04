@@ -19,7 +19,7 @@ export const DescriptionTask = ({ value, onChange }: DescriptionTaskProps) => {
     <Description>
       <textarea
         maxLength={150}
-        defaultValue={value} // Alterado de 'value' para 'defaultValue'
+        defaultValue={value}
         onBlur={handleBlur}
         onChange={handleTextareaChange}
         placeholder="description for this task."

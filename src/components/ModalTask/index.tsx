@@ -22,7 +22,7 @@ export const ModalTask = () => {
   const handleAddTask = () => {
     const taskId = uuidv4();
 
-    addTask({ taskId, taskName, taskDescription });
+    addTask({ taskId, taskName, taskDescription, isFavorite: false });
     closeModalTask();
   };
 
