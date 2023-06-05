@@ -6,6 +6,7 @@ import {
   CollectionTaskContext,
   Task as TaskType,
 } from '../../context/ColectionTaskContext';
+import { DateToday } from './Date';
 
 type TasksProps = {
   task: TaskType;
@@ -31,6 +32,7 @@ export const Tasks = ({ task }: TasksProps) => {
       <Task>
         <h1>{taskName ? taskName : 'Task'}</h1>
         <DescriptionTask value={taskDescription} />
+        <DateToday />
         <LineDashed />
         <FooterTask
           id={taskId}

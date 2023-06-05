@@ -20,11 +20,7 @@ export const DescriptionTask = ({ value }: DescriptionTaskProps) => {
         placeholder="description for this task."
       />
 
-      <span>
-        <DateToday />
-
-        {editing && <p>{value.length}/150</p>}
-      </span>
+      <span>{editing && <p>{value.length}/150</p>}</span>
     </Description>
   );
 };
