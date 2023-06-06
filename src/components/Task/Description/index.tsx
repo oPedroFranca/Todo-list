@@ -1,6 +1,5 @@
 import React from 'react';
 import { Description } from './style';
-import { DateToday } from '../Date';
 import { useInput } from '../../../utils/useInput';
 
 type DescriptionTaskProps = {

@@ -30,7 +30,6 @@ export const Description = styled.span`
     display: flex;
     justify-content: space-between;
     width: 100%;
-    height: 11px;
 
     > p {
       position: relative;
