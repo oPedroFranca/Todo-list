@@ -13,8 +13,15 @@ type TasksProps = {
 };
 
 export const Tasks = ({ task }: TasksProps) => {
-  const { removeTask, toggleFavorite } = useContext(CollectionTaskContext);
-  const { taskId, taskName, taskDescription, isFavorite } = task;
+  const { removeTask, toggleFavorite, selectTask } = useContext(
+    CollectionTaskContext,
+  );
+  const { taskId, taskName, taskDescription, isFavorite, dateCreated } = task;
+
+  const handleTaskClick = () => {
+    selectTask(taskId);
+    console.log(taskId);
+  };
 
   const handleStarClick = () => {
     toggleFavorite(taskId);
@@ -29,10 +36,10 @@ export const Tasks = ({ task }: TasksProps) => {
       <div>
         <Category active={isFavorite}>High</Category>
       </div>
-      <Task>
+      <Task onClick={handleTaskClick}>
         <h1>{taskName ? taskName : 'Task'}</h1>
         <DescriptionTask value={taskDescription} />
-        <DateToday />
+        <DateToday value={dateCreated} />
         <LineDashed />
         <FooterTask
           id={taskId}

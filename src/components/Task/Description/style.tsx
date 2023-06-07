@@ -7,7 +7,7 @@ export const Description = styled.span`
     color: ${colors.gray};
 
     width: 100%;
-    height: 80px;
+    height: 70px;
     font-size: 13px;
     line-height: 1;
 
@@ -19,6 +19,7 @@ export const Description = styled.span`
     padding-right: 5px;
     outline: none;
     overflow: hidden;
+    cursor: pointer;
 
     &::placeholder {
       line-height: 1;

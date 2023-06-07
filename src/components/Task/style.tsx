@@ -42,6 +42,7 @@ export const Task = styled.div`
   background-color: ${colors.white_black};
   color: ${colors.white};
   width: 100%;
+  height: 215px;
 
   padding: 15px;
 

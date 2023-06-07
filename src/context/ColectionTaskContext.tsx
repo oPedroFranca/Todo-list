@@ -1,12 +1,15 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useState, createContext, useContext, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { Tasks } from '../components/Task';
+import { SaveDateToday } from '../utils/SaveDateToday';
 
 export type Task = {
   taskId: string;
   taskName: string;
   taskDescription: string;
   isFavorite: boolean;
+  dateCreated: string;
 };
 
 export interface TaskContextValue {
@@ -14,7 +17,8 @@ export interface TaskContextValue {
   addTask: (task: Task) => void;
   removeTask: (taskId: string) => void;
   showTasks: () => JSX.Element[];
-  toggleFavorite: (taskId: string) => void; // Nova função para alternar o estado de favorito da tarefa
+  toggleFavorite: (taskId: string) => void;
+  selectTask: (taskId: string) => void;
 }
 
 // Creating the contenxt
@@ -24,6 +28,7 @@ export const CollectionTaskContext = createContext<TaskContextValue>({
   removeTask: () => {},
   showTasks: () => [],
   toggleFavorite: () => {},
+  selectTask: () => {},
 });
 
 // Custom hook to use context
@@ -34,6 +39,7 @@ export const CollectionTaskProvider: React.FC<{
   children?: React.ReactNode;
 }> = ({ children }) => {
   const [taskList, setTaskList] = useState<Task[]>([]);
+  const [selectedTaskId, setSelectedTaskId] = useState<string | null>(null);
 
   useEffect(() => {
     const savedTasks = localStorage.getItem('tasks');
@@ -46,6 +52,10 @@ export const CollectionTaskProvider: React.FC<{
     localStorage.setItem('tasks', JSON.stringify(tasks));
   };
 
+  const selectTask = (taskId: string) => {
+    setSelectedTaskId(taskId);
+  };
+
   const addTask = ({ taskName, taskDescription }: Task) => {
     const taskId = uuidv4();
     const newTask: Task = {
@@ -53,6 +63,7 @@ export const CollectionTaskProvider: React.FC<{
       taskName,
       taskDescription,
       isFavorite: false,
+      dateCreated: SaveDateToday(),
     };
 
     const updatedTasks = [...taskList, newTask];
@@ -92,7 +103,8 @@ export const CollectionTaskProvider: React.FC<{
     addTask,
     removeTask,
     showTasks,
-    toggleFavorite, // Adiciona a função toggleFavorite ao contexto
+    toggleFavorite,
+    selectTask,
   };
 
   return (
