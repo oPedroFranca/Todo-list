@@ -7,20 +7,19 @@ import {
   Task as TaskType,
 } from '../../context/ColectionTaskContext';
 import { DateToday } from './Date';
+import { useDetailTaskContext } from '../../context/DetailsTasks';
 
 type TasksProps = {
   task: TaskType;
 };
 
 export const Tasks = ({ task }: TasksProps) => {
-  const { removeTask, toggleFavorite, selectTask } = useContext(
-    CollectionTaskContext,
-  );
+  const { removeTask, toggleFavorite } = useContext(CollectionTaskContext);
   const { taskId, taskName, taskDescription, isFavorite, dateCreated } = task;
 
+  const { openTaskDetails } = useDetailTaskContext();
   const handleTaskClick = () => {
-    selectTask(taskId);
-    console.log(taskId);
+    openTaskDetails(taskId);
   };
 
   const handleStarClick = () => {
