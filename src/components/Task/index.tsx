@@ -22,14 +22,6 @@ export const Tasks = ({ task }: TasksProps) => {
     openTaskDetails(taskId);
   };
 
-  const handleStarClick = () => {
-    toggleFavorite(taskId);
-  };
-
-  const handleDeleteTask = () => {
-    removeTask(taskId);
-  };
-
   return (
     <TaskContent>
       <div>
