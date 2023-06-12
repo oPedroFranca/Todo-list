@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Category, LineDashed, Task, TaskContent } from './style';
+import { LineDashed, Task, TaskContent } from './style';
 import { DescriptionTask } from './Description';
 import { FooterTask } from './FooterTask';
 import {
@@ -8,6 +8,7 @@ import {
 } from '../../context/ColectionTaskContext';
 import { DateToday } from './Date';
 import { useDetailTaskContext } from '../../context/DetailsTasks';
+import { CategoryComponent } from './Category';
 
 type TasksProps = {
   task: TaskType;
@@ -22,18 +23,23 @@ export const Tasks = ({ task }: TasksProps) => {
     openTaskDetails(taskId);
   };
 
-  const handleStarClick = () => {
+  const handleStarClick = (event: React.MouseEvent) => {
+    event.stopPropagation();
     toggleFavorite(taskId);
   };
 
-  const handleDeleteTask = () => {
+  const handleDeleteTask = (
+    taskId: string,
+    event: React.MouseEvent<Element, MouseEvent>,
+  ) => {
+    event.stopPropagation();
     removeTask(taskId);
   };
 
   return (
     <TaskContent>
       <div>
-        <Category active={isFavorite}>High</Category>
+        <CategoryComponent isFavorite={task.isFavorite} />
       </div>
       <Task onClick={handleTaskClick}>
         <h1>{taskName ? taskName : 'Task'}</h1>

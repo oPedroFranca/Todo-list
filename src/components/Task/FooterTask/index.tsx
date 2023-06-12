@@ -6,8 +6,11 @@ import { DotsMenu } from './DotsMenu';
 
 type FooterTaskProps = {
   id: string;
-  onStarClick: () => void;
-  onDeleteTask: (taskId: string) => void;
+  onStarClick: (event: React.MouseEvent) => void;
+  onDeleteTask: (
+    taskId: string,
+    event: React.MouseEvent<Element, MouseEvent>,
+  ) => void;
   starActive: boolean;
 };
 
@@ -18,8 +21,8 @@ export const FooterTask = ({
   starActive,
 }: FooterTaskProps) => {
   // Event handler for deleting the task
-  const handleDeleteTask = () => {
-    onDeleteTask(id);
+  const handleDeleteTask = (event: React.MouseEvent<Element, MouseEvent>) => {
+    onDeleteTask(id, event);
   };
 
   return (

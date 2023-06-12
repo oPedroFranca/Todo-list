@@ -2,7 +2,7 @@ import React from 'react';
 import { OutlineStar, Star, StarContent } from './style';
 
 type StarPriorityProps = {
-  onClick: () => void;
+  onClick: (event: React.MouseEvent) => void;
   active: boolean;
 };
 

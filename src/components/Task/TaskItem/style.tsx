@@ -1,19 +1,5 @@
 import styled from 'styled-components';
-import { colors } from '../../theme/GlobalStyles';
-
-export const TaskContent = styled.div`
-  width: 290px;
-  min-width: 290px;
-  height: 240px;
-
-  margin: 20px 10px 10px 20px;
-
-  > div:nth-child(1) {
-    display: flex;
-    justify-content: flex-end;
-    width: 100%;
-  }
-`;
+import { colors } from '../../../theme/GlobalStyles';
 
 export const Task = styled.div`
   background-color: ${colors.white_black};
