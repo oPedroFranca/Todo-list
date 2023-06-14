@@ -17,4 +17,6 @@ export const MainContent = styled.div`
   flex-wrap: wrap;
   align-content: flex-start;
   justify-content: center;
+
+  margin-right: 22px;
 `;

@@ -11,7 +11,7 @@ export const Category = styled.div<Props>`
   justify-content: center;
 
   background-color: ${(props) =>
-    props.active ? '#302f2f' : colors.dark_black};
+    props.active ? '#30302f' : colors.dark_black};
   color: ${(props) => (props.active ? colors.white : colors.dark_black)};
   width: 55px;
   height: 25px;

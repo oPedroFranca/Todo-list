@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { UserProfile } from '../../../components/UserProfile/index.js';
 import {
-  ArrowLeft,
-  ArrowRight,
+  Arrow,
   HideSidebarButton,
-  SidebarButton,
+  SidebarDiv,
   StyledSidebar_nav,
 } from './style.js';
 
@@ -13,6 +12,10 @@ export function Sidebar_nav() {
 
   const toggleSidebar = () => {
     setIsSidebarVisible(!isSidebarVisible);
+    const arrowRight = document.querySelector('.ArrowRight');
+    if (arrowRight) {
+      arrowRight.classList.toggle('rotate');
+    }
   };
 
   return (
@@ -20,12 +23,11 @@ export function Sidebar_nav() {
       <StyledSidebar_nav className={!isSidebarVisible ? 'hide' : ''}>
         <UserProfile />
       </StyledSidebar_nav>
-      <SidebarButton onClick={toggleSidebar}>
+      <SidebarDiv onClick={toggleSidebar}>
         <HideSidebarButton>
-          <ArrowRight show={!isSidebarVisible} />
-          <ArrowLeft show={isSidebarVisible} />
+          <Arrow className="ArrowRight" show={!isSidebarVisible} />
         </HideSidebarButton>
-      </SidebarButton>
+      </SidebarDiv>
     </>
   );
 }

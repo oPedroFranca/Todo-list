@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { colors } from '../../../theme/GlobalStyles';
-import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
+import { MdKeyboardArrowRight } from 'react-icons/md';
 
 export const StyledSidebar_nav = styled.nav`
   background-color: ${colors.white_black};
@@ -20,10 +20,9 @@ export const StyledSidebar_nav = styled.nav`
   }
 `;
 
-export const SidebarButton = styled.div`
+export const SidebarDiv = styled.div`
   display: flex;
   background-color: transparent;
-  min-width: 25px;
   height: 100%;
   align-items: center;
 `;
@@ -39,19 +38,29 @@ export const HideSidebarButton = styled.button`
   height: 40px;
   border: none;
   cursor: pointer;
-
   border-radius: 0px 5px 5px 0px;
 `;
 
 interface StarProps {
   show?: boolean;
 }
-export const ArrowLeft = styled(MdKeyboardArrowLeft)<StarProps>`
-  color: ${colors.dark_orange};
-  display: ${(props) => (props.show ? 'block' : 'none')};
+
+const rotateAnimation = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(-180deg);
+  }
 `;
 
-export const ArrowRight = styled(MdKeyboardArrowRight)<StarProps>`
+export const Arrow = styled(MdKeyboardArrowRight)<StarProps>`
   color: ${colors.dark_orange};
-  display: ${(props) => (props.show ? 'block' : 'none')};
+  transform: ${(props) => (props.show ? 'rotate(0deg)' : 'rotate(-180deg)')};
+  transition: transform 0.3s ease;
+
+  &.rotate {
+    animation: ${rotateAnimation} 0.3s ease;
+  }
 `;
