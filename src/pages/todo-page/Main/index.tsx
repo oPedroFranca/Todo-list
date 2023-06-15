@@ -6,6 +6,9 @@ import { useDetailTaskContext } from '../../../context/DetailsTasks';
 import { TaskDetails } from '../../../components/TaskDetails';
 
 export function Main() {
+  const { showTasks } = useContext(CollectionTaskContext);
+  const { isTaskDetailsOpen } = useDetailTaskContext();
+
   return (
     <Styled_Main>
       {isTaskDetailsOpen ? (
