@@ -3,7 +3,7 @@ import { RiCalendarCheckFill } from 'react-icons/ri';
 import { DateDiv } from './style';
 
 type DateTaskProps = {
-  value: string;
+  value?: string;
 };
 
 export const DateToday = ({ value }: DateTaskProps) => {
