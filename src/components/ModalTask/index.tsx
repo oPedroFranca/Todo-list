@@ -11,17 +11,19 @@ import {
 import { TaskContent } from '../../context/NewTaskContent';
 import { TasksForm } from './TaskForm';
 import { CollectionTaskContext } from '../../context/ColectionTaskContext';
+import { CapitalizeFirstLetter } from '../../utils/CapitalizeFirstLetter';
 
 export const ModalTask = () => {
   const { addTask } = useContext(CollectionTaskContext);
   const { closeModalTask } = useContext(TaskContent);
-  const [taskName, setTaskName] = useState('');
+  const [tasksName, setTasksName] = useState('');
   const [taskDescription, setTaskDescription] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(true);
 
   const handleAddTask = () => {
     const taskId = uuidv4();
 
+    const taskName: string = CapitalizeFirstLetter(tasksName);
     addTask({ taskId, taskName, taskDescription, isFavorite: false });
     closeModalTask();
   };
@@ -50,8 +52,8 @@ export const ModalTask = () => {
       <ModalTaskContent>
         <TaskFormDiv>
           <TasksForm
-            taskName={taskName}
-            setTaskName={setTaskName}
+            taskName={tasksName}
+            setTaskName={setTasksName}
             taskDescription={taskDescription}
             setTaskDescription={setTaskDescription}
           />

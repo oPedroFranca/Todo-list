@@ -1,9 +1,17 @@
 import React from 'react';
-import { TaskDetailsContent } from './style';
+import {
+  ButtonBack,
+  TaskDetailsBody,
+  TaskDetailsContent,
+  TaskHeader,
+  TaskName,
+} from './style';
 import { useDetailTaskContext } from '../../context/DetailsTasks';
+import { TaskSelected } from '../../utils/TaskSelectedDetails';
 
 export const TaskDetails = () => {
   const { closeTaskDetails } = useDetailTaskContext();
+  const taskSelected = TaskSelected();
 
   const handleclick = () => {
     closeTaskDetails();
@@ -11,7 +19,12 @@ export const TaskDetails = () => {
 
   return (
     <TaskDetailsContent>
-      <button onClick={handleclick}>close</button>
+      <TaskDetailsBody>
+        <TaskHeader>
+          <ButtonBack onClick={handleclick}>close</ButtonBack>
+          <TaskName>{taskSelected?.taskName}</TaskName>
+        </TaskHeader>
+      </TaskDetailsBody>
     </TaskDetailsContent>
   );
 };

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { FaUser } from 'react-icons/fa';
 
 import { FormName, ModalForm, ModalMainDiv } from './style';
-import { capitalizeFirstLetter } from '../../../utils/CapitalizeFirstLetter';
+import { CapitalizeFirstLetter } from '../../../utils/CapitalizeFirstLetter';
 import { IconSelected } from './iconSelected';
 import { IconOptionUser } from './IconOptionUser';
 import { SubmitButtonModal } from '../SubmitButton';
@@ -46,7 +46,7 @@ export const ModalMain = () => {
   const handleFirstNameInputChange = (
     event: React.ChangeEvent<HTMLInputElement>,
   ) => {
-    setFirstName(capitalizeFirstLetter(event.target.value));
+    setFirstName(CapitalizeFirstLetter(event.target.value));
   };
 
   const handleUserIconClick = (icon: string) => {

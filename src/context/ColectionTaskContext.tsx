@@ -9,7 +9,7 @@ export type Task = {
   taskName: string;
   taskDescription: string;
   isFavorite: boolean;
-  dateCreated: string;
+  dateCreated?: string;
 };
 
 export interface TaskContextValue {

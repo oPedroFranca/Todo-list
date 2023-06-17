@@ -32,7 +32,6 @@ export const HideSidebarButton = styled.button`
   align-items: center;
   justify-content: center;
   background-color: ${colors.white_black};
-  color: ${colors.white};
   font-size: 25px;
   width: 22px;
   height: 40px;
@@ -56,7 +55,7 @@ const rotateAnimation = keyframes`
 `;
 
 export const Arrow = styled(MdKeyboardArrowRight)<StarProps>`
-  color: ${colors.dark_orange};
+  color: ${colors.white};
   transform: ${(props) => (props.show ? 'rotate(0deg)' : 'rotate(-180deg)')};
   transition: transform 0.3s ease;
 
