@@ -1,4 +1,5 @@
 import { MdKeyboardArrowLeft } from 'react-icons/md';
+import { GoKebabHorizontal } from 'react-icons/go';
 import styled from 'styled-components';
 import { colors } from '../../../theme/GlobalStyles';
 
@@ -29,4 +30,10 @@ export const ButtonBack = styled(MdKeyboardArrowLeft)`
 export const TaskName = styled.h1`
   font-size: 22px;
   color: ${colors.white};
+`;
+
+export const MenuKebab = styled(GoKebabHorizontal)`
+  font-size: 22px;
+  color: ${colors.white};
+  margin-left: auto;
 `;

@@ -15,7 +15,7 @@ export const AddTask = styled.div`
   font-size: 13px;
   font-weight: 500;
   align-items: center;
-  border: solid 0.2em ${colors.white_black};
+  border: dashed 0.2em ${colors.white_black};
   border-radius: 10px;
 
   margin-top: 35px;
@@ -26,7 +26,7 @@ export const AddTask = styled.div`
 
   &:hover {
     color: ${colors.white};
-    border: solid 0.2em ${colors.dark_purple};
+    border: dashed 0.2em ${colors.dark_purple};
   }
 
   > div {

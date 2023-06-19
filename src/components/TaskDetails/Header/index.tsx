@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDetailTaskContext } from '../../../context/DetailsTasks';
 import { TaskSelected } from '../../../utils/TaskSelectedDetails';
-import { TaskHeader, TaskName, ButtonBack } from './style';
+import { TaskHeader, TaskName, ButtonBack, MenuKebab } from './style';
 
 export const HeaderTaskDetails = () => {
   const { closeTaskDetails } = useDetailTaskContext();
@@ -17,6 +17,7 @@ export const HeaderTaskDetails = () => {
       <TaskName>
         {taskSelected?.taskName ? taskSelected.taskName : 'Task'}
       </TaskName>
+      <MenuKebab />
     </TaskHeader>
   );
 };
