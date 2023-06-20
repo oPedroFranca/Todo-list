@@ -24,7 +24,11 @@ export const Activity = styled.div`
   }
 `;
 
-export const Check = styled.div`
+interface checkedStyles {
+  checked?: boolean;
+}
+
+export const Check = styled.div<checkedStyles>`
   display: flex;
   align-items: center;
   border: solid 2px rgb(144, 122, 214);
@@ -38,9 +42,8 @@ export const Check = styled.div`
 
   transition: background-color 0.5s ease 0s;
 
-  &:hover {
-    background-color: ${colors.purple};
-  }
+  background-color: ${(props) =>
+    props.checked ? colors.purple : colors.white_black};
 `;
 
 export const CheckButton = styled(CgCheck)`
