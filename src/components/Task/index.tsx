@@ -14,6 +14,10 @@ type TasksProps = {
   task: TaskType;
 };
 
+/**
+ * Component that represents a task.
+ * @param task The task to display.
+ */
 export const Tasks = ({ task }: TasksProps) => {
   const { removeTask, toggleFavorite } = useContext(CollectionTaskContext);
   const { taskId, taskName, taskDescription, isFavorite, dateCreated } = task;

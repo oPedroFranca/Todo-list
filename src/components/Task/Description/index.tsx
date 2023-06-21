@@ -5,6 +5,10 @@ type DescriptionTaskProps = {
   value: string;
 };
 
+/**
+ * Component responsible for displaying the description of a task.
+ * @param value Description value to display.
+ */
 export const DescriptionTask = ({ value }: DescriptionTaskProps) => {
   return (
     <Description>

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { FaUser } from 'react-icons/fa';
 
-import { FormName, ModalForm, ModalMainDiv } from './style';
 import { CapitalizeFirstLetter } from '../../../utils/CapitalizeFirstLetter';
+import { FormName, ModalForm, ModalMainDiv } from './style';
 import { IconSelected } from './iconSelected';
 import { IconOptionUser } from './IconOptionUser';
 import { SubmitButtonModal } from '../SubmitButton';

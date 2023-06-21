@@ -13,6 +13,9 @@ import { TasksForm } from './TaskForm';
 import { CollectionTaskContext } from '../../context/ColectionTaskContext';
 import { CapitalizeFirstLetter } from '../../utils/CapitalizeFirstLetter';
 
+/**
+ * Component responsible for rendering the task modal.
+ */
 export const ModalTask = () => {
   const { addTask } = useContext(CollectionTaskContext);
   const { closeModalTask } = useContext(TaskContent);
@@ -20,6 +23,11 @@ export const ModalTask = () => {
   const [taskDescription, setTaskDescription] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(true);
 
+  /**
+   * Event handler for adding a new task.
+   * Generate a unique ID, format the task name, and add the task using the context's addTask function.
+   * Closes the task modal after adding the task.
+   */
   const handleAddTask = () => {
     const taskId = uuidv4();
 
@@ -34,10 +42,13 @@ export const ModalTask = () => {
     closeModalTask();
   };
 
+  /**
+   * Side effect to close task modal when ESC key is pressed.
+   * The effect is added and removed when mounting and dismounting the component.
+   */
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape' && isModalOpen) {
-        // Check if the pressed key is ESC and the modal is open
         closeModalTask();
       }
     };
@@ -49,6 +60,10 @@ export const ModalTask = () => {
     };
   }, [closeModalTask, isModalOpen]);
 
+  /**
+   * Side effect to keep modal open when closing task modal.
+   * The effect is triggered whenever closeModalTask is called.
+   */
   useEffect(() => {
     setIsModalOpen(true);
   }, [closeModalTask]);
@@ -57,6 +72,7 @@ export const ModalTask = () => {
     <ModalContainer>
       <ModalTaskContent>
         <TaskFormDiv>
+          {/* Task form component */}
           <TasksForm
             taskName={tasksName}
             setTaskName={setTasksName}
@@ -65,6 +81,7 @@ export const ModalTask = () => {
           />
         </TaskFormDiv>
         <ButtonDiv>
+          {/* Confirmation button to add the task */}
           <button onClick={handleAddTask}>Ready</button>
         </ButtonDiv>
       </ModalTaskContent>

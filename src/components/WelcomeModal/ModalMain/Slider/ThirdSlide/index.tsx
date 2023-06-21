@@ -3,6 +3,9 @@ import './style';
 import { FirstSlideDiv } from './style';
 import { colors } from '../../../../../theme/GlobalStyles';
 
+/**
+ * Component to display the Third Slide.
+ */
 export const ThirdSlide = () => {
   return (
     <FirstSlideDiv>

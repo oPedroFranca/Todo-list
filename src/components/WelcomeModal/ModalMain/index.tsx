@@ -3,10 +3,16 @@ import { ModalMainDiv } from './style';
 import { SubmitButtonModal } from '../SubmitButton';
 import Slider, { SliderType } from './Slider/Slider';
 
-export const ModalMain = () => {
+/**
+ * Main component of the modal.
+ */
+export const ModalMain = (): JSX.Element => {
   const sliderRef = useRef<SliderType>(null);
 
-  const goToNextSlide = () => {
+  /**
+   * Advance to the next slide
+   */
+  const goToNextSlide = (): void => {
     try {
       sliderRef.current?.handleNextSlide();
     } catch (error) {

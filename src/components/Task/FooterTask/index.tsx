@@ -14,6 +14,13 @@ type FooterTaskProps = {
   starActive: boolean;
 };
 
+/**
+ * Component that represents the footer of a task.
+ * @param id The ID of the task.
+ * @param onStarClick Function to handle priority star click.
+ * @param onDeleteTask Function to handle task deletion.
+ * @param starActive Indicates whether the task's priority is active.
+ */
 export const FooterTask = ({
   id,
   onStarClick,
@@ -35,7 +42,7 @@ export const FooterTask = ({
         {/* Task priority component */}
         <StarPriority onClick={onStarClick} active={starActive} />
 
-        {/* Task exclusion component */}
+        {/* Task deletion component */}
         <Trash onClick={handleDeleteTask} />
 
         {/* Dot menu component */}

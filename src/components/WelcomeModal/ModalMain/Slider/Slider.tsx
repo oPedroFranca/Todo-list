@@ -3,8 +3,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper';
 import type { Swiper as SwiperType } from 'swiper';
 import 'swiper/css';
-import './style';
 import 'swiper/css/pagination';
+import './style';
 import { FirstSlide } from './FirstSlide';
 import { SecondSlide } from './SecondSlide';
 import { ThirdSlide } from './ThirdSlide';
@@ -14,6 +14,9 @@ export type SliderType = {
   handleNextSlide: () => void;
 };
 
+/**
+ * Slider component that displays content slides.
+ */
 const Slider = React.forwardRef((props: SliderType, ref) => {
   const [swiper, setSwiper] = useState<SwiperType | null>(null);
   const [isSliding, setIsSliding] = useState(false);
@@ -34,7 +37,7 @@ const Slider = React.forwardRef((props: SliderType, ref) => {
     setIsSliding(false);
     setCurrentSlide(swiper.realIndex);
 
-    if (swiper.realIndex == 2) {
+    if (swiper.realIndex === 2) {
       setTimeout(() => {
         swiper.params.touchRatio = 1;
       }, 5000);

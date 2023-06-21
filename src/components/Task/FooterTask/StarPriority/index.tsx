@@ -6,6 +6,11 @@ type StarPriorityProps = {
   active: boolean;
 };
 
+/**
+ * Component that represents the priority of a task.
+ * @param onClick Function to handle component click.
+ * @param active Indicates whether the priority is active or not.
+ */
 export const StarPriority = ({ onClick, active }: StarPriorityProps) => {
   return (
     <>

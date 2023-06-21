@@ -1,5 +1,11 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React, { useState, createContext, useContext, useEffect } from 'react';
+import React, {
+  useState,
+  createContext,
+  useContext,
+  useEffect,
+  ReactNode,
+} from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { Tasks } from '../components/Task';
 import { SaveDateToday } from '../utils/SaveDateToday';
@@ -18,12 +24,11 @@ export interface TaskContextValue {
   taskList: Task[];
   addTask: (task: Task) => void;
   removeTask: (taskId: string) => void;
-  showTasks: () => JSX.Element[];
+  showTasks: () => ReactNode[];
   toggleFavorite: (taskId: string) => void;
   selectTask: (taskId: string) => void;
 }
 
-// Creating the contenxt
 export const CollectionTaskContext = createContext<TaskContextValue>({
   taskList: [],
   addTask: () => {},
@@ -33,12 +38,11 @@ export const CollectionTaskContext = createContext<TaskContextValue>({
   selectTask: () => {},
 });
 
-// Custom hook to use context
 export const useCollectionTaskContext = (): TaskContextValue =>
   useContext(CollectionTaskContext);
 
 export const CollectionTaskProvider: React.FC<{
-  children?: React.ReactNode;
+  children?: ReactNode;
 }> = ({ children }) => {
   const [taskList, setTaskList] = useState<Task[]>([]);
   const [selectedTaskId, setSelectedTaskId] = useState<string | null>(null);
@@ -83,15 +87,9 @@ export const CollectionTaskProvider: React.FC<{
   };
 
   const toggleFavorite = (taskId: string) => {
-    const updatedTasks = taskList.map((task) => {
-      if (task.taskId === taskId) {
-        return {
-          ...task,
-          isFavorite: !task.isFavorite,
-        };
-      }
-      return task;
-    });
+    const updatedTasks = taskList.map((task) =>
+      task.taskId === taskId ? { ...task, isFavorite: !task.isFavorite } : task,
+    );
 
     setTaskList(updatedTasks);
     saveTasksToLocalStorage(updatedTasks);

@@ -8,6 +8,9 @@ export type RenderDotsProps = {
   swiper: SwiperType | null;
 };
 
+/**
+ * Component to render slide navigation points.
+ */
 const RenderDots = ({ numSlides, currentSlide }: RenderDotsProps) => {
   const dots = [];
   for (let i = 0; i < numSlides; i++) {

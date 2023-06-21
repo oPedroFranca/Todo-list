@@ -4,10 +4,17 @@ import { UserContext } from '../../context/UserContext';
 import { UserDiv, UserSpan, IconDiv, IconSpan } from './style';
 import { ModalContext } from '../../context/ModalContext';
 
+/**
+ * Component to display user profile.
+ */
 export const UserProfile = (): JSX.Element => {
   const { name, selectedIcon } = useContext(UserContext);
 
   const { openModal } = useContext(ModalContext);
+
+  /**
+   * Event handler to open profile edit modal.
+   */
   function handleModalIsOpen() {
     openModal();
   }

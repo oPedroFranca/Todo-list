@@ -1,6 +1,6 @@
 import React, { useState, createContext, useContext } from 'react';
-import { Task } from './ColectionTaskContext';
 import { v4 as uuidv4 } from 'uuid';
+import { Task } from './ColectionTaskContext';
 
 export type Subtask = {
   subtaskId: string;
@@ -10,7 +10,7 @@ export type Subtask = {
 
 export interface DetailTaskContextValue {
   isTaskDetailsOpen: boolean;
-  openTaskDetails: (taskID: string) => void;
+  openTaskDetails: (taskId: string) => void;
   closeTaskDetails: () => void;
   taskSelected: () => string;
   addDetailTaskToTask: (task: Task) => Subtask;
@@ -20,7 +20,7 @@ export const DetailTaskContext = createContext<DetailTaskContextValue>({
   isTaskDetailsOpen: false,
   openTaskDetails: () => {},
   closeTaskDetails: () => {},
-  taskSelected: String,
+  taskSelected: () => '',
   addDetailTaskToTask: () => {
     return {
       subtaskId: '',
@@ -37,12 +37,12 @@ export const DetailTaskProvider: React.FC<{ children?: React.ReactNode }> = ({
   children,
 }) => {
   const [isTaskDetailsOpen, setIsTaskDetailsOpen] = useState(false);
-  const [taskOpen, setTaskOpen] = useState(String);
+  const [taskOpen, setTaskOpen] = useState('');
   const [subtasks, setSubtasks] = useState<Subtask[]>([]);
 
-  const openTaskDetails = (taskID: string) => {
+  const openTaskDetails = (taskId: string) => {
     setIsTaskDetailsOpen(true);
-    setTaskOpen(taskID);
+    setTaskOpen(taskId);
   };
 
   const taskSelected = () => {

@@ -29,7 +29,6 @@ export const AddSubTask = ({
       if (selectedTask) {
         // Add the new subtask to the array of subtasks in the task
         selectedTask.subtasks.push(newSubtask);
-
         // Save the updated tasks back to Local Storage
         localStorage.setItem('tasks', JSON.stringify(tasks));
       }

@@ -1,8 +1,10 @@
 import React from 'react';
-import './style';
 import { FirstSlideDiv } from './style';
 import { colors } from '../../../../../theme/GlobalStyles';
 
+/**
+ * Component to display the first slide.
+ */
 export const FirstSlide = () => {
   return (
     <FirstSlideDiv>

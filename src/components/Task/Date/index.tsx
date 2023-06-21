@@ -6,6 +6,10 @@ type DateTaskProps = {
   value?: string;
 };
 
+/**
+ * Component responsible for displaying the date of a task.
+ * @param value Date value to display.
+ */
 export const DateToday = ({ value }: DateTaskProps) => {
   return (
     <DateDiv>

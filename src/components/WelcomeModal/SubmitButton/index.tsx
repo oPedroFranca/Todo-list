@@ -35,7 +35,7 @@ export const SubmitButtonModal = ({ onClick }: SubmitButtonModalProps) => {
     onClick(event);
     setClickCount(clickCount + 1);
 
-    if (clickCount == 3) {
+    if (clickCount === 3) {
       closeModalWelcome();
       openModal();
     }
