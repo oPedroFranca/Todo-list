@@ -24,7 +24,13 @@ export const ModalTask = () => {
     const taskId = uuidv4();
 
     const taskName: string = CapitalizeFirstLetter(tasksName);
-    addTask({ taskId, taskName, taskDescription, isFavorite: false });
+    addTask({
+      taskId,
+      taskName,
+      taskDescription,
+      isFavorite: false,
+      subtasks: [],
+    });
     closeModalTask();
   };
 

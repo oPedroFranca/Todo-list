@@ -1,28 +1,33 @@
-import React from 'react';
-import {
-  AddButton,
-  AddTask,
-  AllTasks,
-  NumberTasks,
-  TaskDetailsMain,
-} from './style';
+import React, { useEffect, useState } from 'react';
+import { AllTasks, NumberTasks, TaskDetailsMain } from './style';
 import { ActivityTasks } from '../ActivityTasks';
+import { AddTask } from '../AddTask';
+import { TaskSelected } from '../../../utils/TaskSelectedDetails';
+import { Subtask } from '../../../context/DetailsTasks';
 
 export const MainTaskDetails = () => {
+  const taskSelected = TaskSelected();
+  const [subtasks, setSubtasks] = useState<Subtask[]>(taskSelected!.subtasks);
+
+  const handleAddSubtask = (newSubtask: Subtask) => {
+    const updatedSubtasks = [...subtasks, newSubtask];
+    setSubtasks(updatedSubtasks);
+  };
+
+  useEffect(() => {
+    console.log('Subtasks:', subtasks);
+  }, [subtasks]);
+
   return (
     <TaskDetailsMain>
-      <AddTask>
-        <div>
-          <AddButton />
-        </div>
-        <p>Add a task</p>
-      </AddTask>
+      <AddTask onAddSubtask={handleAddSubtask} />
 
-      <NumberTasks>Tasks - 0</NumberTasks>
+      <NumberTasks>Tasks - {subtasks.length}</NumberTasks>
+
       <AllTasks>
-        <ActivityTasks />
-        <ActivityTasks />
-        <ActivityTasks />
+        {subtasks.map((subtask) => (
+          <ActivityTasks key={subtask.subtaskId} />
+        ))}
       </AllTasks>
     </TaskDetailsMain>
   );

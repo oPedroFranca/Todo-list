@@ -52,7 +52,7 @@ export const CheckButton = styled(CgCheck)`
   color: ${colors.white_black};
 `;
 
-export const DescriptionActivity = styled.textarea`
+export const DescriptionActivity = styled.textarea<checkedStyles>`
   background: none;
   color: ${colors.white};
 
@@ -60,6 +60,7 @@ export const DescriptionActivity = styled.textarea`
   height: 16px;
   font-weight: 500;
   margin-top: 3px;
+  text-decoration: ${(props) => (props.checked ? 'line-through' : 'none')};
 
   border: none;
   resize: none;

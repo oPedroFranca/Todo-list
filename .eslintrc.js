@@ -31,5 +31,7 @@ module.exports = {
     'react/jsx-key': 0,
     'react/display-name': 0,
     '@typescript-eslint/no-empty-function': 0,
+    '@typescript-eslint/no-non-null-assertion': 0,
+
   },
 };

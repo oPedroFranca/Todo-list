@@ -30,7 +30,11 @@ export const ActivityTasks = () => {
       <Check checked={isChecked} onClick={handleCheckClick}>
         <CheckButton />
       </Check>
-      <DescriptionActivity ref={textareaRef} onChange={handleTextareaChange} />
+      <DescriptionActivity
+        checked={isChecked}
+        ref={textareaRef}
+        onChange={handleTextareaChange}
+      />
     </Activity>
   );
 };

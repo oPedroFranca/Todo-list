@@ -3,6 +3,7 @@ import React, { useState, createContext, useContext, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { Tasks } from '../components/Task';
 import { SaveDateToday } from '../utils/SaveDateToday';
+import { Subtask } from './DetailsTasks';
 
 export type Task = {
   taskId: string;
@@ -10,6 +11,7 @@ export type Task = {
   taskDescription: string;
   isFavorite: boolean;
   dateCreated?: string;
+  subtasks: Subtask[];
 };
 
 export interface TaskContextValue {
@@ -64,6 +66,7 @@ export const CollectionTaskProvider: React.FC<{
       taskDescription,
       isFavorite: false,
       dateCreated: SaveDateToday(),
+      subtasks: [],
     };
 
     const updatedTasks = [...taskList, newTask];
