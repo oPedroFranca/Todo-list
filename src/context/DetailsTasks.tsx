@@ -45,12 +45,12 @@ export const DetailTaskProvider: React.FC<{ children?: React.ReactNode }> = ({
     setTaskOpen(taskId);
   };
 
-  const taskSelected = () => {
-    return taskOpen;
-  };
-
   const closeTaskDetails = () => {
     setIsTaskDetailsOpen(false);
+  };
+
+  const taskSelected = () => {
+    return taskOpen;
   };
 
   const addDetailTaskToTask = () => {
