@@ -1,35 +1,29 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { CreatingButton, CreatingSubTaskContent } from './style';
 
 type SubTaskCreatingProps = {
-  handleSaveSubtask: (subtaskDescription: string) => void;
+  handleSaveSubtask: () => void;
+  subtaskDescription: string;
+  onSubtaskDescriptionChange: (
+    event: React.ChangeEvent<HTMLInputElement>,
+  ) => void;
 };
 
 export const SubTaskCreating: React.FC<SubTaskCreatingProps> = ({
   handleSaveSubtask,
+  subtaskDescription,
+  onSubtaskDescriptionChange,
 }) => {
-  const [subtaskDescription, setSubtaskDescription] = useState('');
-
-  const handleSubtaskDescriptionChange = (
-    event: React.ChangeEvent<HTMLInputElement>,
-  ) => {
-    setSubtaskDescription(event.target.value);
-  };
-
-  const handleSaveButtonClick = () => {
-    handleSaveSubtask(subtaskDescription);
-  };
-
   return (
     <CreatingSubTaskContent>
       <input
         type="text"
         value={subtaskDescription}
         placeholder="Description for this"
-        onChange={handleSubtaskDescriptionChange}
+        onChange={onSubtaskDescriptionChange}
       />
       <div>
-        <CreatingButton onClick={handleSaveButtonClick}>Save</CreatingButton>
+        <CreatingButton onClick={handleSaveSubtask}>Save</CreatingButton>
       </div>
     </CreatingSubTaskContent>
   );

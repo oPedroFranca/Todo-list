@@ -66,4 +66,5 @@ export const DescriptionActivity = styled.textarea<checkedStyles>`
 
   outline: none;
   overflow: hidden;
+  pointer-events: none;
 `;

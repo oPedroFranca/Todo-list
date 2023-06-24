@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useContext, useState } from 'react';
 import { AddButton, AddTaskContent } from './style';
 import { TaskSelected } from '../../../utils/TaskSelectedDetails';
@@ -13,12 +12,13 @@ export const AddSubTask = ({
   const { addDetailTaskToTask } = useContext(DetailTaskContext);
   const taskSelected = TaskSelected();
   const [isCreating, setisCreating] = useState(false);
+  const [subtaskDescription, setSubtaskDescription] = useState('');
 
   const handleAddDetailsTask = () => {
     setisCreating(true);
   };
 
-  const handleSaveSubtask = (subtaskDescription: string) => {
+  const handleSaveSubtask = () => {
     if (subtaskDescription.trim() !== '') {
       const newSubtask = addDetailTaskToTask(taskSelected!);
       newSubtask.subtaskDescription = subtaskDescription;
@@ -27,10 +27,20 @@ export const AddSubTask = ({
     }
   };
 
+  const handleSubtaskDescriptionChange = (
+    event: React.ChangeEvent<HTMLInputElement>,
+  ) => {
+    setSubtaskDescription(event.target.value);
+  };
+
   return (
     <>
       {isCreating ? (
-        <SubTaskCreating handleSaveSubtask={handleSaveSubtask} />
+        <SubTaskCreating
+          handleSaveSubtask={handleSaveSubtask}
+          subtaskDescription={subtaskDescription}
+          onSubtaskDescriptionChange={handleSubtaskDescriptionChange}
+        />
       ) : (
         <AddTaskContent onClick={handleAddDetailsTask}>
           <div>

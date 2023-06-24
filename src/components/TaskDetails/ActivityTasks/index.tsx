@@ -1,10 +1,13 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { Activity, Check, CheckButton, DescriptionActivity } from './style';
 
-/**
- * Componente que representa uma atividade de tarefas.
- */
-export const ActivityTasks = () => {
+type ActivityTasksProps = {
+  subtaskDescription: string;
+};
+
+export const ActivityTasks: React.FC<ActivityTasksProps> = ({
+  subtaskDescription,
+}) => {
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
   const [isChecked, setIsChecked] = useState(false);
 
@@ -37,6 +40,7 @@ export const ActivityTasks = () => {
         checked={isChecked}
         ref={textareaRef}
         onChange={handleTextareaChange}
+        value={subtaskDescription}
       />
     </Activity>
   );

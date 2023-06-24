@@ -48,7 +48,10 @@ export const MainTaskDetails = () => {
 
       <AllTasks>
         {subtasks.map((subtask) => (
-          <ActivityTasks key={subtask.subtaskId} />
+          <ActivityTasks
+            key={subtask.subtaskId}
+            subtaskDescription={subtask.subtaskDescription}
+          />
         ))}
       </AllTasks>
     </TaskDetailsMain>
