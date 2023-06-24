@@ -1,6 +1,17 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { colors } from '../../../../theme/GlobalStyles';
 import { AiOutlineArrowRight } from 'react-icons/ai';
+
+const expandWidth = keyframes`
+  from {
+    width: 0;
+
+  }
+
+  to {
+    width: 100%;
+  }
+`;
 
 export const CreatingSubTaskContent = styled.div`
   display: flex;
@@ -27,8 +38,8 @@ export const CreatingSubTaskContent = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 26px;
-    height: 25px;
+    width: 24px;
+    height: 22px;
     margin-right: 6px;
     margin-left: 6px;
     background-color: ${colors.purple};
@@ -40,11 +51,12 @@ export const CreatingSubTaskContent = styled.div`
     border: none;
     margin-left: 8px;
     font-weight: 500;
-    width: 100%;
+    width: 0px;
     height: 30px;
     color: ${colors.white};
     background-color: ${colors.dark_black};
     outline: none;
+    animation: ${expandWidth} 0.7s ease-in-out forwards;
 
     &::placeholder {
       font-size: 13px;
@@ -53,6 +65,6 @@ export const CreatingSubTaskContent = styled.div`
 `;
 
 export const CreatingButton = styled(AiOutlineArrowRight)`
-  font-size: 18px;
+  font-size: 14px;
   color: ${colors.white_black};
 `;

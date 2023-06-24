@@ -3,7 +3,7 @@ import { HiTrash } from 'react-icons/hi';
 import { TrashContent } from './style';
 
 type TrashProps = {
-  onClick: (event: React.MouseEvent) => void;
+  onClick: React.MouseEventHandler<HTMLElement>;
 };
 
 /**

@@ -11,18 +11,19 @@ export const AddSubTask = ({
 }) => {
   const { addDetailTaskToTask } = useContext(DetailTaskContext);
   const taskSelected = TaskSelected();
-  const [isCreating, setisCreating] = useState(false);
+  const [isCreating, setIsCreating] = useState(false);
   const [subtaskDescription, setSubtaskDescription] = useState('');
 
   const handleAddDetailsTask = () => {
-    setisCreating(true);
+    setIsCreating(true);
   };
 
   const handleSaveSubtask = () => {
     if (subtaskDescription.trim() !== '') {
       const newSubtask = addDetailTaskToTask(taskSelected!);
       newSubtask.subtaskDescription = subtaskDescription;
-      setisCreating(false);
+      newSubtask.checked = false;
+      setIsCreating(false);
       onAddSubtask(newSubtask);
     }
   };

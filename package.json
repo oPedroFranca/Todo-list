@@ -30,6 +30,7 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.32.1",
     "prettier": "^2.8.4",
+    "react-spring": "^9.7.1",
     "react-transition-group": "^4.4.5",
     "styled-components": "^5.3.9",
     "swiper": "^9.2.4",

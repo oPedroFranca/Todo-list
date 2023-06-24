@@ -1,4 +1,6 @@
 import React, { useContext } from 'react';
+import { useSpring, animated } from 'react-spring';
+
 import { LineDashed, Task, TaskContent } from './style';
 import { DescriptionTask } from './Description';
 import { FooterTask } from './FooterTask';
@@ -40,23 +42,31 @@ export const Tasks = ({ task }: TasksProps) => {
     removeTask(taskId);
   };
 
+  const animationProps = useSpring({
+    opacity: 1,
+    from: { opacity: 0 },
+    config: { tension: 100, friction: 20 },
+  });
+
   return (
-    <TaskContent>
-      <div>
-        <CategoryComponent isFavorite={task.isFavorite} />
-      </div>
-      <Task onClick={handleTaskClick}>
-        <h1>{taskName ? taskName : 'Task'}</h1>
-        <DescriptionTask value={taskDescription} />
-        <DateToday value={dateCreated} />
-        <LineDashed />
-        <FooterTask
-          id={taskId}
-          onStarClick={handleStarClick}
-          onDeleteTask={handleDeleteTask}
-          starActive={isFavorite}
-        />
-      </Task>
-    </TaskContent>
+    <animated.div style={animationProps}>
+      <TaskContent>
+        <div>
+          <CategoryComponent isFavorite={task.isFavorite} />
+        </div>
+        <Task onClick={handleTaskClick}>
+          <h1>{taskName ? taskName : 'Task'}</h1>
+          <DescriptionTask value={taskDescription} />
+          <DateToday value={dateCreated} />
+          <LineDashed />
+          <FooterTask
+            id={taskId}
+            onStarClick={handleStarClick}
+            onDeleteTask={handleDeleteTask}
+            starActive={isFavorite}
+          />
+        </Task>
+      </TaskContent>
+    </animated.div>
   );
 };

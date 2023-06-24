@@ -4,7 +4,7 @@ import { Task } from './ColectionTaskContext';
 
 export type Subtask = {
   subtaskId: string;
-  subtaskChecked: boolean;
+  checked: boolean;
   subtaskDescription: string;
 };
 
@@ -24,7 +24,7 @@ export const DetailTaskContext = createContext<DetailTaskContextValue>({
   addDetailTaskToTask: () => {
     return {
       subtaskId: '',
-      subtaskChecked: false,
+      checked: false,
       subtaskDescription: '',
     };
   },
@@ -58,7 +58,7 @@ export const DetailTaskProvider: React.FC<{ children?: React.ReactNode }> = ({
 
     const newSubtask: Subtask = {
       subtaskId: taskId,
-      subtaskChecked: false,
+      checked: false,
       subtaskDescription: 'Subtask description',
     };
 

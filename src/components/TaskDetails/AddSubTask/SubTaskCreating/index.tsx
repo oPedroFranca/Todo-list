@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { CreatingButton, CreatingSubTaskContent } from './style';
 
 type SubTaskCreatingProps = {
@@ -14,16 +14,44 @@ export const SubTaskCreating: React.FC<SubTaskCreatingProps> = ({
   subtaskDescription,
   onSubtaskDescriptionChange,
 }) => {
+  // Reference to the input element
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  // Clear the input and select the text
+  const clearInputAndSelect = () => {
+    onSubtaskDescriptionChange({
+      target: { value: '' },
+    } as React.ChangeEvent<HTMLInputElement>);
+  };
+
+  // Side effect to focus on the input when the component is mounted
+  useEffect(() => {
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, []);
+
   return (
     <CreatingSubTaskContent>
+      {/* Input for the description of the subtask */}
       <input
         type="text"
         value={subtaskDescription}
         placeholder="Description for this"
         onChange={onSubtaskDescriptionChange}
+        ref={inputRef}
       />
       <div>
-        <CreatingButton onClick={handleSaveSubtask}>Save</CreatingButton>
+        {/* Button to save the subtask */}
+        <CreatingButton
+          onClick={() => {
+            handleSaveSubtask(); // Call the function to save the subtask
+            clearInputAndSelect(); // Clear the input and select the text
+            if (inputRef.current) {
+              inputRef.current.focus(); // Focus again on the input
+            }
+          }}
+        />
       </div>
     </CreatingSubTaskContent>
   );

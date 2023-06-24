@@ -1,6 +1,16 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { colors } from '../../../theme/GlobalStyles';
 import { CgCheck } from 'react-icons/cg';
+
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+`;
 
 export const Activity = styled.div`
   display: flex;
@@ -18,6 +28,7 @@ export const Activity = styled.div`
   padding-bottom: 6px;
 
   transition: color 0.5s ease 0s;
+  animation: ${fadeIn} 0.5s ease-in-out;
 
   &:hover {
     color: ${colors.white};
@@ -49,6 +60,7 @@ export const Check = styled.div<checkedStyles>`
 export const CheckButton = styled(CgCheck)`
   font-size: 33px;
   color: ${colors.white_black};
+  transform: scale(1.5);
 `;
 
 export const DescriptionActivity = styled.textarea<checkedStyles>`
