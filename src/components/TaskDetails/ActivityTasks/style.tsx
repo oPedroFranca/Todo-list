@@ -47,7 +47,6 @@ export const Check = styled.div<checkedStyles>`
 `;
 
 export const CheckButton = styled(CgCheck)`
-  position: fixed;
   font-size: 33px;
   color: ${colors.white_black};
 `;
