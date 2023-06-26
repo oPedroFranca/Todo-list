@@ -1,6 +1,7 @@
 import styled, { keyframes } from 'styled-components';
 import { colors } from '../../../theme/GlobalStyles';
 import { CgCheck } from 'react-icons/cg';
+import { HiTrash } from 'react-icons/hi';
 
 const fadeIn = keyframes`
   from {
@@ -79,4 +80,20 @@ export const DescriptionActivity = styled.textarea<checkedStyles>`
   outline: none;
   overflow: hidden;
   pointer-events: none;
+`;
+
+export const TrashContent = styled.span<React.HTMLAttributes<HTMLSpanElement>>`
+  display: flex;
+  color: ${colors.white};
+`;
+
+export const TrashIcon = styled(HiTrash)`
+  font-size: 22px;
+  color: ${colors.white};
+  transition: color 0.5s ease 0s;
+  cursor: pointer;
+
+  &:hover {
+    color: ${colors.purple};
+  }
 `;

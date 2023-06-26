@@ -1,19 +1,31 @@
-import React, { useRef, useEffect, useState } from 'react';
-import { Activity, Check, CheckButton, DescriptionActivity } from './style';
+import React, { useRef, useEffect } from 'react';
+import {
+  Activity,
+  Check,
+  CheckButton,
+  DescriptionActivity,
+  TrashContent,
+  TrashIcon,
+} from './style';
 
 type ActivityTasksProps = {
   subtaskDescription: string;
+  isChecked: boolean;
+  updateSubtask: (checked: boolean) => void;
+  onDelete: () => void;
 };
 
 export const ActivityTasks: React.FC<ActivityTasksProps> = ({
   subtaskDescription,
+  isChecked,
+  updateSubtask,
+  onDelete,
 }) => {
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
-  const [isChecked, setIsChecked] = useState(false);
 
   useEffect(() => {
     adjustTextareaHeight();
-  }, []);
+  }, [isChecked]);
 
   const adjustTextareaHeight = () => {
     if (textareaRef.current) {
@@ -28,7 +40,11 @@ export const ActivityTasks: React.FC<ActivityTasksProps> = ({
   };
 
   const handleCheckClick = () => {
-    setIsChecked(!isChecked);
+    updateSubtask(!isChecked);
+  };
+
+  const handleDeleteActivityTask = () => {
+    onDelete();
   };
 
   return (
@@ -42,6 +58,9 @@ export const ActivityTasks: React.FC<ActivityTasksProps> = ({
         onChange={handleTextareaChange}
         value={subtaskDescription}
       />
+      <TrashContent onClick={handleDeleteActivityTask}>
+        <TrashIcon />
+      </TrashContent>
     </Activity>
   );
 };

@@ -40,6 +40,49 @@ export const MainTaskDetails = () => {
     }
   };
 
+  const updateSubtask = (subtaskId: string, checked: boolean) => {
+    const updatedSubtasks = subtasks.map((subtask) => {
+      if (subtask.subtaskId === subtaskId) {
+        return { ...subtask, checked };
+      }
+      return subtask;
+    });
+
+    setSubtasks(updatedSubtasks);
+
+    // Update the subtasks array in the selected task in Local Storage
+    const savedTasks = localStorage.getItem('tasks');
+    const tasks = savedTasks ? JSON.parse(savedTasks) : [];
+    const selectedTaskIndex = tasks.findIndex(
+      (task: { taskId: string }) => task.taskId === taskSelected?.taskId,
+    );
+
+    if (selectedTaskIndex !== -1) {
+      tasks[selectedTaskIndex].subtasks = updatedSubtasks;
+      localStorage.setItem('tasks', JSON.stringify(tasks));
+    }
+  };
+
+  const handleDeleteSubtask = (subtaskId: string) => {
+    const updatedSubtasks = subtasks.filter(
+      (subtask) => subtask.subtaskId !== subtaskId,
+    );
+    setSubtasks(updatedSubtasks);
+
+    // Atualize o array de subtasks no Local Storage
+
+    const savedTasks = localStorage.getItem('tasks');
+    const tasks = savedTasks ? JSON.parse(savedTasks) : [];
+    const selectedTaskIndex = tasks.findIndex(
+      (task: { taskId: string }) => task.taskId === taskSelected?.taskId,
+    );
+
+    if (selectedTaskIndex !== -1) {
+      tasks[selectedTaskIndex].subtasks = updatedSubtasks;
+      localStorage.setItem('tasks', JSON.stringify(tasks));
+    }
+  };
+
   return (
     <TaskDetailsMain>
       <AddSubTask onAddSubtask={handleAddSubtask} />
@@ -51,6 +94,11 @@ export const MainTaskDetails = () => {
           <ActivityTasks
             key={subtask.subtaskId}
             subtaskDescription={subtask.subtaskDescription}
+            isChecked={subtask.checked}
+            updateSubtask={(checked) =>
+              updateSubtask(subtask.subtaskId, checked)
+            }
+            onDelete={() => handleDeleteSubtask(subtask.subtaskId)}
           />
         ))}
       </AllTasks>
