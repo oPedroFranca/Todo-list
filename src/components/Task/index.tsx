@@ -16,15 +16,11 @@ type TasksProps = {
   task: TaskType;
 };
 
-/**
- * Component that represents a task.
- * @param task The task to display.
- */
 export const Tasks = ({ task }: TasksProps) => {
   const { removeTask, toggleFavorite } = useContext(CollectionTaskContext);
   const { taskId, taskName, taskDescription, isFavorite, dateCreated } = task;
-
   const { openTaskDetails } = useDetailTaskContext();
+
   const handleTaskClick = () => {
     openTaskDetails(taskId);
   };
@@ -61,6 +57,7 @@ export const Tasks = ({ task }: TasksProps) => {
           <LineDashed />
           <FooterTask
             id={taskId}
+            subtasks={task.subtasks}
             onStarClick={handleStarClick}
             onDeleteTask={handleDeleteTask}
             starActive={isFavorite}

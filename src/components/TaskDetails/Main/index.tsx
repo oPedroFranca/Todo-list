@@ -10,67 +10,35 @@ export const MainTaskDetails = () => {
   const [subtasks, setSubtasks] = useState<Subtask[]>([]);
 
   useEffect(() => {
-    // Get tasks from Local Storage
     const savedTasks = localStorage.getItem('tasks');
     const tasks = savedTasks ? JSON.parse(savedTasks) : [];
-
-    // Find the task with the corresponding ID in Local Storage
     const selectedTask = tasks.find(
       (task: { taskId: string }) => task.taskId === taskSelected?.taskId,
     );
 
-    // Update the subtasks state
     setSubtasks(selectedTask?.subtasks || []);
   }, [taskSelected]);
 
   const handleAddSubtask = (newSubtask: Subtask) => {
     const updatedSubtasks = [...subtasks, newSubtask];
-    setSubtasks(updatedSubtasks);
-
-    // Update the subtasks array in the selected task in Local Storage
-    const savedTasks = localStorage.getItem('tasks');
-    const tasks = savedTasks ? JSON.parse(savedTasks) : [];
-    const selectedTaskIndex = tasks.findIndex(
-      (task: { taskId: string }) => task.taskId === taskSelected?.taskId,
-    );
-
-    if (selectedTaskIndex !== -1) {
-      tasks[selectedTaskIndex].subtasks = updatedSubtasks;
-      localStorage.setItem('tasks', JSON.stringify(tasks));
-    }
+    updateLocalStorageSubtasks(updatedSubtasks);
   };
 
   const updateSubtask = (subtaskId: string, checked: boolean) => {
-    const updatedSubtasks = subtasks.map((subtask) => {
-      if (subtask.subtaskId === subtaskId) {
-        return { ...subtask, checked };
-      }
-      return subtask;
-    });
-
-    setSubtasks(updatedSubtasks);
-
-    // Update the subtasks array in the selected task in Local Storage
-    const savedTasks = localStorage.getItem('tasks');
-    const tasks = savedTasks ? JSON.parse(savedTasks) : [];
-    const selectedTaskIndex = tasks.findIndex(
-      (task: { taskId: string }) => task.taskId === taskSelected?.taskId,
+    const updatedSubtasks = subtasks.map((subtask) =>
+      subtask.subtaskId === subtaskId ? { ...subtask, checked } : subtask,
     );
-
-    if (selectedTaskIndex !== -1) {
-      tasks[selectedTaskIndex].subtasks = updatedSubtasks;
-      localStorage.setItem('tasks', JSON.stringify(tasks));
-    }
+    updateLocalStorageSubtasks(updatedSubtasks);
   };
 
   const handleDeleteSubtask = (subtaskId: string) => {
     const updatedSubtasks = subtasks.filter(
       (subtask) => subtask.subtaskId !== subtaskId,
     );
-    setSubtasks(updatedSubtasks);
+    updateLocalStorageSubtasks(updatedSubtasks);
+  };
 
-    // Atualize o array de subtasks no Local Storage
-
+  const updateLocalStorageSubtasks = (updatedSubtasks: Subtask[]) => {
     const savedTasks = localStorage.getItem('tasks');
     const tasks = savedTasks ? JSON.parse(savedTasks) : [];
     const selectedTaskIndex = tasks.findIndex(
@@ -80,6 +48,7 @@ export const MainTaskDetails = () => {
     if (selectedTaskIndex !== -1) {
       tasks[selectedTaskIndex].subtasks = updatedSubtasks;
       localStorage.setItem('tasks', JSON.stringify(tasks));
+      setSubtasks(updatedSubtasks);
     }
   };
 
