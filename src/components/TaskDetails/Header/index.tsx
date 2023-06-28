@@ -19,7 +19,7 @@ export const HeaderTaskDetails = () => {
 
   return (
     <TaskHeader>
-      <ButtonBack onClick={handleClick}>Close</ButtonBack>
+      <ButtonBack onClick={handleClick} />
       <TaskName>
         {taskSelected?.taskName ? taskSelected.taskName : 'Task'}
       </TaskName>
