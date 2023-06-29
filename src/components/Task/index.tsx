@@ -86,8 +86,6 @@ const calculateStatus = (subtasks: Subtask[]) => {
     return 'In Progress';
   } else if (checked === total) {
     return 'Complete';
-  } else if (checked === 0) {
-    return 'Uncompleted';
   } else {
     return 'In Progress';
   }
