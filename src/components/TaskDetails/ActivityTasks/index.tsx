@@ -7,6 +7,7 @@ import {
   TrashContent,
   TrashIcon,
 } from './style';
+import { TaskSelected } from '../../../utils/TaskSelectedDetails';
 
 type ActivityTasksProps = {
   subtaskDescription: string;
@@ -39,8 +40,15 @@ export const ActivityTasks: React.FC<ActivityTasksProps> = ({
     adjustTextareaHeight();
   };
 
+  const taskSelected = TaskSelected();
   const handleCheckClick = () => {
+    const subtasks = taskSelected?.subtasks;
     updateSubtask(!isChecked);
+    const subtask = subtasks?.find(
+      (subtask) => subtask.subtaskDescription === subtaskDescription,
+    );
+    const subtaskId = subtask?.subtaskId;
+    console.log(subtaskId);
   };
 
   const handleDeleteActivityTask = () => {

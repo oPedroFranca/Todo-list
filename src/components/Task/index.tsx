@@ -25,7 +25,7 @@ export const Tasks = ({ task }: TasksProps) => {
 
   useEffect(() => {
     setTaskStatus(calculateStatus(task.subtasks));
-  }, [task.subtasks, setTaskStatus]);
+  }, [task.subtasks]);
 
   const handleTaskClick = () => {
     openTaskDetails(taskId);
