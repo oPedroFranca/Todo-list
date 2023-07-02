@@ -45,10 +45,9 @@ export const ActivityTasks: React.FC<ActivityTasksProps> = ({
     const subtasks = taskSelected?.subtasks;
     updateSubtask(!isChecked);
     const subtask = subtasks?.find(
-      (subtask) => subtask.subtaskDescription === subtaskDescription,
+      (subtask) => subtask.subtaskId === subtask.subtaskId,
     );
-    const subtaskId = subtask?.subtaskId;
-    console.log(subtaskId);
+    console.log(subtask);
   };
 
   const handleDeleteActivityTask = () => {
