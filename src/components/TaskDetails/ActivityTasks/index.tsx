@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import {
   Activity,
   Check,
@@ -7,21 +7,24 @@ import {
   TrashContent,
   TrashIcon,
 } from './style';
-import { TaskSelected } from '../../../utils/TaskSelectedDetails';
 
 type ActivityTasksProps = {
+  subtaskId: string;
   subtaskDescription: string;
   isChecked: boolean;
-  updateSubtask: (checked: boolean) => void;
-  onDelete: () => void;
+  updateSubtask: (subtaskId: string, checked: boolean) => void;
+  onDelete: (subtaskId: string) => void;
 };
 
 export const ActivityTasks: React.FC<ActivityTasksProps> = ({
+  subtaskId,
   subtaskDescription,
-  isChecked,
+  isChecked: initialChecked,
   updateSubtask,
   onDelete,
 }) => {
+  const [isChecked, setIsChecked] = useState(initialChecked);
+
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
 
   useEffect(() => {
@@ -40,18 +43,14 @@ export const ActivityTasks: React.FC<ActivityTasksProps> = ({
     adjustTextareaHeight();
   };
 
-  const taskSelected = TaskSelected();
   const handleCheckClick = () => {
-    const subtasks = taskSelected?.subtasks;
-    updateSubtask(!isChecked);
-    const subtask = subtasks?.find(
-      (subtask) => subtask.subtaskId === subtask.subtaskId,
-    );
-    console.log(subtask);
+    const newChecked = !isChecked;
+    setIsChecked(newChecked);
+    updateSubtask(subtaskId, newChecked);
   };
 
   const handleDeleteActivityTask = () => {
-    onDelete();
+    onDelete(subtaskId);
   };
 
   return (

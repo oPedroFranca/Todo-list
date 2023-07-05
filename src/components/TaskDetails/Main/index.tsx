@@ -21,6 +21,7 @@ export const MainTaskDetails = () => {
 
   const handleAddSubtask = (newSubtask: Subtask) => {
     const updatedSubtasks = [...subtasks, newSubtask];
+    setSubtasks(updatedSubtasks);
     updateLocalStorageSubtasks(updatedSubtasks);
   };
 
@@ -28,7 +29,16 @@ export const MainTaskDetails = () => {
     const updatedSubtasks = subtasks.map((subtask) =>
       subtask.subtaskId === subtaskId ? { ...subtask, checked } : subtask,
     );
+    const updatedSubtask = updatedSubtasks.find(
+      (subtask) => subtask.subtaskId === subtaskId,
+    );
+
+    setSubtasks(updatedSubtasks);
     updateLocalStorageSubtasks(updatedSubtasks);
+
+    if (updatedSubtask) {
+      console.log(updatedSubtask);
+    }
   };
 
   const handleDeleteSubtask = (subtaskId: string) => {
@@ -48,7 +58,6 @@ export const MainTaskDetails = () => {
     if (selectedTaskIndex !== -1) {
       tasks[selectedTaskIndex].subtasks = updatedSubtasks;
       localStorage.setItem('tasks', JSON.stringify(tasks));
-      setSubtasks(updatedSubtasks);
     }
   };
 
@@ -62,12 +71,13 @@ export const MainTaskDetails = () => {
         {subtasks.map((subtask) => (
           <ActivityTasks
             key={subtask.subtaskId}
+            subtaskId={subtask.subtaskId}
             subtaskDescription={subtask.subtaskDescription}
             isChecked={subtask.checked}
-            updateSubtask={(checked) =>
-              updateSubtask(subtask.subtaskId, checked)
+            updateSubtask={(subtaskId, checked) =>
+              updateSubtask(subtaskId, checked)
             }
-            onDelete={() => handleDeleteSubtask(subtask.subtaskId)}
+            onDelete={(subtaskId) => handleDeleteSubtask(subtaskId)}
           />
         ))}
       </AllTasks>
