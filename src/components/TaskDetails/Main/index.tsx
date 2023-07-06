@@ -4,6 +4,7 @@ import { ActivityTasks } from '../ActivityTasks';
 import { AddSubTask } from '../AddSubTask';
 import { TaskSelected } from '../../../utils/TaskSelectedDetails';
 import { Subtask } from '../../../context/DetailsTasks';
+import { updateLocalStorageSubtasks } from './utils';
 
 export const MainTaskDetails = () => {
   const taskSelected = TaskSelected();
@@ -22,43 +23,27 @@ export const MainTaskDetails = () => {
   const handleAddSubtask = (newSubtask: Subtask) => {
     const updatedSubtasks = [...subtasks, newSubtask];
     setSubtasks(updatedSubtasks);
-    updateLocalStorageSubtasks(updatedSubtasks);
+    updateLocalStorageSubtasks(
+      updatedSubtasks,
+      newSubtask.subtaskId,
+      taskSelected,
+    );
   };
 
   const updateSubtask = (subtaskId: string, checked: boolean) => {
     const updatedSubtasks = subtasks.map((subtask) =>
       subtask.subtaskId === subtaskId ? { ...subtask, checked } : subtask,
     );
-    const updatedSubtask = updatedSubtasks.find(
-      (subtask) => subtask.subtaskId === subtaskId,
-    );
 
     setSubtasks(updatedSubtasks);
-    updateLocalStorageSubtasks(updatedSubtasks);
-
-    if (updatedSubtask) {
-      console.log(updatedSubtask);
-    }
+    updateLocalStorageSubtasks(updatedSubtasks, subtaskId, taskSelected);
   };
 
   const handleDeleteSubtask = (subtaskId: string) => {
     const updatedSubtasks = subtasks.filter(
       (subtask) => subtask.subtaskId !== subtaskId,
     );
-    updateLocalStorageSubtasks(updatedSubtasks);
-  };
-
-  const updateLocalStorageSubtasks = (updatedSubtasks: Subtask[]) => {
-    const savedTasks = localStorage.getItem('tasks');
-    const tasks = savedTasks ? JSON.parse(savedTasks) : [];
-    const selectedTaskIndex = tasks.findIndex(
-      (task: { taskId: string }) => task.taskId === taskSelected?.taskId,
-    );
-
-    if (selectedTaskIndex !== -1) {
-      tasks[selectedTaskIndex].subtasks = updatedSubtasks;
-      localStorage.setItem('tasks', JSON.stringify(tasks));
-    }
+    updateLocalStorageSubtasks(updatedSubtasks, subtaskId, taskSelected);
   };
 
   return (

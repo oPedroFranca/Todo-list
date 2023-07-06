@@ -9,8 +9,9 @@ import {
   Task as TaskType,
 } from '../../context/ColectionTaskContext';
 import { DateToday } from './Date';
-import { Subtask, useDetailTaskContext } from '../../context/DetailsTasks';
+import { useDetailTaskContext } from '../../context/DetailsTasks';
 import { CategoryComponent } from './Category';
+import { calculateStatus } from './utils';
 
 type TasksProps = {
   task: TaskType;
@@ -24,8 +25,8 @@ export const Tasks = ({ task }: TasksProps) => {
   const [taskStatus, setTaskStatus] = useState('In Progress');
 
   useEffect(() => {
-    setTaskStatus(calculateStatus(task.subtasks));
-  }, [task.subtasks]);
+    setTaskStatus(calculateStatus(taskId));
+  });
 
   const handleTaskClick = () => {
     openTaskDetails(taskId);
@@ -70,23 +71,10 @@ export const Tasks = ({ task }: TasksProps) => {
             onStarClick={handleStarClick}
             onDeleteTask={handleDeleteTask}
             starActive={isFavorite}
-            taskStatus={taskStatus}
+            calculateStatus={calculateStatus}
           />
         </Task>
       </TaskContent>
     </animated.div>
   );
-};
-
-const calculateStatus = (subtasks: Subtask[]) => {
-  const total = subtasks.length;
-  const checked = subtasks.filter((subtask) => subtask.checked).length;
-
-  if (total === 0) {
-    return 'In Progress';
-  } else if (checked === total) {
-    return 'Complete';
-  } else {
-    return 'In Progress';
-  }
 };
