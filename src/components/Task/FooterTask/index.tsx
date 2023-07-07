@@ -29,8 +29,6 @@ export const FooterTask = ({
     onDeleteTask(id, event);
   };
 
-  const taskStatus = calculateStatus(id, subtasks);
-
   return (
     <Content>
       <LeftContent>
