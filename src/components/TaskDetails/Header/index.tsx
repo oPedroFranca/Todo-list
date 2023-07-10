@@ -13,6 +13,9 @@ export const HeaderTaskDetails = () => {
   /**
    * Event handler to close task details.
    */
+  const handleClick = () => {
+    closeTaskDetails();
+  };
 
   return (
     <TaskHeader>
