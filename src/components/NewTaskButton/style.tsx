@@ -10,6 +10,11 @@ export const NewTaskContent = styled.div`
     width: 100%;
     height: 25px;
   }
+
+  transition: transform 0.3s ease;
+  &:hover {
+    transform: translate(2px, -2px);
+  }
 `;
 
 export const FalseStatus = styled.div<{ isHovered: boolean }>`

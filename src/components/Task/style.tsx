@@ -7,11 +7,16 @@ export const TaskContent = styled.div`
   height: 240px;
 
   margin: 20px 10px 10px 20px;
+  transition: transform 0.3s ease;
 
   > div:nth-child(1) {
     display: flex;
     justify-content: flex-end;
     width: 100%;
+  }
+
+  &:hover {
+    transform: translate(2px, -2px);
   }
 `;
 

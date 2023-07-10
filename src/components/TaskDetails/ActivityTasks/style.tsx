@@ -19,20 +19,19 @@ export const Activity = styled.div`
   color: ${colors.gray};
   width: 100%;
   min-height: 40px;
-  border: solid 0.2em ${colors.white_black};
-  border-radius: 10px;
   background-color: ${colors.white_black};
+  border-radius: 10px;
 
   margin-top: 12px;
-  padding-right: 6px;
-  padding-top: 6px;
-  padding-bottom: 6px;
+  padding: 9px 6px 0px 2px;
 
-  transition: color 0.5s ease 0s;
+  transition: color 0.5s ease 0s, transform 0.3s ease;
+
   animation: ${fadeIn} 0.5s ease-in-out;
 
   &:hover {
     color: ${colors.white};
+    transform: translate(2px, -2px);
   }
 `;
 
