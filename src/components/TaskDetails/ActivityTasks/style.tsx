@@ -15,9 +15,7 @@ const fadeIn = keyframes`
 
 export const Activity = styled.div`
   display: flex;
-  align-items: flex-start;
   color: ${colors.gray};
-  width: 100%;
   min-height: 40px;
   background-color: ${colors.white_black};
   border-radius: 10px;

@@ -43,7 +43,13 @@ export const MainTaskDetails = () => {
     const updatedSubtasks = subtasks.filter(
       (subtask) => subtask.subtaskId !== subtaskId,
     );
-    updateLocalStorageSubtasks(updatedSubtasks, subtaskId, taskSelected);
+
+    const updatedSubtasksLocalStorage = updateLocalStorageSubtasks(
+      updatedSubtasks,
+      subtaskId,
+      taskSelected,
+    );
+    setSubtasks(updatedSubtasksLocalStorage);
   };
 
   return (
