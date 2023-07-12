@@ -1,7 +1,7 @@
 import styled, { keyframes } from 'styled-components';
 import { colors } from '../../../theme/GlobalStyles';
 import { CgCheck } from 'react-icons/cg';
-import { HiTrash } from 'react-icons/hi';
+import { MdOutlineClose } from 'react-icons/md';
 
 const fadeIn = keyframes`
   from {
@@ -23,7 +23,7 @@ export const Activity = styled.div`
   border-radius: 10px;
 
   margin-top: 12px;
-  padding: 9px 6px 0px 2px;
+  padding: 9px 6px 10px 2px;
 
   transition: color 0.5s ease 0s, transform 0.3s ease;
 
@@ -81,12 +81,22 @@ export const DescriptionActivity = styled.textarea<checkedStyles>`
   pointer-events: none;
 `;
 
-export const TrashContent = styled.span<React.HTMLAttributes<HTMLSpanElement>>`
+export const CloseIconContent = styled.span`
   display: flex;
-  color: ${colors.white};
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 100%;
+  margin-left: 1px;
 `;
 
-export const TrashIcon = styled(HiTrash)`
+interface isHovered {
+  hovered?: boolean;
+}
+
+export const CloseIcon = styled(MdOutlineClose)<isHovered>`
+  display: ${(props) => (props.hovered ? 'flex' : 'none')};
+
   font-size: 22px;
   color: ${colors.white};
   transition: color 0.5s ease 0s;

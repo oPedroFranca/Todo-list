@@ -3,9 +3,9 @@ import {
   Activity,
   Check,
   CheckButton,
+  CloseIcon,
+  CloseIconContent,
   DescriptionActivity,
-  TrashContent,
-  TrashIcon,
 } from './style';
 
 type ActivityTasksProps = {
@@ -24,6 +24,7 @@ export const ActivityTasks: React.FC<ActivityTasksProps> = ({
   onDelete,
 }) => {
   const [isChecked, setIsChecked] = useState(initialChecked);
+  const [isHovered, setIsHovered] = useState(false);
 
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
 
@@ -53,8 +54,16 @@ export const ActivityTasks: React.FC<ActivityTasksProps> = ({
     onDelete(subtaskId);
   };
 
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
+
   return (
-    <Activity>
+    <Activity onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
       <Check checked={isChecked} onClick={handleCheckClick}>
         <CheckButton />
       </Check>
@@ -64,9 +73,9 @@ export const ActivityTasks: React.FC<ActivityTasksProps> = ({
         onChange={handleTextareaChange}
         value={subtaskDescription}
       />
-      <TrashContent onClick={handleDeleteActivityTask}>
-        <TrashIcon />
-      </TrashContent>
+      <CloseIconContent onClick={handleDeleteActivityTask}>
+        <CloseIcon hovered={isHovered} />
+      </CloseIconContent>
     </Activity>
   );
 };
