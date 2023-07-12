@@ -18,5 +18,5 @@ export const MainContent = styled.div`
   align-content: flex-start;
   justify-content: center;
 
-  margin-right: 22px;
+  margin: 0px 20px 0px 0px;
 `;

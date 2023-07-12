@@ -83,8 +83,7 @@ export const CloseIconContent = styled.span`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 20px;
-  height: 100%;
+  width: 23px;
   margin-left: 1px;
 `;
 
@@ -94,13 +93,24 @@ interface isHovered {
 
 export const CloseIcon = styled(MdOutlineClose)<isHovered>`
   display: ${(props) => (props.hovered ? 'flex' : 'none')};
+  transition: display 0.5s ease 0s;
 
   font-size: 22px;
-  color: ${colors.white};
+  color: #ffffff2b;
   transition: color 0.5s ease 0s;
   cursor: pointer;
+
+  animation: ${fadeIn} 0.5s ease-in-out;
+
+  opacity: 0;
 
   &:hover {
     color: ${colors.purple};
   }
+
+  ${(props) =>
+    props.hovered &&
+    `
+    opacity: 1;
+  `}
 `;

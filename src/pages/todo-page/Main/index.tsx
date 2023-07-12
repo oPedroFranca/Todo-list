@@ -4,6 +4,7 @@ import { CollectionTaskContext } from '../../../context/ColectionTaskContext';
 import { CreateNewTask } from '../../../components/NewTaskButton';
 import { useDetailTaskContext } from '../../../context/DetailsTasks';
 import { TaskDetails } from '../../../components/TaskDetails';
+import { Header } from '../Header';
 
 export function Main() {
   const { showTasks } = useContext(CollectionTaskContext);
@@ -15,6 +16,8 @@ export function Main() {
         <TaskDetails />
       ) : (
         <MainContent>
+          <Header />
+
           {showTasks()}
           <CreateNewTask />
         </MainContent>

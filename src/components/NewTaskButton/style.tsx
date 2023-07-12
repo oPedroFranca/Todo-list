@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { colors } from '../../theme/GlobalStyles';
 
 export const NewTaskContent = styled.div`
-  margin: 20px 10px 10px 20px;
+  margin: 0px 10px 10px 20px;
 
   > div {
     display: flex;
