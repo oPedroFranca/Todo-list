@@ -10,7 +10,10 @@ export function Header() {
 
   return (
     <Styled_Header>
-      
+      <SearchComponent>
+        <input type="text" placeholder="Search" maxLength={25} />
+        <AiSearch />
+      </SearchComponent>
       <p>{formattedDate}</p>
     </Styled_Header>
   );
