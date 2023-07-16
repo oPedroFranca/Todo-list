@@ -1,5 +1,6 @@
 import React from 'react';
-import { AiSearch, SearchComponent, Styled_Header } from './style.js';
+import { Styled_Header } from './style.js';
+import { Search } from '../../../components/Search/index.js';
 
 export function Header() {
   const currentDate = new Date();
@@ -10,8 +11,9 @@ export function Header() {
 
   return (
     <Styled_Header>
-      
+      <Search />
       <p>{formattedDate}</p>
+      <div></div>
     </Styled_Header>
   );
 }

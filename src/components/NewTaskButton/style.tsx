@@ -17,24 +17,6 @@ export const NewTaskContent = styled.div`
   }
 `;
 
-export const FalseStatus = styled.div<{ isHovered: boolean }>`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: ${colors.dark_black};
-  color: ${(props) => (props.isHovered ? colors.purple : colors.gray)};
-  border-top: 1px dashed;
-  border-left: 1px dashed;
-  border-right: 1px dashed;
-  width: 50px;
-  height: 25px;
-  font-size: 15px;
-  margin-right: 20px;
-  border-radius: 5px 5px 0px 0px;
-  transition: color 0.5s ease 0s;
-  cursor: pointer;
-`;
-
 export const NewTask = styled.button`
   background-color: ${colors.dark_black};
   color: ${colors.gray};
@@ -48,8 +30,9 @@ export const NewTask = styled.button`
   transition: color 0.5s ease 0s;
   outline: none;
   margin-bottom: 20px;
+  margin-top: 25px;
 
   &:hover {
-    color: ${colors.purple};
+    color: ${colors.dark_purple};
   }
 `;

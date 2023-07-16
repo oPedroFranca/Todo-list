@@ -8,7 +8,7 @@ export const UserDiv = styled.div`
   justify-content: space-between;
 
   height: 70px;
-  margin-top: 15px;
+  margin-top: 10px;
   padding: 0px 15px 0px 15px;
   border-radius: 10px;
 
