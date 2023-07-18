@@ -13,9 +13,19 @@ export const Styled_Header = styled.header`
   color: #ffffff71;
 
   margin-bottom: 2px;
-  border-bottom: 1px solid ${colors.white_black};
 
   > div {
-    width: 1px;
+    display: flex;
+    justify-content: flex-end;
+
+    width: 235px;
+    margin-right: 3px;
   }
+`;
+
+export const Today = styled.p`
+  display: flex;
+  align-items: center;
+  width: 88px;
+  margin-left: 10px;
 `;

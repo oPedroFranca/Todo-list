@@ -7,8 +7,7 @@ type Focused = {
 };
 
 export const SearchComponent = styled.div<Focused>`
-  display: flex;
-  align-items: center;
+  margin-right: 3px;
 
   > div {
     display: flex;
@@ -23,7 +22,7 @@ export const SearchComponent = styled.div<Focused>`
     border-bottom: 2px solid transparent;
 
     width: 35px;
-    height: 32px;
+    height: 35px;
 
     font-size: 20px;
 
@@ -32,9 +31,9 @@ export const SearchComponent = styled.div<Focused>`
       `
       color: ${colors.purple};
 
-      border-top: 2px solid ${colors.purple};
-      border-left: 2px solid ${colors.purple};
-      border-bottom: 2px solid ${colors.purple};
+      border-top: 2px solid ${colors.dark_purple};
+      border-left: 2px solid ${colors.dark_purple};
+      border-bottom: 2px solid ${colors.dark_purple};
     `}
   }
 
@@ -42,7 +41,7 @@ export const SearchComponent = styled.div<Focused>`
     display: flex;
     align-items: center;
     width: 200px;
-    height: 32px;
+    height: 35px;
 
     font-weight: 500;
     font-size: 14px;
@@ -67,9 +66,9 @@ export const SearchComponent = styled.div<Focused>`
 
     &:focus {
       color: ${colors.purple};
-      border-top: 2px solid ${colors.purple};
-      border-right: 2px solid ${colors.purple};
-      border-bottom: 2px solid ${colors.purple};
+      border-top: 2px solid ${colors.dark_purple};
+      border-right: 2px solid ${colors.dark_purple};
+      border-bottom: 2px solid ${colors.dark_purple};
 
       &::placeholder {
         color: ${colors.purple};
@@ -80,4 +79,5 @@ export const SearchComponent = styled.div<Focused>`
 
 export const AiSearch = styled(AiOutlineSearch)`
   cursor: pointer;
+  width: 25px;
 `;

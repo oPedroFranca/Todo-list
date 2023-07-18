@@ -1,6 +1,7 @@
 import React from 'react';
-import { Styled_Header } from './style.js';
+import { Styled_Header, Today } from './style.js';
 import { Search } from '../../../components/Search/index.js';
+import { StackDays } from '../../../components/StackDays/index.js';
 
 export function Header() {
   const currentDate = new Date();
@@ -12,8 +13,10 @@ export function Header() {
   return (
     <Styled_Header>
       <Search />
-      <p>{formattedDate}</p>
-      <div></div>
+      <Today>{formattedDate}</Today>
+      <div>
+        <StackDays />
+      </div>
     </Styled_Header>
   );
 }
