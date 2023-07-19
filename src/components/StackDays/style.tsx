@@ -12,6 +12,7 @@ export const StackDaysComponent = styled.div`
   font-weight: bold;
   font-size: 13px;
   border-radius: 5px;
+  border: 1px solid ${colors.dark_purple};
 
   color: white;
   background-color: ${colors.white_black};
