@@ -1,14 +1,22 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FireIcon, NumberDays, StackDaysComponent } from './style';
+import { updateStackDaysCount } from './utils';
 
 export function StackDays() {
-  const StackDaysCount = 8;
+  const [stackDaysCount, setStackDaysCount] = useState(0);
+
+  useEffect(() => {
+    // Update the stackDaysCount on component mount
+    setStackDaysCount(updateStackDaysCount());
+  }, []);
+
+  // Function to reset the stackDaysCount to 0
 
   return (
     <StackDaysComponent>
-      <p>Stack</p>
+      <p>Days</p>
       <FireIcon />
-      <NumberDays>{StackDaysCount}</NumberDays>
+      <NumberDays>{stackDaysCount}</NumberDays>
     </StackDaysComponent>
   );
 }
