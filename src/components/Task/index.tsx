@@ -61,7 +61,7 @@ export const Tasks = ({ task }: TasksProps) => {
           onClick={handleTaskClick}
           className={`task ${taskStatus.toLowerCase()}`}
         >
-          <h1>{taskName ? taskName : 'Task'}</h1>
+          <h1>{taskName}</h1>
           <DescriptionTask value={taskDescription} />
           <DateToday value={dateCreated} />
           <LineDashed />

@@ -24,7 +24,7 @@ export interface TaskContextValue {
   taskList: Task[];
   addTask: (task: Task) => void;
   removeTask: (taskId: string) => void;
-  showTasks: () => ReactNode[];
+  showTasks: (searchValue: string) => ReactNode[];
   toggleFavorite: (taskId: string) => void;
   selectTask: (taskId: string) => void;
 }
@@ -95,8 +95,16 @@ export const CollectionTaskProvider: React.FC<{
     saveTasksToLocalStorage(updatedTasks);
   };
 
-  const showTasks = () => {
-    return taskList.map((task) => <Tasks key={task.taskId} task={task} />);
+  const showTasks = (searchValue: string) => {
+    let filteredTasks = taskList;
+
+    if (searchValue.trim() !== '') {
+      filteredTasks = taskList.filter((task) =>
+        task.taskName.toLowerCase().includes(searchValue.toLowerCase()),
+      );
+    }
+
+    return filteredTasks.map((task) => <Tasks key={task.taskId} task={task} />);
   };
 
   const value: TaskContextValue = {

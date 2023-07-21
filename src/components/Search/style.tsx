@@ -54,7 +54,7 @@ export const SearchComponent = styled.div<Focused>`
     border-bottom: 2px solid transparent;
     border-right: 2px solid transparent;
 
-    color: none;
+    color: ${colors.white};
     outline: none;
     background-color: ${colors.white_black};
 

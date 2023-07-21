@@ -31,7 +31,11 @@ export const ModalTask = () => {
   const handleAddTask = () => {
     const taskId = uuidv4();
 
-    const taskName: string = CapitalizeFirstLetter(tasksName);
+    let taskName: string = tasksName;
+
+    if (taskName === '') taskName = 'Task';
+    else taskName = CapitalizeFirstLetter(tasksName);
+
     addTask({
       taskId,
       taskName,
