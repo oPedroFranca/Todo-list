@@ -63,3 +63,21 @@ export const Arrow = styled(MdKeyboardArrowRight)<StarProps>`
     animation: ${rotateAnimation} 0.3s ease;
   }
 `;
+
+export const DivTodoList = styled.div`
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+
+  margin-top: 10px;
+  margin-bottom: 20px;
+
+  color: ${colors.white};
+  font-size: 14px;
+  font-weight: bold;
+  > img {
+    width: 65px;
+    margin-left: 5px;
+  }
+`;
