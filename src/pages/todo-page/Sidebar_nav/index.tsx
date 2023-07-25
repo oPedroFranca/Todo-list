@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { UserProfile } from '../../../components/UserProfile/index.js';
 import {
   Arrow,
-  DivTodoList,
+  DivTodoListLogo,
   HideSidebarButton,
   SidebarDiv,
   StyledSidebar_nav,
@@ -22,10 +22,10 @@ export function Sidebar_nav() {
   return (
     <>
       <StyledSidebar_nav className={!isSidebarVisible ? 'hide' : ''}>
-        <DivTodoList>
+        <DivTodoListLogo>
           <img src="public/icons/nuvem-icon-logo.png" alt="" />
           <p>TO-DO LIST</p>
-        </DivTodoList>
+        </DivTodoListLogo>
         <UserProfile />
       </StyledSidebar_nav>
 

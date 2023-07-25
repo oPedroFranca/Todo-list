@@ -64,20 +64,22 @@ export const Arrow = styled(MdKeyboardArrowRight)<StarProps>`
   }
 `;
 
-export const DivTodoList = styled.div`
+export const DivTodoListLogo = styled.div`
   display: grid;
   align-items: center;
   justify-content: center;
-  height: 50px;
+  height: 80px;
+  color: #ffffff11;
 
-  margin-top: 10px;
   margin-bottom: 20px;
+  padding: 13px;
+  border-bottom: 1px solid #ffffff11;
 
   color: ${colors.white};
-  font-size: 14px;
+  font-size: 12px;
   font-weight: bold;
   > img {
-    width: 65px;
-    margin-left: 5px;
+    width: 50px;
+    margin-left: 7px;
   }
 `;

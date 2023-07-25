@@ -4,19 +4,25 @@ import React, { createContext, useState } from 'react';
 type ModalContextType = {
   isOpen: boolean;
   isOpenWelcome: boolean;
+  isOpenDeleteTask: boolean;
   openModal: () => void;
   closeModal: () => void;
   openModalWelcome: () => void;
   closeModalWelcome: () => void;
+  openDeleteTaskModal: () => void;
+  closeDeleteTaskModal: () => void;
 };
 
 export const ModalContext = createContext<ModalContextType>({
   isOpen: true,
+  isOpenDeleteTask: false,
+  isOpenWelcome: true,
   openModal: () => {},
   closeModal: () => {},
-  isOpenWelcome: true,
   openModalWelcome: () => {},
   closeModalWelcome: () => {},
+  openDeleteTaskModal: () => {},
+  closeDeleteTaskModal: () => {},
 });
 
 export const ModalProvider: React.FC<{ children?: React.ReactNode }> = ({
@@ -24,14 +30,7 @@ export const ModalProvider: React.FC<{ children?: React.ReactNode }> = ({
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isOpenWelcome, setIsOpenWelcome] = useState(true);
-
-  const openModalWelcome = () => {
-    setIsOpenWelcome(true);
-  };
-
-  const closeModalWelcome = () => {
-    setIsOpenWelcome(false);
-  };
+  const [isOpenDeleteTask, setIsOpenDeleteTask] = useState(true);
 
   const openModal = () => {
     setIsOpen(true);
@@ -41,15 +40,34 @@ export const ModalProvider: React.FC<{ children?: React.ReactNode }> = ({
     setIsOpen(false);
   };
 
+  const openModalWelcome = () => {
+    setIsOpenWelcome(true);
+  };
+
+  const closeModalWelcome = () => {
+    setIsOpenWelcome(false);
+  };
+
+  const openDeleteTaskModal = () => {
+    setIsOpenDeleteTask(true);
+  };
+
+  const closeDeleteTaskModal = () => {
+    setIsOpen(false);
+  };
+
   return (
     <ModalContext.Provider
       value={{
         isOpen,
         isOpenWelcome,
+        isOpenDeleteTask,
         openModal,
         closeModal,
         openModalWelcome,
         closeModalWelcome,
+        openDeleteTaskModal,
+        closeDeleteTaskModal,
       }}
     >
       {children}
