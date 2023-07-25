@@ -3,7 +3,7 @@ import { colors } from '../../theme/GlobalStyles';
 import { MdDone, MdOutlineClose } from 'react-icons/md';
 
 export const DeleteModalDiv = styled.div`
-  position: absolute;
+  position: fixed;
   width: 100vw;
   height: 100vh;
   background-color: transparent;
@@ -12,6 +12,7 @@ export const DeleteModalDiv = styled.div`
 
   color: ${colors.white};
   overflow: hidden;
+  pointer-events: none;
 `;
 
 export const DeleteModalContent = styled.div`
@@ -27,6 +28,11 @@ export const DeleteModalContent = styled.div`
 
   top: 90%;
   left: 50%;
+  transform: translateX(-50%);
+  pointer-events: all;
+  border: 1px solid ${colors.dark_purple};
+
+  box-shadow: 0 0 10px rgba(0, 0, 0, 10);
 `;
 
 export const DoneSpan = styled.span`
@@ -66,9 +72,11 @@ export const CloseSpan = styled.span`
 `;
 
 export const DoneIcon = styled(MdDone)`
+  transition: color 0.5s ease;
   font-size: 20px;
 `;
 
 export const CloseIcon = styled(MdOutlineClose)`
+  transition: color 0.5s ease;
   font-size: 20px;
 `;

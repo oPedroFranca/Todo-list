@@ -15,6 +15,8 @@ export function App() {
   const { isOpen, isOpenWelcome, isOpenDeleteTask } = useContext(ModalContext);
   const { isOpenTask } = useContext(TaskContent);
 
+  console.log(isOpenDeleteTask);
+
   return (
     <div className="App">
       <GlobalStyle />
@@ -31,7 +33,7 @@ export function App() {
         <ModalTask />
       </Modal>
 
-      <Modal isOpen={true}>
+      <Modal isOpen={isOpenDeleteTask}>
         <DeleteTaskModal />
       </Modal>
 

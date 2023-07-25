@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import {
   CloseIcon,
   CloseSpan,
@@ -7,19 +7,26 @@ import {
   DoneIcon,
   DoneSpan,
 } from './style';
+import { ModalContext } from '../../context/ModalContext';
 
 export const DeleteTaskModal = () => {
+  const { closeDeleteTaskModal } = useContext(ModalContext);
+
   return (
     <DeleteModalDiv>
       <DeleteModalContent>
         <p>Delete</p>
 
+        <CloseSpan
+          onClick={() => {
+            closeDeleteTaskModal();
+          }}
+        >
+          <CloseIcon />
+        </CloseSpan>
         <DoneSpan>
           <DoneIcon />
         </DoneSpan>
-        <CloseSpan>
-          <CloseIcon />
-        </CloseSpan>
       </DeleteModalContent>
     </DeleteModalDiv>
   );
