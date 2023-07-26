@@ -1,19 +1,21 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { HiTrash } from 'react-icons/hi';
 import { TrashContent } from './style';
+import { ModalContext } from '../../../../context/ModalContext';
 
-type TrashProps = {
-  onClick: React.MouseEventHandler<HTMLElement>;
-};
+export const Trash = ({ taskId }: { taskId: string }) => {
+  const { openDeleteTaskModal } = useContext(ModalContext);
 
-/**
- * Component representing a trash can icon.
- * @param onClick Function to handle component click.
- */
-export const Trash = ({ onClick }: TrashProps) => {
+  const openHandleDeleteTask = (
+    event: React.MouseEvent<Element, MouseEvent>,
+  ) => {
+    event.stopPropagation();
+    openDeleteTaskModal(taskId);
+  };
+
   return (
     <>
-      <TrashContent onClick={onClick}>
+      <TrashContent onClick={openHandleDeleteTask}>
         <HiTrash />
       </TrashContent>
     </>

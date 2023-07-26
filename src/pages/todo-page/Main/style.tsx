@@ -17,6 +17,7 @@ export const MainContent = styled.div`
   flex-wrap: wrap;
   align-content: flex-start;
   justify-content: center;
+  width: 100%;
 
   margin: 0px 20px 0px 0px;
 `;

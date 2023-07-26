@@ -21,14 +21,9 @@ export const FooterTask = ({
   id,
   subtasks,
   onStarClick,
-  onDeleteTask,
   starActive,
   calculateStatus,
 }: FooterTaskProps) => {
-  const handleDeleteTask = (event: React.MouseEvent<Element, MouseEvent>) => {
-    onDeleteTask(id, event);
-  };
-
   const taskStatus = calculateStatus(id, subtasks);
 
   return (
@@ -42,7 +37,7 @@ export const FooterTask = ({
         <StarPriority onClick={onStarClick} active={starActive} />
 
         {/* Task deletion component */}
-        <Trash onClick={handleDeleteTask} />
+        <Trash taskId={id} />
 
         {/* Dot menu component */}
         <DotsMenu />

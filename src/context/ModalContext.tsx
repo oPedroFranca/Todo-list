@@ -5,11 +5,12 @@ type ModalContextType = {
   isOpen: boolean;
   isOpenWelcome: boolean;
   isOpenDeleteTask: boolean;
+  taskClicked: string;
   openModal: () => void;
   closeModal: () => void;
   openModalWelcome: () => void;
   closeModalWelcome: () => void;
-  openDeleteTaskModal: () => void;
+  openDeleteTaskModal: (taskID: string) => void;
   closeDeleteTaskModal: () => void;
 };
 
@@ -17,6 +18,7 @@ export const ModalContext = createContext<ModalContextType>({
   isOpen: true,
   isOpenDeleteTask: false,
   isOpenWelcome: true,
+  taskClicked: '',
   openModal: () => {},
   closeModal: () => {},
   openModalWelcome: () => {},
@@ -30,7 +32,8 @@ export const ModalProvider: React.FC<{ children?: React.ReactNode }> = ({
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isOpenWelcome, setIsOpenWelcome] = useState(true);
-  const [isOpenDeleteTask, setIsOpenDeleteTask] = useState(true);
+  const [isOpenDeleteTask, setIsOpenDeleteTask] = useState(false);
+  const [taskClicked, setTaskClicked] = useState('');
 
   const openModal = () => {
     setIsOpen(true);
@@ -48,12 +51,13 @@ export const ModalProvider: React.FC<{ children?: React.ReactNode }> = ({
     setIsOpenWelcome(false);
   };
 
-  const openDeleteTaskModal = () => {
+  const openDeleteTaskModal = (taskID: string) => {
     setIsOpenDeleteTask(true);
+    setTaskClicked(taskID);
   };
 
   const closeDeleteTaskModal = () => {
-    setIsOpen(false);
+    setIsOpenDeleteTask(false);
   };
 
   return (
@@ -62,6 +66,7 @@ export const ModalProvider: React.FC<{ children?: React.ReactNode }> = ({
         isOpen,
         isOpenWelcome,
         isOpenDeleteTask,
+        taskClicked,
         openModal,
         closeModal,
         openModalWelcome,
