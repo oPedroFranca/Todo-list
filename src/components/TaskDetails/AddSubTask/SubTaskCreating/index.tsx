@@ -32,6 +32,16 @@ export const SubTaskCreating: React.FC<SubTaskCreatingProps> = ({
   }, []);
 
   // Event handler for the keydown event on the input
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === 'Enter') {
+      // Call the function to save the subtask
+      handleSaveSubtask();
+      clearInputAndSelect(); // Clear the input and select the text
+      if (inputRef.current) {
+        inputRef.current.focus(); // Focus again on the input
+      }
+    }
+  };
 
   return (
     <CreatingSubTaskContent>
