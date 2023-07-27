@@ -31,6 +31,8 @@ export const SubTaskCreating: React.FC<SubTaskCreatingProps> = ({
     }
   }, []);
 
+  // Event handler for the keydown event on the input
+
   return (
     <CreatingSubTaskContent>
       {/* Input for the description of the subtask */}
@@ -39,6 +41,7 @@ export const SubTaskCreating: React.FC<SubTaskCreatingProps> = ({
         value={subtaskDescription}
         placeholder="Description for this"
         onChange={onSubtaskDescriptionChange}
+        onKeyDown={handleKeyDown} // Add the keydown event handler
         ref={inputRef}
       />
       <div>
