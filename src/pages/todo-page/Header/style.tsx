@@ -29,7 +29,7 @@ export const Styled_Header = styled.header`
   height: 70px;
   padding-left: 30px;
   padding-right: 20px;
-  color: #ffffff71;
+  color: ${colors.gray};
 
   margin-bottom: 2px;
 

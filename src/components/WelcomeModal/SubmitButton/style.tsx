@@ -28,7 +28,7 @@ export const Buttonsubmit = styled.button`
 
   &:disabled {
     background: #8f7ad639;
-    color: #ffffff29;
+    color: ${colors.gray};
     cursor: auto;
   }
 `;

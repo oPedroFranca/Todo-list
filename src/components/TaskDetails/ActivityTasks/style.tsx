@@ -96,7 +96,7 @@ export const CloseIcon = styled(MdOutlineClose)<isHovered>`
   transition: display 0.5s ease 0s;
 
   font-size: 22px;
-  color: #ffffff2b;
+  color: #ffffff3b;
   transition: color 0.5s ease 0s;
   cursor: pointer;
 

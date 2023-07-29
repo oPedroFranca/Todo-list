@@ -27,7 +27,7 @@ export const ModalHeaderIcon = styled.img`
 `;
 
 export const ModalHeaderInfo = styled.p`
-  color: #ffffff3b;
+  color: ${colors.gray};
   font-weight: bold;
   font-size: 11px;
 `;
