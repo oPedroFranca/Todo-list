@@ -20,7 +20,7 @@ export const DeleteTaskModal = () => {
   const animationProps = useSpring({
     opacity: visible ? 1 : 0,
     from: { opacity: 0 },
-    config: { tension: 150, friction: 10 },
+    config: { tension: 100, friction: 20 },
     onRest: () => {
       if (!visible) {
         closeDeleteTaskModal();

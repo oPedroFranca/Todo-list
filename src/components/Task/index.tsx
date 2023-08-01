@@ -12,6 +12,7 @@ import { DateToday } from './Date';
 import { useDetailTaskContext } from '../../context/DetailsTasks';
 import { CategoryComponent } from './Category';
 import { calculateStatus } from './utils';
+import { StatusTaskContext } from '../../context/StatusTasksContext';
 
 type TasksProps = {
   task: TaskType;
@@ -35,6 +36,17 @@ export const Tasks = ({ task }: TasksProps) => {
   const handleStarClick = (event: React.MouseEvent) => {
     event.stopPropagation();
     toggleFavorite(taskId);
+
+    const { numberHighPriority, setHighPriority } =
+      useContext(StatusTaskContext);
+
+    if (!isFavorite) {
+      // Prioridade ativada, incrementar o número de tarefas de alta prioridade.
+      setHighPriority(numberHighPriority + 1);
+    } else {
+      // Prioridade desativada, decrementar o número de tarefas de alta prioridade.
+      setHighPriority(numberHighPriority - 1);
+    }
   };
 
   const handleDeleteTask = (

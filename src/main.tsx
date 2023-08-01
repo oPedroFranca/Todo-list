@@ -7,6 +7,7 @@ import { ModalProvider } from './context/ModalContext';
 import { NewTaskProvider } from './context/NewTaskContent';
 import { CollectionTaskProvider } from './context/ColectionTaskContext';
 import { DetailTaskProvider } from './context/DetailsTasks';
+import { StatusTaskProvider } from './context/StatusTasksContext';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
@@ -15,7 +16,9 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
         <NewTaskProvider>
           <CollectionTaskProvider>
             <DetailTaskProvider>
-              <App />
+              <StatusTaskProvider>
+                <App />
+              </StatusTaskProvider>
             </DetailTaskProvider>
           </CollectionTaskProvider>
         </NewTaskProvider>
