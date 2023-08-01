@@ -28,8 +28,6 @@ export function Sidebar_nav() {
           <p>TO-DO LIST</p>
         </DivTodoListLogo>
         <UserProfile />
-
-        <DetailsTaskStatus />
       </StyledSidebar_nav>
 
       <SidebarDiv onClick={toggleSidebar}>
