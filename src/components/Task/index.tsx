@@ -19,15 +19,36 @@ type TasksProps = {
 };
 
 export const Tasks = ({ task }: TasksProps) => {
-  const { removeTask, toggleFavorite } = useContext(CollectionTaskContext);
+  const { removeTask, toggleFavorite, taskList } = useContext(
+    CollectionTaskContext,
+  );
   const { taskId, taskName, taskDescription, isFavorite, dateCreated } = task;
   const { openTaskDetails } = useDetailTaskContext();
+  const {
+    setCompleted,
+    numberCompleted,
+    completedTasks,
+    setCompletedTasks,
+    setInProgress,
+  } = useContext(StatusTaskContext);
 
   const [taskStatus, setTaskStatus] = useState('In Progress');
-
   useEffect(() => {
     setTaskStatus(calculateStatus(taskId));
-  });
+  }, [taskId]);
+
+  const status = calculateStatus(taskId);
+  useEffect(() => {
+    if (status === 'Complete' && !completedTasks.includes(taskId)) {
+      setCompletedTasks([...completedTasks, taskId]);
+      setCompleted(numberCompleted + 1);
+    } else if (status !== 'Complete' && completedTasks.includes(taskId)) {
+      setCompletedTasks(completedTasks.filter((id) => id !== taskId));
+      setCompleted(numberCompleted - 1);
+    }
+  }, [completedTasks]);
+
+  setInProgress(taskList.length - numberCompleted);
 
   const handleTaskClick = () => {
     openTaskDetails(taskId);

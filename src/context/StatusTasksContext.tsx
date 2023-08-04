@@ -7,7 +7,11 @@ interface StatusTaskContextType {
   numberCompleted: number;
   numberInProgress: number;
   numberHighPriority: number;
+  completedTasks: string[];
   setHighPriority: React.Dispatch<React.SetStateAction<number>>;
+  setCompleted: React.Dispatch<React.SetStateAction<number>>;
+  setInProgress: React.Dispatch<React.SetStateAction<number>>;
+  setCompletedTasks: React.Dispatch<React.SetStateAction<string[]>>;
 }
 
 // Create a new context for user details
@@ -16,7 +20,11 @@ export const StatusTaskContext = createContext<StatusTaskContextType>({
   numberCompleted: 0,
   numberInProgress: 0,
   numberHighPriority: 0,
-  setHighPriority: () => {}, // Provide a default empty function to satisfy the context value
+  completedTasks: [''],
+  setHighPriority: () => {},
+  setCompleted: () => {},
+  setCompletedTasks: () => {},
+  setInProgress: () => {},
 });
 
 interface UserDetailsProps {
@@ -27,6 +35,7 @@ export function StatusTaskProvider({ children }: UserDetailsProps) {
   const [numberCompleted, setCompleted] = useState<number>(0);
   const [numberInProgress, setInProgress] = useState<number>(0);
   const [numberHighPriority, setHighPriority] = useState<number>(0);
+  const [completedTasks, setCompletedTasks] = useState<string[]>([]);
 
   const { taskList } = useContext(CollectionTaskContext);
   const getAllTasks = (): number => taskList.length;
@@ -42,7 +51,11 @@ export function StatusTaskProvider({ children }: UserDetailsProps) {
     numberCompleted,
     numberInProgress,
     numberHighPriority,
+    completedTasks,
     setHighPriority,
+    setCompleted,
+    setCompletedTasks,
+    setInProgress,
   };
 
   return (

@@ -23,5 +23,5 @@ export const calculateStatus = (taskId: string) => {
     }
   }
 
-  return 'In Progress'; // Retorne um valor padrão caso a tarefa não seja encontrada no localStorage
+  return 'In Progress';
 };
