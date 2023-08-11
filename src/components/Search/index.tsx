@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent, KeyboardEvent } from 'react';
+import React, { useState, useEffect, ChangeEvent, KeyboardEvent } from 'react';
 import { AiSearch, SearchComponent } from './style';
 
 interface Props {
@@ -7,12 +7,21 @@ interface Props {
 
 export function Search({ onSearch }: Props) {
   const [isFocused, setIsFocused] = useState(false);
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm] = useState('');
+  const [userTypedValue, setUserTypedValue] = useState('');
+
+  useEffect(() => {
+    const storedValue = localStorage.getItem('userTypedValue');
+    if (storedValue) {
+      setUserTypedValue(storedValue);
+    }
+  }, []);
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
-    setSearchTerm(value);
+    setUserTypedValue(value);
     onSearch(value);
+    localStorage.setItem('userTypedValue', value);
   };
 
   const handleSearch = () => {
@@ -22,6 +31,12 @@ export function Search({ onSearch }: Props) {
   const handleKeyUp = (event: KeyboardEvent<HTMLInputElement>) => {
     if (event.key === 'Enter') {
       handleSearch();
+    }
+  };
+
+  const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === 'Backspace') {
+      setUserTypedValue(event.currentTarget.value);
     }
   };
 
@@ -37,8 +52,9 @@ export function Search({ onSearch }: Props) {
         maxLength={25}
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}
-        value={searchTerm}
+        value={userTypedValue}
         onChange={handleInputChange}
+        onKeyDown={handleKeyDown}
         onKeyUp={handleKeyUp}
       />
     </SearchComponent>

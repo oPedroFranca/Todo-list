@@ -47,7 +47,7 @@ export const Styled_Header = styled.header`
 export const Today = styled.p`
   display: flex;
   align-items: center;
-  width: 88px;
+  width: 100px;
   margin-left: 10px;
 `;
 
@@ -69,6 +69,7 @@ export const Bell = styled(BsBellFill)<{ isbellClicked: boolean }>`
   margin-right: 12px;
   font-size: 18px;
   transition: color 0.5s ease;
+  cursor: pointer;
 
   ${(props) =>
     props.isbellClicked === true &&

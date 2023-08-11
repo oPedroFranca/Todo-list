@@ -19,10 +19,10 @@ type TasksProps = {
 };
 
 export const Tasks = ({ task }: TasksProps) => {
+  // Contexts
   const { removeTask, toggleFavorite, taskList } = useContext(
     CollectionTaskContext,
   );
-  const { taskId, taskName, taskDescription, isFavorite, dateCreated } = task;
   const { openTaskDetails } = useDetailTaskContext();
   const {
     setCompleted,
@@ -32,13 +32,24 @@ export const Tasks = ({ task }: TasksProps) => {
     setInProgress,
   } = useContext(StatusTaskContext);
 
+  // Task properties
+  const { taskId, taskName, taskDescription, isFavorite, dateCreated } = task;
+
+  // Status and Effects
   const [taskStatus, setTaskStatus] = useState('In Progress');
+
   useEffect(() => {
     setTaskStatus(calculateStatus(taskId));
   }, [taskId]);
 
-  const status = calculateStatus(taskId);
   useEffect(() => {
+    updateCompletedTasks();
+    updateInProgress();
+  }, [completedTasks, taskList]);
+
+  const updateCompletedTasks = () => {
+    const status = calculateStatus(taskId);
+
     if (status === 'Complete' && !completedTasks.includes(taskId)) {
       setCompletedTasks([...completedTasks, taskId]);
       setCompleted(numberCompleted + 1);
@@ -46,10 +57,16 @@ export const Tasks = ({ task }: TasksProps) => {
       setCompletedTasks(completedTasks.filter((id) => id !== taskId));
       setCompleted(numberCompleted - 1);
     }
-  }, [completedTasks]);
+  };
 
-  setInProgress(taskList.length - numberCompleted);
+  const updateInProgress = () => {
+    const completedTasksInList = completedTasks.filter((id) =>
+      taskList.some((task) => task.taskId === id),
+    );
+    setInProgress(taskList.length - completedTasksInList.length);
+  };
 
+  // Event Handlers
   const handleTaskClick = () => {
     openTaskDetails(taskId);
   };
@@ -62,10 +79,8 @@ export const Tasks = ({ task }: TasksProps) => {
       useContext(StatusTaskContext);
 
     if (!isFavorite) {
-      // Prioridade ativada, incrementar o número de tarefas de alta prioridade.
       setHighPriority(numberHighPriority + 1);
     } else {
-      // Prioridade desativada, decrementar o número de tarefas de alta prioridade.
       setHighPriority(numberHighPriority - 1);
     }
   };
@@ -78,6 +93,7 @@ export const Tasks = ({ task }: TasksProps) => {
     removeTask(taskId);
   };
 
+  // Animation
   const animationProps = useSpring({
     opacity: 1,
     from: { opacity: 0 },
@@ -88,7 +104,7 @@ export const Tasks = ({ task }: TasksProps) => {
     <animated.div style={animationProps}>
       <TaskContent>
         <div>
-          <CategoryComponent isFavorite={task.isFavorite} />
+          <CategoryComponent isFavorite={isFavorite} />
         </div>
         <Task
           onClick={handleTaskClick}
