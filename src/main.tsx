@@ -8,6 +8,7 @@ import { NewTaskProvider } from './context/NewTaskContent';
 import { CollectionTaskProvider } from './context/ColectionTaskContext';
 import { DetailTaskProvider } from './context/DetailsTasks';
 import { StatusTaskProvider } from './context/StatusTasksContext';
+import { CategoryProvider } from './context/CategoryContext';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
@@ -17,7 +18,9 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
           <CollectionTaskProvider>
             <DetailTaskProvider>
               <StatusTaskProvider>
-                <App />
+                <CategoryProvider>
+                  <App />
+                </CategoryProvider>
               </StatusTaskProvider>
             </DetailTaskProvider>
           </CollectionTaskProvider>
