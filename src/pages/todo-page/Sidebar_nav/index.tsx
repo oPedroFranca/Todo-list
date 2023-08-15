@@ -8,6 +8,7 @@ import {
   StyledSidebar_nav,
 } from './style.js';
 import { DetailsTaskStatus } from '../../../components/DetailsTasksStatus/index.js';
+import { CatergoriesTab } from '../../../components/CategoriesTab/index.js';
 
 export function Sidebar_nav() {
   const [isSidebarVisible, setIsSidebarVisible] = useState(true);
@@ -30,6 +31,8 @@ export function Sidebar_nav() {
         <UserProfile />
 
         <DetailsTaskStatus />
+
+        <CatergoriesTab />
       </StyledSidebar_nav>
 
       <SidebarDiv onClick={toggleSidebar}>
