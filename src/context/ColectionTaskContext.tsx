@@ -10,6 +10,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { Tasks } from '../components/Task';
 import { SaveDateToday } from '../utils/SaveDateToday';
 import { Subtask } from './DetailsTasks';
+import { calculateStatus } from '../components/Task/utils';
 
 export type Task = {
   taskId: string;
@@ -24,7 +25,7 @@ export interface TaskContextValue {
   taskList: Task[];
   addTask: (task: Task) => void;
   removeTask: (taskId: string) => void;
-  showTasks: (searchValue: string) => ReactNode[];
+  showTasks: (searchValue: string, selectedCategory: string) => ReactNode[];
   toggleFavorite: (taskId: string) => void;
   selectTask: (taskId: string) => void;
 }
@@ -95,7 +96,7 @@ export const CollectionTaskProvider: React.FC<{
     saveTasksToLocalStorage(updatedTasks);
   };
 
-  const showTasks = (searchValue: string) => {
+  const showTasks = (searchValue: string, selectedCategory: string) => {
     let filteredTasks = taskList;
 
     if (searchValue.trim() !== '') {
@@ -104,7 +105,34 @@ export const CollectionTaskProvider: React.FC<{
       );
     }
 
+    if (selectedCategory !== 'All Tasks') {
+      filteredTasks = filteredTasks.filter((task) =>
+        taskStatusMatchesCategory(task, selectedCategory),
+      );
+    }
+
     return filteredTasks.map((task) => <Tasks key={task.taskId} task={task} />);
+  };
+
+  const taskStatusMatchesCategory = (task: Task, category: string) => {
+    const taskStatus = calculateStatus(task.taskId);
+
+    switch (category) {
+      case 'All Tasks':
+        return true; // Show all tasks
+
+      case 'Completed':
+        return taskStatus === 'Complete';
+
+      case 'In progress':
+        return taskStatus === 'In Progress';
+
+      case 'High Priority':
+        return task.isFavorite;
+
+      default:
+        return false;
+    }
   };
 
   const value: TaskContextValue = {

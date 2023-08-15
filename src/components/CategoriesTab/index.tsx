@@ -2,7 +2,7 @@ import React from 'react';
 import { CatergoriesTabContent } from './style';
 import { useCategoryContext } from '../../context/CategoryContext';
 
-export const CatergoriesTab = () => {
+export const CategoriesTab = () => {
   const { selectedCategory, selectCategory } = useCategoryContext();
 
   const categories = ['All Tasks', 'Completed', 'In progress', 'High Priority'];
