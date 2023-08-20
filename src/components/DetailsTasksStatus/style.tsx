@@ -8,7 +8,7 @@ export const DetailsTaskStatusContent = styled.div`
   width: 100%;
   flex-wrap: wrap;
   margin-top: 40px;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
   margin-left: 15px;
   color: ${colors.white};
 `;

@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { colors } from '../../theme/GlobalStyles';
+import { TbPointFilled } from 'react-icons/tb';
 
 export const CatergoriesTabContent = styled.div`
   display: grid;
@@ -30,4 +31,12 @@ export const CatergoriesTabContent = styled.div`
       transform: translate(2px, -2px);
     }
   }
+`;
+
+export const PointCategories = styled(TbPointFilled)`
+  font-size: 15px;
+  margin-left: 2px;
+  margin-right: 5px;
+
+  transition: color 0.5s ease;
 `;

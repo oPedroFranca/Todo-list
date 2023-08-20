@@ -9,10 +9,7 @@
 
 /* Estilizando a barra de rolagem */
 ::-webkit-scrollbar {
-  width: 8px;
-  border-radius: 10px;
-  background-color: #272727;
-
+  width: 6px;
 }
 
 /* Estilizando o "thumb" da barra de rolagem */

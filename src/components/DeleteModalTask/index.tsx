@@ -19,7 +19,8 @@ export const DeleteTaskModal = () => {
 
   const animationProps = useSpring({
     opacity: visible ? 1 : 0,
-    from: { opacity: 0 },
+    zIndex: visible ? 9999 : -1, // Set a high z-index during animation, -1 when hidden
+    from: { opacity: 0, zIndex: -1 }, // Initial state with low z-index
     config: { tension: 100, friction: 20 },
     onRest: () => {
       if (!visible) {

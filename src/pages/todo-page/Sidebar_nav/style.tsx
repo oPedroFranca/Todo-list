@@ -3,6 +3,9 @@ import { colors } from '../../../theme/GlobalStyles';
 import { MdKeyboardArrowRight } from 'react-icons/md';
 
 export const StyledSidebar_nav = styled.nav`
+  display: flex;
+  flex-direction: column;
+
   background-color: ${colors.white_black};
   max-width: 210px;
   min-width: 210px;
@@ -18,6 +21,9 @@ export const StyledSidebar_nav = styled.nav`
   &.hide {
     margin-left: -210px;
   }
+
+  overflow-y: auto;
+  overflow-x: hidden;
 `;
 
 export const SidebarDiv = styled.div`

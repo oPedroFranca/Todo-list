@@ -7,7 +7,7 @@ export const UserDiv = styled.div`
   align-items: center;
   justify-content: space-between;
 
-  height: 70px;
+  min-height: 70px;
   padding: 0px 15px 0px 15px;
   border-radius: 10px;
 
