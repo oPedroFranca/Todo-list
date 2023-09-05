@@ -17,6 +17,8 @@ export function App() {
 
   return (
     <div className="App">
+      <GlobalStyle />
+
       <Modal isOpen={false}>
         <ModalFormUser />
       </Modal>
