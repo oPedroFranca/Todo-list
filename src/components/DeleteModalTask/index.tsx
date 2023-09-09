@@ -31,6 +31,7 @@ export const DeleteTaskModal = () => {
 
   const handleDoneClick = () => {
     removeTask(taskClicked);
+    closeDeleteTaskModal();
     setVisible(false);
   };
 
