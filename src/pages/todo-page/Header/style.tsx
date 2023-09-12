@@ -49,6 +49,10 @@ export const Today = styled.p`
   align-items: center;
   width: 100px;
   margin-left: 10px;
+
+  @media (max-width: 620px) {
+    display: none;
+  }
 `;
 
 export const CategoryTask = styled.div`
