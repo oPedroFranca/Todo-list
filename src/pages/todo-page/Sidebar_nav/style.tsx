@@ -2,25 +2,38 @@ import styled, { keyframes } from 'styled-components';
 import { colors } from '../../../theme/GlobalStyles';
 import { MdKeyboardArrowRight } from 'react-icons/md';
 
-export const StyledSidebar_nav = styled.nav`
+export const SidebarContent = styled.div`
   display: flex;
-  flex-direction: column;
-
-  background-color: ${colors.white_black};
-  max-width: 210px;
-  min-width: 210px;
+  max-width: 230px;
+  min-width: 230px;
   height: 100%;
-  padding: 0px 10px 0px 10px;
-  z-index: 2;
-
-  box-shadow: 6px 0 6px -1.5px rgba(0, 0, 0, 0.5);
-  border-radius: 0px 12px 12px 0px;
 
   transition: margin-left 0.3s ease;
+
+  z-index: 2;
 
   &.hide {
     margin-left: -210px;
   }
+
+  &.lessthanSinehundred {
+    position: fixed;
+    left: ${(props) =>
+      props.className === 'hide'
+        ? '-210px'
+        : '0'}; /* Use a classe 'hide' para ocultá-lo */
+  }
+`;
+
+export const StyledSidebar_nav = styled.nav`
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+
+  background-color: ${colors.white_black};
+  box-shadow: 6px 0 6px -1.5px rgba(0, 0, 0, 0.5);
+  padding: 0px 10px 0px 10px;
+  border-radius: 0px 12px 12px 0px;
 
   overflow-y: auto;
   overflow-x: hidden;
