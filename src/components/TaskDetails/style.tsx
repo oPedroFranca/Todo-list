@@ -4,6 +4,7 @@ import { colors } from '../../theme/GlobalStyles';
 export const TaskDetailsContent = styled.div`
   display: flex;
   justify-content: center;
+  margin-left: 15px;
   background-color: ${colors.dark_black};
   width: 100%;
   height: 100%;

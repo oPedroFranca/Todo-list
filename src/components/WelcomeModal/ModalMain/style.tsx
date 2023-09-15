@@ -10,7 +10,7 @@ export const ModalMainDiv = styled.div`
   padding-top: 10px;
 
   width: 100%;
-  height: 360px;
+  height: 370px;
   max-width: 500px;
   min-width: 330px;
   font-size: 10px;

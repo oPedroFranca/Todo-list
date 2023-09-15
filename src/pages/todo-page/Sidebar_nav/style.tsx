@@ -57,6 +57,10 @@ export const HideSidebarButton = styled.button`
   border: none;
   cursor: pointer;
   border-radius: 0px 5px 5px 0px;
+
+  box-shadow: 0px 6px 6px -1.5px rgba(0, 0, 0, 0.5),
+    6px 0px 6px -1.5px rgba(0, 0, 0, 0.5),
+    0px -6px 6px -1.5px rgba(0, 0, 0, 0.5);
 `;
 
 interface StarProps {
