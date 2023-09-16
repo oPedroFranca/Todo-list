@@ -14,18 +14,15 @@ type FooterTaskProps = {
     event: React.MouseEvent<Element, MouseEvent>,
   ) => void;
   starActive: boolean;
-  calculateStatus: (taskId: string, subtasks: Subtask[]) => string; // Atualize o tipo para corresponder à função correta
+  taskStatus: string;
 };
 
 export const FooterTask = ({
   id,
-  subtasks,
   onStarClick,
   starActive,
-  calculateStatus,
+  taskStatus,
 }: FooterTaskProps) => {
-  const taskStatus = calculateStatus(id, subtasks);
-
   return (
     <Content>
       <LeftContent>

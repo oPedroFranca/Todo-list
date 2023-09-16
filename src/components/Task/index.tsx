@@ -120,7 +120,7 @@ export const Tasks = ({ task }: TasksProps) => {
             onStarClick={handleStarClick}
             onDeleteTask={handleDeleteTask}
             starActive={isFavorite}
-            calculateStatus={calculateStatus}
+            taskStatus={taskStatus}
           />
         </Task>
       </TaskContent>

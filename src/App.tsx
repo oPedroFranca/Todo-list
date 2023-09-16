@@ -19,11 +19,11 @@ export function App() {
     <div className="App">
       <GlobalStyle />
 
-      <Modal isOpen={isOpen}>
+      <Modal isOpen={false}>
         <ModalFormUser />
       </Modal>
 
-      <Modal isOpen={isOpenWelcome}>
+      <Modal isOpen={false}>
         <WelcomeModal />
       </Modal>
 
