@@ -89,13 +89,17 @@ export const CollectionTaskProvider: React.FC<{
 
   const toggleFavorite = (taskId: string) => {
     const updatedTasks = taskList.map((task) =>
-      task.taskId === taskId ? { ...task, isFavorite: !task.isFavorite } : task,
+      task.taskId === taskId
+        ? {
+            ...task,
+            isFavorite: !task.isFavorite,
+          }
+        : task,
     );
 
     setTaskList(updatedTasks);
     saveTasksToLocalStorage(updatedTasks);
   };
-
   const showTasks = (searchValue: string, selectedCategory: string) => {
     let filteredTasks = taskList;
 

@@ -6,6 +6,7 @@ export type Subtask = {
   subtaskId: string;
   checked: boolean;
   subtaskDescription: string;
+  parentTaskId: string;
 };
 
 export interface DetailTaskContextValue {
@@ -26,6 +27,7 @@ export const DetailTaskContext = createContext<DetailTaskContextValue>({
       subtaskId: '',
       checked: false,
       subtaskDescription: '',
+      parentTaskId: '',
     };
   },
 });
@@ -60,6 +62,7 @@ export const DetailTaskProvider: React.FC<{ children?: React.ReactNode }> = ({
       subtaskId: taskId,
       checked: false,
       subtaskDescription: 'Subtask description',
+      parentTaskId: taskId,
     };
 
     const updatedSubtasks = [...subtasks, newSubtask];
