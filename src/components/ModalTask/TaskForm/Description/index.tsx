@@ -12,7 +12,7 @@ type DescriptionTaskProps = {
  * Component responsible for rendering the description of a task.
  */
 export const DescriptionTask = ({ value, onChange }: DescriptionTaskProps) => {
-  const { editing, handleChange, handleBlur } = useInput(value);
+  const { editing, handleChange } = useInput(value);
 
   /**
    * Event handler for text field changes.
@@ -28,7 +28,6 @@ export const DescriptionTask = ({ value, onChange }: DescriptionTaskProps) => {
       <textarea
         maxLength={150}
         defaultValue={value}
-        onBlur={handleBlur}
         onChange={handleTextareaChange}
         placeholder="description for this task."
       />
