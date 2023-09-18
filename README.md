@@ -4,11 +4,15 @@
 
 ### Features
 
-* **Gerenciamento de Tarefas:** Adicione, edite e remova facilmente suas tarefas.
+* **Gerenciamento de Tarefas:** Adicione e remova facilmente suas tarefas.
 * **Priorização:** Priorize suas tarefas para se concentrar nas mais importantes.
 * **Status da Tarefa:** Marque tarefas como concluídas ou pendentes.
 * **Design Responsivo:** O aplicativo se ajusta a diferentes tamanhos de tela.
 * **Perfil do Usuário:** Crie um perfil personalizado com seu nome e ícone.
+* **Pesquisa:** Pesquise por suas tarefas.
+* **Pilha de dias:** Conta os dias consecutivo que você acessou o site.
+* **subtarefas:** Os usuários podem criar subtarefas, inserindo uma descrição e salvando-as.
+* **Slider:** O componente Slider é usado para criar um slider de conteúdo
 
 ### Tecnologias usadas
 * ReactJs
@@ -17,6 +21,11 @@
 * Styled Components
 * HTML
 * CSS
+* Context API
+* React Spring
+* LocalStorage:
+* Git
+* Npm
 
 ```bash
 # Clonar repositório
