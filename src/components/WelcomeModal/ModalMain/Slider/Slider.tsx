@@ -40,7 +40,7 @@ const Slider = React.forwardRef((props: SliderType, ref) => {
     if (swiper.realIndex === 2) {
       setTimeout(() => {
         swiper.params.touchRatio = 1;
-      }, 5000);
+      }, 2000);
     }
   };
 

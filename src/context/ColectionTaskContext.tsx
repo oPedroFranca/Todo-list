@@ -100,6 +100,7 @@ export const CollectionTaskProvider: React.FC<{
     setTaskList(updatedTasks);
     saveTasksToLocalStorage(updatedTasks);
   };
+
   const showTasks = (searchValue: string, selectedCategory: string) => {
     let filteredTasks = taskList;
 

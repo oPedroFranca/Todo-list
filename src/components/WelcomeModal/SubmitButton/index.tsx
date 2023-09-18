@@ -24,7 +24,7 @@ export const SubmitButtonModal = ({ onClick }: SubmitButtonModalProps) => {
       setDisabled(true);
       const timer = setTimeout(() => {
         setDisabled(false);
-      }, 5000);
+      }, 2000);
       return () => clearTimeout(timer);
     }
   }, [clickCount]);

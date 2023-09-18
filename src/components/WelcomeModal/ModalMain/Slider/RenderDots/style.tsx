@@ -30,7 +30,7 @@ export const Dot = styled.span`
     border-radius: inherit;
     background-color: ${colors.white_black};
     transform-origin: center;
-    animation: ${fillAnimation} 6.5s forwards;
+    animation: ${fillAnimation} 2.8s forwards;
     animation-play-state: paused;
   }
 
