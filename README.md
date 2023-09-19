@@ -45,6 +45,10 @@ Durante o desenvolvimento deste projeto, fui motivado a adquirir novos conhecime
 * Git
 * Npm
 
+## Como executar o projeto
+
+Pré-requisitos: npm ^14.18.0 / yarn
+
 ```bash
 # Clonar repositório
   $ git clone https://github.com/oPedroFranca/Todo-list.git
