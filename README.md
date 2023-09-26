@@ -2,7 +2,7 @@
 
 O Todo-List é um projeto front-end desenvolvido com o objetivo principal de oferecer uma solução eficiente e prática para o gerenciamento de tarefas. Desenvolvi o projeto de forma independente, e com ele, você pode personalizar suas listas de afazeres de acordo com suas necessidades individuais, gerenciar suas tarefas se torna uma tarefa agradável, incentivando você a se manter produtivo.
 
-Durante o desenvolvimento deste projeto, aprendi coisas novas e aprimorei minha habilidade como desenvolvedor. Aprendi e apliquei diversas tecnologias ao longo do processo, tais como modais, Context API para gerenciar de forma eficiente o estado da aplicação, biblioteca React Spring para animações suaves e aprimoramento da persistência de dados ao incorporar o LocalStorage para salvar as informações das tarefas de forma local. Essas tecnologias foram fundamentais para tornar o site mais eficiente e amigável
+Durante o desenvolvimento deste projeto, aprendi coisas novas e aprimorei minha habilidade como desenvolvedor. Aprendi e apliquei diversas tecnologias ao longo do processo, tais como modais, Context API para gerenciar de forma eficiente o estado da aplicação, biblioteca React Spring para animações suaves e aprimoramento da persistência de dados ao incorporar o LocalStorage para salvar as informações das tarefas de forma local. Essas tecnologias foram fundamentais para tornar o site mais eficiente e amigável.
 
 ## Layout
 
